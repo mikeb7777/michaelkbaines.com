@@ -1,0 +1,94 @@
+/* michaelkbaines.com, rebuilt October 2026 */
+:root {
+  --ink: #1f1c18;
+  --soft: #5b554c;
+  --paper: #faf7f1;
+  --card: #ffffff;
+  --line: #e6dfd3;
+  --accent: #7a3b1d;      /* burnt sienna */
+  --accent-2: #2f5d50;    /* deep green */
+  --max: 1080px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { font-family: 'IBM Plex Sans', system-ui, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.65; font-size: 17px; }
+h1, h2, h3 { font-family: 'Source Serif 4', Georgia, serif; line-height: 1.2; font-weight: 600; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+/* header */
+.top { position: sticky; top: 0; z-index: 10; background: rgba(250,247,241,.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.name { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: 21px; color: var(--ink); text-decoration: none; letter-spacing: .01em; }
+.nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: 15px; }
+.nav a:hover, .nav a[aria-current] { color: var(--accent); }
+
+/* hero */
+.hero { padding: 72px 0 56px; }
+.hero .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; }
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent-2); margin-bottom: 14px; }
+.hero h1 { font-size: clamp(38px, 6vw, 60px); margin-bottom: 18px; }
+.hero p.lead { font-size: 20px; color: var(--soft); max-width: 34em; }
+.hero img { width: 100%; border-radius: 6px; box-shadow: 0 18px 40px rgba(31,28,24,.18); aspect-ratio: 4/5; object-fit: cover; }
+.quote { margin-top: 28px; padding-left: 18px; border-left: 3px solid var(--accent); font-family: 'Source Serif 4', Georgia, serif; font-size: 21px; font-style: italic; }
+.quote span { display: block; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-style: normal; font-size: 14px; color: var(--soft); margin-top: 6px; }
+
+/* sections */
+section { padding: 64px 0; }
+section.alt { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+section h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 18px; }
+.prose { max-width: 42em; }
+.prose p { margin-bottom: 16px; }
+.career { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 12px 28px; margin: 22px 0 6px; }
+.career li { padding-left: 16px; border-left: 2px solid var(--line); color: var(--soft); font-size: 15px; }
+.career strong { color: var(--ink); display: block; }
+
+/* books */
+.books { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); margin-top: 26px; }
+.book { background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+section.alt .book { background: var(--paper); }
+.cover { aspect-ratio: 3/4; background: #ece4d6; display: flex; align-items: center; justify-content: center; padding: 26px; }
+.cover img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.typecover { width: 72%; aspect-ratio: 2/3; background: var(--accent-2); color: #f3efe6; display: flex; flex-direction: column; justify-content: space-between; padding: 22px 18px; box-shadow: 0 12px 28px rgba(0,0,0,.22); font-family: 'Source Serif 4', Georgia, serif; }
+.typecover.sienna { background: var(--accent); }
+.typecover .t { font-size: 25px; line-height: 1.1; font-weight: 600; }
+.typecover .s { font-size: 13px; line-height: 1.35; opacity: .9; margin-top: 10px; font-style: italic; }
+.typecover .a { font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+.book .body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.status { align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; background: #e9f0ec; color: var(--accent-2); }
+.status.wait { background: #f4e8e0; color: var(--accent); }
+.book h3 { font-size: 24px; }
+.book .sub { color: var(--soft); font-style: italic; font-family: 'Source Serif 4', Georgia, serif; }
+.book p { color: var(--soft); font-size: 16px; }
+.book .more { margin-top: auto; font-weight: 600; text-decoration: none; }
+.book .more:hover { text-decoration: underline; }
+
+/* institute band */
+.band { background: #1f2a33; color: #eef1f3; }
+.band h2 { color: #fff; }
+.band p { color: rgba(238,241,243,.86); max-width: 42em; }
+.band a.btn { display: inline-block; margin-top: 18px; background: #fff; color: #1f2a33; text-decoration: none; font-weight: 600; padding: 11px 20px; border-radius: 6px; }
+
+/* book page */
+.parts { list-style: none; counter-reset: part; margin-top: 18px; display: grid; gap: 14px; }
+.parts li { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; }
+.parts strong { font-family: 'Source Serif 4', Georgia, serif; font-size: 19px; display: block; }
+.parts span { color: var(--soft); font-size: 15px; }
+.note { background: #f4e8e0; border-left: 4px solid var(--accent); padding: 16px 18px; border-radius: 0 6px 6px 0; margin: 20px 0; max-width: 42em; }
+
+/* contact and footer */
+.contact a.mail { font-size: 20px; font-weight: 600; }
+footer { padding: 28px 0 36px; color: var(--soft); font-size: 14px; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .hero { padding: 40px 0 36px; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 28px; }
+  .hero img { max-width: 360px; }
+  .nav { gap: 14px; }
+  .nav a { font-size: 14px; }
+  section { padding: 48px 0; }
+}
