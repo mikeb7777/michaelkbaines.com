@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Holds. Michael K. Baines</title>
+<meta name="description" content="Popular claims about connection, energy and wellbeing, each checked against the evidence: what holds, what is worth testing, and what does not. With sources.">
+<link rel="canonical" href="https://michaelkbaines.com/what-holds.html">
+<meta property="og:title" content="What Holds: popular claims, checked">
+<meta property="og:description" content="Breathwork holds. Grounding is worth testing. Raising your vibration for wealth does not hold. Each claim checked, with sources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="name" href="./">Michael K. Baines</a>
+    <nav class="nav" aria-label="Main">
+      <a href="./#books">Books</a>
+      <a href="what-holds.html" aria-current="page">What Holds</a>
+      <a href="./#story">About</a>
+      <a href="press.html">Press</a>
+      <a class="btn-sm" href="./#newsletter">Newsletter</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="holds-hero">
+  <div class="wrap">
+    <p class="eyebrow">What holds</p>
+    <h1>Popular claims, checked</h1>
+    <p class="intro" style="margin-bottom:0">Connection, presence and the living world are real subjects, buried under claims that do not survive a test. Each claim below gets the same treatment: state it exactly, check the evidence and who paid for it, then find the real thing it points at. Where the evidence is open, it says so.</p>
+    <div class="tell"><strong>The tell.</strong> The fringe version of a claim has a before and an after, and nothing in between: no practice, no time, no cost. Real change has a middle. Alignment is trained.</div>
+    <div class="scale" role="group" aria-label="Show claims by verdict">
+      <button class="chip" type="button" data-v="all" aria-pressed="true">All</button>
+      <button class="chip" type="button" data-v="v-strong" aria-pressed="false"><span class="dot v-strong"></span>Holds strongly</button>
+      <button class="chip" type="button" data-v="v-holds" aria-pressed="false"><span class="dot v-holds"></span>Holds</button>
+      <button class="chip" type="button" data-v="v-test" aria-pressed="false"><span class="dot v-test"></span>Worth testing</button>
+      <button class="chip" type="button" data-v="v-none" aria-pressed="false"><span class="dot v-none"></span>No evidence</button>
+      <button class="chip" type="button" data-v="v-push" aria-pressed="false"><span class="dot v-push"></span>Doesn&rsquo;t hold</button>
+    </div>
+    <div class="claims" id="claims"></div>
+    <p class="also" style="margin-top:30px">From the work in progress on <a href="rediscovering-oneness.html"><em>Rediscovering Oneness</em></a>. Still to be checked: gratitude practices, heart-rate-variability biofeedback, sound healing and &ldquo;528 Hz&rdquo;, Reiki and energy healing, and cold exposure. <a href="./#newsletter">Subscribers</a> hear when new entries are added.</p>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Michael K. Baines &middot; <a href="mailto:mkb.info@proton.me">mkb.info@proton.me</a></span>
+    <span>No cookies, no tracking.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var V = { 'v-strong': 'Holds strongly', 'v-holds': 'Holds', 'v-test': 'Worth testing', 'v-none': 'No evidence for the act', 'v-push': 'Doesn’t hold' };
+  var C = [
+    { v: 'v-strong', t: 'Connection heals', s: 'Relationships protect health and life itself.',
+      e: 'Social connection affects mortality on a scale comparable to smoking (Holt-Lunstad and colleagues). The World Health Organization links loneliness to about 871,000 deaths a year.',
+      c: 'This is the oldest claim about oneness, restated in the language of public health.',
+      d: 'Treat relationships as a practice: time, attention, showing up.',
+      r: [['Holt-Lunstad, Smith & Layton (2010), PLOS Medicine', 'https://doi.org/10.1371/journal.pmed.1000316'], ['WHO Commission on Social Connection (2025)', 'https://www.who.int/groups/commission-on-social-connection']] },
+    { v: 'v-holds', t: 'Breathwork', s: 'Slow, deliberate breathing calms stress.',
+      e: 'Across 12 randomized trials with 785 people, breathwork produced small-to-medium reductions in stress, anxiety and depression.',
+      c: 'Breath is the one automatic function we can steer on purpose.',
+      d: 'Slow breathing a few minutes a day. Be cautious with rapid-breathing methods.',
+      r: [['Fincham et al. (2023), Scientific Reports', 'https://doi.org/10.1038/s41598-022-27247-y']] },
+    { v: 'v-holds', t: 'Meditation', s: 'Regular practice changes how we feel and function.',
+      e: 'Meditation brings small improvements in anxiety, depression and pain, with moderate evidence. Eight weeks of mindfulness-based stress reduction matched the drug escitalopram for anxiety disorders.',
+      c: 'Practice quiets the brain networks that keep the sense of self running.',
+      d: 'Regular practice with modest expectations.',
+      r: [['Goyal et al. (2014), JAMA Internal Medicine', 'https://doi.org/10.1001/jamainternmed.2013.13018'], ['Hoge et al. (2023), JAMA Psychiatry', 'https://doi.org/10.1001/jamapsychiatry.2022.3679']] },
+    { v: 'v-holds', t: 'Psychedelics dissolve the self', s: 'The physiology holds; the metaphysics does not follow.',
+      e: 'Psilocybin desynchronizes the brain’s default mode network, the system that maintains the sense of self, and shows clinical promise for depression.',
+      c: 'The felt boundary of the self is constructed by the brain, and it can loosen.',
+      d: 'Not a recommendation; a fact about the brain. Clinical use belongs in clinical hands.',
+      r: [['Siegel et al. (2024), Nature', 'https://doi.org/10.1038/s41586-024-07624-5']] },
+    { v: 'v-test', t: 'Grounding (earthing)', s: 'Skin contact with the earth, or with a grounded mat, improves health.',
+      e: 'The studies are small, outcomes are mostly self-reported, blinding is rare, and most positive trials share a few authors tied to a company that sells grounding products. Two smaller independent results (sleep in mild Alzheimer’s disease; markers of muscle damage after exercise) deserve follow-up.',
+      c: 'Time outdoors, walking on natural ground and regular sleep all have their own evidence, and may explain the reported effects.',
+      d: 'Walk barefoot outside where it is safe; skip the mats. A fair test would use sham mats, independent researchers and objective measures.',
+      r: [['Menigoz et al. (2020), Explore: a favorable review written by advocates of earthing, showing the state of the evidence', 'https://doi.org/10.1016/j.explore.2019.10.005']] },
+    { v: 'v-none', t: 'Hugging a tree', s: 'Contact with trees transfers healing energy.',
+      e: 'No studies of tree hugging itself exist. Forest time, though, works modestly: meta-analyses of forest bathing find lower cortisol and blood pressure, with limited study quality. In one trial, eight weeks of short “awe walks” raised prosocial emotions and lowered daily distress in older adults.',
+      c: 'Time among trees, and the experience of something bigger than yourself.',
+      d: 'Walk among trees. Pay attention to what is larger than you.',
+      r: [['Antonelli et al. (2019), International Journal of Biometeorology', 'https://doi.org/10.1007/s00484-019-01717-x'], ['Sturm et al. (2022), Emotion', 'https://doi.org/10.1037/emo0000876']] },
+    { v: 'v-none', t: 'Healing crystals', s: 'Crystals carry energies that heal.',
+      e: 'People holding real and fake crystals reported the same sensations when told what to expect.',
+      c: 'Expectation and ritual have real effects. The stone is not the cause.',
+      d: 'Honest ritual is fine. Don’t pay for powers.',
+      r: [['French, Williams & O’Donnell (2001), British Psychological Society conference', 'https://en.wikipedia.org/wiki/Crystal_healing']] },
+    { v: 'v-push', t: 'Raise your vibration to attract wealth, a partner or a new body', s: 'Feel the right frequency and the world rearranges itself.',
+      e: 'There is no physical mechanism; the claim borrows quantum language that does not apply. People who believe in manifesting rate themselves more successful, but are more drawn to risky investments and more likely to have been bankrupt. Vivid positive fantasy predicts worse outcomes: less weight lost, lower salaries, slower recovery.',
+      c: 'Resonance is real, and it respects the starting conditions: you cannot make a short string sing a low note by feeling low. Flow appears when challenge meets skill.',
+      d: 'Picture the wish, then the obstacle, then the plan. This method (mental contrasting) beats positive fantasy in controlled trials.',
+      r: [['Dixon, Hornsey & Hartley (2023), Personality and Social Psychology Bulletin', 'https://doi.org/10.1177/01461672231181162'], ['Oettingen, motivation lab publications (NYU)', 'https://wp.nyu.edu/motivationlab/publications/gabriele-oettingen/']] },
+    { v: 'v-push', t: 'If you think it, you attract it', s: 'Illness and poverty come from the wrong thoughts.',
+      e: 'If thought created reality, the sick and the poor would be to blame for their condition. Nothing supports this, and it does real harm: money lost, treatment delayed, blame placed on the suffering.',
+      c: 'Agency is real and limited. Circumstances are real.',
+      d: 'Outcomes come through relationships and systems, not private frequency.',
+      r: [] },
+    { v: 'v-push', t: 'The observer creates reality', s: 'Quantum physics proves consciousness shapes the world.',
+      e: 'In quantum physics an “observer” is any physical interaction that records information. The interference pattern in the double-slit experiment vanishes with no person present.',
+      c: 'The world records everything that happens, through ordinary physical contact.',
+      d: 'Be wary of anyone who sells a product with the word “quantum”.',
+      r: [['Zurek (2003), Reviews of Modern Physics', 'https://doi.org/10.1103/RevModPhys.75.715']] }
+  ];
+  var box = document.getElementById('claims');
+  C.forEach(function (x, i) {
+    var el = document.createElement('article');
+    el.className = 'claimrow ' + x.v; el.dataset.v = x.v;
+    var src = x.r.length ? '<p class="src">Sources: ' + x.r.map(function (r) { return '<a href="' + r[1] + '" target="_blank" rel="noopener">' + r[0] + '</a>'; }).join(' &middot; ') + '</p>' : '';
+    el.innerHTML = '<button type="button" aria-expanded="false" aria-controls="d' + i + '"><span><span class="verdict ' + x.v + '">' + V[x.v] + '</span><span class="ct" style="display:block;margin-top:8px">' + x.t + '</span><span class="cs" style="display:block">' + x.s + '</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>' +
+      '<div class="detail" id="d' + i + '"><div class="grid"><div><h4>What the evidence shows</h4><p>' + x.e + '</p></div><div><h4>The real thing</h4><p>' + x.c + '</p></div><div><h4>What you can do</h4><p>' + x.d + '</p></div></div>' + src + '</div>';
+    var b = el.querySelector('button');
+    b.addEventListener('click', function () { var o = el.classList.toggle('open'); b.setAttribute('aria-expanded', o); });
+    box.appendChild(el);
+  });
+  document.querySelectorAll('.chip').forEach(function (c) {
+    c.addEventListener('click', function () {
+      var v = c.dataset.v;
+      document.querySelectorAll('.chip').forEach(function (k) { k.setAttribute('aria-pressed', k === c); });
+      document.querySelectorAll('.claimrow').forEach(function (r) { r.style.display = (v === 'all' || r.dataset.v === v) ? '' : 'none'; });
+    });
+  });
+})();
+</script>
+</body>
+</html>

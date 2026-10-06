@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press Kit. Michael K. Baines</title>
+<meta name="description" content="Press kit for Michael K. Baines: short and long bios, an approved photo, interview topics and contact.">
+<link rel="canonical" href="https://michaelkbaines.com/press.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="name" href="./">Michael K. Baines</a>
+    <nav class="nav" aria-label="Main">
+      <a href="./#books">Books</a>
+      <a href="what-holds.html">What Holds</a>
+      <a href="./#story">About</a>
+      <a href="press.html" aria-current="page">Press</a>
+      <a class="btn-sm" href="./#newsletter">Newsletter</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Press kit</p>
+    <h1 style="font-size:clamp(36px,5vw,54px);margin-bottom:14px">For interviews, podcasts and events</h1>
+    <p class="intro">Everything below may be used as is. For interviews, write to <a href="mailto:mkb.info@proton.me?subject=Interview%20request">mkb.info@proton.me</a>.</p>
+    <div class="press-grid">
+      <div>
+        <div class="bio">
+          <button class="copy" type="button" data-for="b1">Copy</button>
+          <h3>Short bio</h3>
+          <p id="b1">Michael K. Baines is a flight test engineer turned author and researcher. He writes about what the universe is made of and how connected we really are, testing both questions the way aircraft are certified. He is the author of <em>A Quest for The Big TOE</em> and the founder of the Ic&sup2; Research Institute.</p>
+        </div>
+        <div class="bio">
+          <button class="copy" type="button" data-for="b2">Copy</button>
+          <h3>Long bio</h3>
+          <div id="b2">
+            <p>Michael K. Baines spent his engineering career making sure things work before people trust them with their lives. Over 39 years he moved from refrigeration systems to aircraft systems. At Boeing he taught Designer Development, training designers and engineers in Boeing&rsquo;s parts systems, and designed a test parachute system for the F-22. He designed engines at Honeywell, worked on business jets for Dassault Falcon Jet and Gulfstream, spent ten years at Bombardier on the Global business jets and the clean-sheet C Series regional jet, and worked as a structural flight test engineer on the certification program for Mitsubishi&rsquo;s regional jet. He later taught English at Ubon Ratchathani Rajabhat University in Thailand, and is a certified PADI diving instructor.</p>
+            <p>He now applies the same habit, that a claim is only as good as the test it survives, to larger questions. <em>A Quest for The Big TOE</em>, free to read, sets out an information-first approach to physics as testable predictions. He founded the Ic&sup2; Research Institute, which registers predictions before the data arrive and publishes every result. His forthcoming new edition of <em>Rediscovering Oneness</em> asks what the evidence actually says about human connection, keeping what holds and setting aside what does not.</p>
+          </div>
+        </div>
+        <h2 style="font-size:28px;margin:34px 0 14px">Conversation topics</h2>
+        <ul class="topics">
+          <li><strong>From flight test to first principles.</strong> What certifying aircraft teaches about testing big ideas.</li>
+          <li><strong>What holds, and what doesn&rsquo;t.</strong> Breathwork, grounding, crystals and &ldquo;raising your vibration&rdquo;, checked against the evidence.</li>
+          <li><strong>Rescuing a good idea from its fringe.</strong> Why connection is a serious subject, and how pseudoscience buries it.</li>
+          <li><strong>Registering predictions in public.</strong> How an independent institute commits to a result before seeing the data.</li>
+          <li><strong>What the universe is made of.</strong> An information-first approach to physics, for a general audience.</li>
+        </ul>
+      </div>
+      <aside>
+        <img src="assets/michael-k-baines.jpg" alt="Portrait of Michael K. Baines" width="928" height="1152">
+        <p><a href="assets/michael-k-baines.jpg" download>Download this photo</a> or the <a href="assets/michael-k-baines-2.jpg" download>alternate</a>. Both approved for press use.</p>
+        <p>Name in print: <strong>Michael K. Baines</strong></p>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Michael K. Baines &middot; <a href="mailto:mkb.info@proton.me">mkb.info@proton.me</a></span>
+    <span>No cookies, no tracking.</span>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.copy').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = document.getElementById(b.dataset.for).innerText;
+    navigator.clipboard.writeText(t).then(function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1600); });
+  });
+});
+</script>
+</body>
+</html>
