@@ -1,24 +1,29 @@
-/* michaelkbaines.com, October 2026. Friendly and warm: cream, teal, coral and a touch of sun.
-   Deliberately distinct from the Ic² Research Institute's navy and red. */
+/* michaelkbaines.com, October 2026. The Ic² palette (navy, blue, gunmetal, grays, red, black, yellow),
+   with a faint grain on light areas instead of flat white. */
 :root {
-  --paper: #fffaf3;
-  --paper-2: #fff1e2;
+  --paper: #f1f3f6;
+  --paper-2: #e8edf2;
   --card: #ffffff;
-  --ink: #2b2a33;
-  --soft: #5b5866;
-  --line: #f0e3d2;
-  --moss: #1f7a6c;
-  --moss-2: #16645a;
-  --clay: #c4502d;
-  --clay-2: #a63f22;
-  --sand: #fde6d2;
-  --sun: #f6c453;
-  --mint: #e2f3ee;
-  --night: #1d2422;
-  --shadow: 0 8px 26px rgba(90, 60, 30, .08);
+  --ink: #1a1d33;
+  --soft: #4a5868;
+  --line: #d0d5dd;
+  --moss: #005ba5;
+  --moss-2: #1a1d33;
+  --clay: #8B0000;
+  --clay-2: #6b0000;
+  --sand: #e8edf2;
+  --sun: #f1e303;
+  --mint: #e8edf2;
+  --navy: #1a1d33;
+  --black: #111111;
+  --night: #1a1d33;
+  --gunmetal: linear-gradient(135deg, #8fa0b0 0%, #5a6878 100%);
+  --gunmetal-dark: linear-gradient(135deg, #5a6878 0%, #4a5868 100%);
+  --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .1  0 0 0 0 .11  0 0 0 0 .2  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+  --shadow: 0 8px 26px rgba(26, 29, 51, .10);
   --max: 1120px;
-  /* verdict colors */
-  --v-strong: #2f6b3a; --v-holds: #4f7d3f; --v-test: #9a6a12; --v-none: #6d6457; --v-push: #a8402a;
+  /* verdict colors, from the same palette */
+  --v-strong: #2e7d32; --v-holds: #1a5c2a; --v-test: #7a5000; --v-none: #5a6878; --v-push: #8B0000;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -204,3 +209,65 @@ footer a { color: var(--soft); }
 .signup .eyebrow { background: #fff; }
 .bookhero .bookcover { width: 100%; max-width: 280px; height: auto; justify-self: end; border-radius: 4px 10px 10px 4px; box-shadow: var(--shadow), 0 18px 40px rgba(60,40,20,.18); }
 @media (max-width: 820px) { .bookhero .bookcover { justify-self: start; max-width: 200px; } }
+
+
+/* ---------- Ic² palette, 7 Oct 2026 (later rules win) ---------- */
+body { background-color: var(--paper); background-image: var(--grain); }
+.top { background: rgba(255,255,255,.96); border-bottom: 3px solid var(--navy); }
+a { color: var(--moss); }
+.nav a:hover, .nav a[aria-current] { color: var(--clay); }
+.nav a.btn-sm { background: var(--clay); }
+.nav a.btn-sm:hover { background: var(--clay-2); }
+.btn.ghost { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+.btn.ghost:hover { background: var(--navy); color: #fff; }
+.eyebrow { background: #fff; color: var(--moss); border: 1px solid var(--line); }
+
+/* hero: navy, white type, yellow accent */
+.hero { background: var(--navy); color: #fff; border-bottom: 6px solid var(--clay); }
+.hero h1 { color: #fff; }
+.hero h1 em { color: var(--sun); }
+.hero .lead { color: rgba(255,255,255,.88); }
+.hero .eyebrow { background: var(--sun); color: var(--navy); border: 0; }
+.hero .btn { background: var(--moss); }
+.hero .btn:hover { background: #fff; color: var(--navy); }
+.hero .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
+.hero .btn.ghost:hover { background: #fff; color: var(--navy); }
+.portrait::before { background: var(--sun); }
+.portrait::after { background: var(--moss); }
+
+/* light sections: gray with grain, white cards with a visible edge */
+section.alt { background-color: var(--paper-2); background-image: var(--grain); }
+.q, .vcard, .claimrow, .bio, .parts li, .tell, .form { border: 1px solid var(--line); }
+.q .cov { background: var(--navy); }
+.tag { background: var(--paper-2); color: var(--moss); }
+.tag.clay { background: #fff; color: var(--clay); border: 1px solid var(--clay); }
+.typecover { background: var(--moss); }
+.parts li::before { color: var(--clay); }
+.tell { border-left: 6px solid var(--sun); }
+.chip[aria-pressed="true"] { border-color: var(--navy); background: var(--navy); color: #fff; }
+
+/* newsletter: dark gunmetal, white type, white form card */
+.signup { background: var(--gunmetal-dark); color: #fff; }
+.signup h2 { color: #fff; }
+.signup p, .signup ul { color: rgba(255,255,255,.92); }
+.signup .eyebrow { background: var(--sun); color: var(--navy); border: 0; }
+.signup .form p.fine { color: var(--soft); }
+
+/* story: quote card in navy */
+.story blockquote { background: var(--navy); color: #fff; }
+.story blockquote cite { color: rgba(255,255,255,.8); }
+.timeline li::before { border-color: var(--moss); }
+
+/* Institute band: black with a yellow rule */
+.band { background: var(--black); color: #fff; border-top: 6px solid var(--sun); }
+.band h2 { color: #fff; }
+.band p { color: rgba(255,255,255,.85); }
+.band .btn.ghost { color: #fff; border-color: #fff; }
+.band .btn.ghost:hover { background: var(--sun); color: var(--navy); border-color: var(--sun); }
+
+/* book and claims pages */
+.holds-hero h1 { color: var(--navy); }
+.note { border-left-color: var(--clay); }
+
+footer { background: var(--navy); color: rgba(255,255,255,.85); border-top: 0; }
+footer a { color: #fff; }
