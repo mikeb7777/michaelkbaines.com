@@ -348,3 +348,82 @@ footer { background: var(--navy); }
 .chip { border-radius: 6px; }
 .chip[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); }
 @media (max-width: 860px) { .q .cov img, .q .cov .typecover { width: 130px; } }
+
+/* ---------- Palette 8, "Historical romance" (Havenly), plus brick red, 8 Oct 2026 ----------
+   60%: soft gray walls and a pale blue second wall, warm-white windows. 30%: muted sage, deepened so
+   text on it reads. 10%: golden orange lamplight and brick red. The geometry from the warm-room pass stays. */
+:root {
+  --paper: #dedbd3;     /* soft gray wall */
+  --paper-2: #d6e0e5;   /* pale blue wall */
+  --card: #f7f4ed;      /* warm-white windows */
+  --line: #c4c0b6;
+  --ink: #2b2a28;
+  --soft: #4a4740;
+  --navy: #3f4a39;      /* deep muted sage: header, newsletter, footer, Door buttons */
+  --moss: #3f4a39;
+  --clay: #9b3a28;      /* brick red */
+  --clay-2: #7d2e20;
+  --wood: #b07a2a;      /* golden-brown trim lines */
+  --lamp: #d98e2b;      /* golden orange */
+  --sun: #f0b65c;       /* lamplight on sage */
+  --v-strong: #3f6b3a; --v-holds: #56664b; --v-test: #8f5a12; --v-none: #5e5b55; --v-push: #9b3a28;
+}
+h1, h2, h3 { color: var(--ink); }
+.hero h1, .signup h2, .band h2 { color: var(--card); }
+.hero h1 em { color: var(--sun); }
+.hero .eyebrow, .signup .eyebrow { color: var(--sun); }
+.hero { background: radial-gradient(circle at 88% 12%, rgba(240,182,92,.16) 0, rgba(240,182,92,0) 40%), var(--navy); }
+.signup { background: radial-gradient(circle at 12% 0%, rgba(240,182,92,.12) 0, rgba(240,182,92,0) 40%), var(--navy); }
+.btn.lamp { background: var(--lamp); color: var(--ink); box-shadow: 0 0 0 1px rgba(43,42,40,.25), 0 6px 18px rgba(217,142,43,.35); }
+.btn.lamp:hover { background: #e9a54a; color: var(--ink); }
+.btn:hover { background: #2f3829; }
+.band { background: var(--clay); border-top: 3px solid var(--wood); }
+.band p { color: rgba(247,244,237,.92); }
+.band .btn.ghost:hover { background: var(--card); color: var(--clay); border-color: var(--card); }
+.timeline li::before { border-color: var(--navy); background: var(--card); }
+.q::after { border-color: rgba(176,122,42,.35); }
+.vcard, .bio, .claimrow, .parts li, .tell, .form, .story blockquote {
+  box-shadow: inset 0 0 0 6px var(--card), inset 0 0 0 7px rgba(196,192,182,.8), inset 0 14px 22px -14px rgba(176,122,42,.14), 0 6px 18px rgba(43,42,40,.08);
+}
+.tell { border-left: 6px solid var(--lamp); }
+.typecover { background: var(--navy); }
+.tag { color: #7a5000; border-color: #7a5000; }
+
+/* ---------- Depth: light, fabric and texture, 8 Oct 2026 ----------
+   Light falls from above on the walls; the sage reads as linen; panels catch light like glass; the brick band
+   carries faint course lines. Kept to a few percent of opacity so nothing looks drawn on. */
+:root {
+  --linen: repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 3px),
+           repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 1px, transparent 1px 3px);
+  --courses: repeating-linear-gradient(0deg, rgba(0,0,0,.07) 0 1px, transparent 1px 22px);
+}
+body { background-image: var(--grain), linear-gradient(180deg, #e6e3dc 0%, var(--paper) 420px); background-attachment: scroll; }
+section { background-image: var(--grain), linear-gradient(180deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 60%); }
+section.alt { background-image: var(--grain), linear-gradient(180deg, #e2eaee 0%, var(--paper-2) 55%, #ccd7dd 100%); }
+
+.hero { background:
+  radial-gradient(circle at 88% 12%, rgba(240,182,92,.18) 0, rgba(240,182,92,0) 42%),
+  var(--linen),
+  linear-gradient(180deg, #4a5643 0%, var(--navy) 55%, #343e2f 100%); }
+.signup { background:
+  radial-gradient(circle at 12% 0%, rgba(240,182,92,.14) 0, rgba(240,182,92,0) 42%),
+  var(--linen),
+  linear-gradient(180deg, #46523f 0%, var(--navy) 60%, #333c2d 100%); }
+footer { background: var(--linen), linear-gradient(180deg, var(--navy) 0%, #2e3729 100%); }
+.band { background: var(--courses), var(--grain), linear-gradient(180deg, #a6432f 0%, var(--clay) 50%, #87311f 100%); }
+
+/* panels catch light */
+.vcard, .bio, .claimrow, .parts li, .tell, .form, .story blockquote, .q .body {
+  background-image: linear-gradient(180deg, #fbf9f4 0%, var(--card) 45%, #f1ece2 100%);
+}
+.q .cov { background-image: var(--grain), linear-gradient(180deg, #e3eaee 0%, #d3dde3 100%); }
+
+/* buttons: a slight sheen */
+.btn { background-image: linear-gradient(180deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 55%); }
+.btn.ghost { background-image: none; }
+.btn.lamp { background-image: linear-gradient(180deg, #e8a447 0%, var(--lamp) 60%, #c97f22 100%); }
+
+/* header bar and the name as a brass nameplate */
+.top { background: linear-gradient(180deg, #fbf9f4 0%, #f1ece2 100%); border-bottom: 2px solid var(--wood); }
+.name { font-family: 'Fraunces', Georgia, serif; font-variation-settings: 'SOFT' 100; font-weight: 600; font-variant: small-caps; letter-spacing: .06em; font-size: 23px; color: var(--ink); padding-bottom: 2px; background: linear-gradient(90deg, var(--wood), rgba(176,122,42,0)) left bottom / 100% 1.5px no-repeat; }
+.name:hover { color: var(--clay); }
