@@ -479,3 +479,7 @@ section.alt { background-image:
   .q .cov .typecover { width: 48%; max-width: 190px; }
 }
 @media (max-width: 760px) { .q .cov { max-height: none; } }
+/* book niches: a bold two-color diagonal (golden orange to brick red) instead of the lamp glow */
+.q .cov { background: linear-gradient(135deg, var(--lamp) 0%, var(--clay) 100%); }
+.q .cov .typecover { background: linear-gradient(160deg, #4b5844 0%, var(--navy) 60%, #323b2c 100%); }
+.q::after { border-color: rgba(255,255,255,.28); }
