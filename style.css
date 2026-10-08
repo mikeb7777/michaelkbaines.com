@@ -427,3 +427,55 @@ footer { background: var(--linen), linear-gradient(180deg, var(--navy) 0%, #2e37
 .top { background: linear-gradient(180deg, #fbf9f4 0%, #f1ece2 100%); border-bottom: 2px solid var(--wood); }
 .name { font-family: 'Fraunces', Georgia, serif; font-variation-settings: 'SOFT' 100; font-weight: 600; font-variant: small-caps; letter-spacing: .06em; font-size: 23px; color: var(--ink); padding-bottom: 2px; background: linear-gradient(90deg, var(--wood), rgba(176,122,42,0)) left bottom / 100% 1.5px no-repeat; }
 .name:hover { color: var(--clay); }
+
+/* ---------- Living room, 8 Oct 2026: more warmth and glow; books in lamp-lit niches ---------- */
+:root {
+  --paper: #e3dbcd;     /* warmer wall */
+  --paper-2: #ebdcc6;   /* parchment, lamp-lit (pale blue now only a touch) */
+  --glow: rgba(240,170,70,.22);
+}
+body { background-image: var(--grain), linear-gradient(180deg, #ece5d8 0%, var(--paper) 420px); }
+section { background-image:
+  radial-gradient(ellipse 55% 70% at 100% 0%, var(--glow) 0, rgba(240,170,70,0) 70%),
+  var(--grain), linear-gradient(180deg, rgba(255,250,240,.35) 0%, rgba(255,255,255,0) 60%); }
+section.alt { background-image:
+  radial-gradient(ellipse 50% 65% at 0% 100%, var(--glow) 0, rgba(240,170,70,0) 70%),
+  var(--grain), linear-gradient(180deg, #f1e6d3 0%, var(--paper-2) 55%, #e2d1b8 100%); }
+.hero { background:
+  radial-gradient(circle at 86% 18%, rgba(240,170,70,.30) 0, rgba(240,170,70,0) 45%),
+  radial-gradient(ellipse at 50% 120%, rgba(0,0,0,.30) 0, rgba(0,0,0,0) 60%),
+  var(--linen), linear-gradient(180deg, #4b5844 0%, var(--navy) 55%, #323b2c 100%); }
+.signup { background:
+  radial-gradient(circle at 10% 0%, rgba(240,170,70,.24) 0, rgba(240,170,70,0) 45%),
+  var(--linen), linear-gradient(180deg, #46523f 0%, var(--navy) 60%, #313a2b 100%); }
+.eyebrow::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--lamp); box-shadow: 0 0 10px 2px rgba(240,170,70,.55); margin-right: 9px; vertical-align: 1px; }
+.hero h1 em, .signup h2 em { color: #f3b85a; text-shadow: 0 0 28px rgba(240,170,70,.35); }
+
+/* the quote as a conversation piece */
+.story blockquote { position: relative; padding: 34px 32px 28px 32px; font-size: clamp(27px, 3.5vw, 38px); }
+.story blockquote::before { content: '\201C'; position: absolute; top: -26px; left: 18px; font-family: 'Fraunces', Georgia, serif; font-size: 110px; line-height: 1; color: var(--lamp); text-shadow: 0 0 22px rgba(240,170,70,.45); }
+
+/* books: each in a lamp-lit niche beside its text, filling the height */
+.q { grid-template-columns: 44% 1fr; align-items: stretch; }
+.q::after { inset: 10px; }
+.q .cov { padding: 26px 18px; background:
+  radial-gradient(ellipse 80% 55% at 50% 8%, rgba(240,170,70,.38) 0, rgba(240,170,70,0) 70%),
+  var(--linen), linear-gradient(180deg, #4b5844 0%, var(--navy) 100%);
+  border-right: 3px solid var(--wood); }
+.q .cov img, .q .cov .typecover { width: 82%; max-width: 230px; box-shadow: 0 16px 30px rgba(0,0,0,.45), 0 2px 0 rgba(0,0,0,.2); }
+.q .cov .typecover { background: linear-gradient(160deg, #a8432f 0%, var(--clay) 55%, #7d2e20 100%); }
+.q .body { padding: 28px 28px 30px; }
+@media (max-width: 1000px) { .q { grid-template-columns: 1fr; } .q .cov { border-right: 0; border-bottom: 3px solid var(--wood); padding: 28px 0; } .q .cov img, .q .cov .typecover { width: 46%; max-width: 200px; } }
+/* the book image is a cut-out: shadow follows the book, not the box; wider niches so the books fill them */
+.q .cov img { box-shadow: none; filter: drop-shadow(0 14px 18px rgba(0,0,0,.5)); width: 88%; max-width: 250px; }
+.q .cov .typecover { width: 74%; max-width: 210px; }
+.questions { grid-template-columns: 1fr; gap: 30px; max-width: 900px; }
+.q { grid-template-columns: 300px 1fr; }
+.q .cov { padding: 30px 20px; }
+@media (max-width: 760px) {
+  .q { grid-template-columns: 1fr; }
+  .q .cov { border-right: 0; border-bottom: 3px solid var(--wood); padding: 26px 0; }
+  .q .cov img { width: 56%; max-width: 220px; }
+  .q .cov .typecover { width: 48%; max-width: 190px; }
+}
+@media (max-width: 760px) { .q .cov { max-height: none; } }
