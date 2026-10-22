@@ -3,6 +3,7 @@ Run from the repo root: python3 tools/build_lemon_2026_10_22.py"""
 import os
 
 OUT = os.path.join(os.path.dirname(__file__), '..', 'lemon')
+AUTHOR = 'https://michaelkbaines.com/'  # author site; Lemon links here so the folder can move to its own domain
 UTM = '?utm_source=michaelkbaines_lemon&utm_medium=referral'
 
 def un(photo, w=1200):
@@ -61,7 +62,7 @@ LOGO = '''<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" 
 
 NAV = [('index.html', 'หน้าแรก', 'Home'), ('read.html', 'อ่านฟรี', 'Free chapters'), ('places.html', 'สถานที่', 'Places'), ('culture.html', 'วัฒนธรรม', 'Culture'), ('listen.html', 'ฟังและพูด', 'Listen'), ('toolkit.html', 'เครื่องมือของคาร์ลอส', "Carlos's Toolkit")]
 
-def page(fname, title, desc, body, og='../assets/lemon-cover.jpg'):
+def page(fname, title, desc, body, og='img/cover.jpg'):
     nav = ''.join(f'<a href="{h}"{" aria-current=page" if h == fname else ""}{" class=navkit" if h == "toolkit.html" else (" class=navfree" if h == "read.html" else "")}>{t}<small lang="en">{e}</small></a>' for h, t, e in NAV)
     html = f'''<!DOCTYPE html>
 <html lang="th">
@@ -73,7 +74,7 @@ def page(fname, title, desc, body, og='../assets/lemon-cover.jpg'):
 <link rel="canonical" href="https://michaelkbaines.com/lemon/{'' if fname == 'index.html' else fname}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="https://michaelkbaines.com/assets/lemon-cover.jpg">
+<meta property="og:image" content="https://michaelkbaines.com/lemon/img/cover.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:ital,wght@0,400;0,600;1,400&family=Lora:ital@1&display=swap" rel="stylesheet">
@@ -90,7 +91,7 @@ def page(fname, title, desc, body, og='../assets/lemon-cover.jpg'):
 <footer><div class="wrap fgrid">
 <div><b class="fh">การผจญภัยของมะนาว</b><span class="t-en" lang="en">The Adventures of Lemon</span>
 <p>นิยายสองภาษาสำหรับคนไทยที่อยากพูดภาษาอังกฤษ<span class="t-en" lang="en">A bilingual novel for Thai adults who want to speak English.</span></p>
-<p><a href="../">michaelkbaines.com</a> · <a href="../#books">หนังสือเล่มอื่น · Other books</a> · <a href="../#newsletter">รับข่าว · Newsletter</a></p></div>
+<p><a href="{AUTHOR}">michaelkbaines.com</a> · <a href="{AUTHOR}#books">หนังสือเล่มอื่น · Other books</a> · <a href="{AUTHOR}#newsletter">รับข่าว · Newsletter</a></p></div>
 <div><b class="fh">ในเว็บนี้ · On this site</b><ul>
 <li><a href="index.html">หน้าแรก · Home</a></li><li><a href="read.html">อ่านฟรี 3 บทแรก · Free chapters</a></li><li><a href="places.html#krabi">กระบี่ · Krabi</a></li><li><a href="places.html#la">ลอสแอนเจลิส · Los Angeles</a></li>
 <li><a href="culture.html">ภาคใต้และวัฒนธรรม · Culture</a></li><li><a href="listen.html">ฟังและพูด · Listen and speak</a></li><li><a href="toolkit.html">เครื่องมือของคาร์ลอส · Carlos's Toolkit</a></li></ul></div>
@@ -160,7 +161,7 @@ index = f'''
 <p class="lead en">Lemon is a hotel housekeeper in Ao Nang who can only speak the English on Auntie Pen's card. Then the guest in Room 412 asks a question that isn't on it.</p>
 <div class="actions"><a class="btn" href="read.html">⬇ อ่านฟรี 3 บทแรก · Read 3 chapters free</a><a class="btn ghost" href="#watch">▶ ดูก่อน · Watch first</a></div>
 </div>
-<img class="cover" src="../assets/lemon-cover.jpg" alt="ปกหนังสือ การผจญภัยของมะนาว · Cover of The Adventures of Lemon" width="600" height="900">
+<img class="cover" src="img/cover.jpg" alt="ปกหนังสือ การผจญภัยของมะนาว · Cover of The Adventures of Lemon" width="600" height="900">
 </div></div>
 
 <section class="band slim"><div class="wrap">
@@ -227,7 +228,7 @@ index = f'''
 {head('ซีรีส์มะนาว', 'The Lemon series')}
 {bi('สิบเล่ม เล่มแรกเล่าเรื่องทั้งหมด เล่มต่อไปพามะนาวไปที่ใหม่ และใช้เฉพาะคำที่คุณจะได้ยินจริงในที่นั้น เริ่มจากเล่มที่ตรงกับชีวิตคุณ', 'Ten books. Book One tells the whole story. Each book after it takes Lemon somewhere new, with only the English you really hear there. Start with the one that fits your life.', 'intro')}
 <div class="books"><article class="bk now"><img src="img/covers/b01.jpg" alt="ปก มะนาวเรียนรู้ · Cover of Lemon Learns" loading="lazy" width="480" height="720"><div><span class="bkn">เล่ม 1 · Book 1</span><h3>มะนาวเรียนรู้<span class="t-en" lang="en">Lemon Learns</span></h3><p>แม่บ้านที่พูดได้แค่ประโยคบนกระดาษ หนี้ การขอแต่งงานที่ไม่ควรตอบตกลง หนึ่งเดือนในแอลเอ และเสียงของตัวเอง<span class="t-en" lang="en">A housekeeper who can only speak the English on a card, a debt, a proposal she should not accept, a month in L.A., and a voice of her own.</span></p><span class="lvl">Beginner → Intermediate</span></div></article><article class="bk"><img src="img/covers/b02.jpg" alt="ปก มะนาวเดินทาง · Cover of Lemon Travels" loading="lazy" width="480" height="720"><div><span class="bkn">เล่ม 2 · Book 2</span><h3>มะนาวเดินทาง<span class="t-en" lang="en">Lemon Travels</span></h3><p>บินคนเดียวครั้งแรกไปสิงคโปร์ ตกเครื่องที่กรุงเทพฯ และนั่งข้างแชมพูที่พูดไม่หยุด<span class="t-en" lang="en">Her first flight alone, to Singapore: a missed connection in Bangkok and a seatmate, Shampoo, who never stops talking.</span></p><span class="lvl">Intermediate</span></div></article><article class="bk"><img src="img/covers/b03.jpg" alt="ปก มะนาวกินข้าวนอกบ้าน · Cover of Lemon Dines" loading="lazy" width="480" height="720"><div><span class="bkn">เล่ม 3 · Book 3</span><h3>มะนาวกินข้าวนอกบ้าน<span class="t-en" lang="en">Lemon Dines</span></h3><p>มะนาวต้องจัดดินเนอร์ให้ลูกค้ารายใหญ่ของคาร์ลอส และแตงโมอยากขายไส้กรอกอีสานให้โรงแรม<span class="t-en" lang="en">Lemon hosts dinner for Carlos's biggest buyer, and Tangmo wants to sell the hotel her homemade Isaan sausage.</span></p><span class="lvl">Intermediate → Advanced</span></div></article><article class="bk"><img src="img/covers/b04.jpg" alt="ปก มะนาวช้อปปิ้ง · Cover of Lemon Shops" loading="lazy" width="480" height="720"><div><span class="bkn">เล่ม 4 · Book 4</span><h3>มะนาวช้อปปิ้ง<span class="t-en" lang="en">Lemon Shops</span></h3><p>หนองติดมหาวิทยาลัย มะนาวพาแม่ไปหาชุดที่กรุงเทพฯ จตุจักร แพลทินัม ร้านมือสอง และกระจกห้องลองชุด<span class="t-en" lang="en">Nong gets into university, and Lemon takes Mother to Bangkok for an outfit: Chatuchak, Platinum, thrift shops and a fitting-room mirror.</span></p><span class="lvl">Advanced</span></div></article><article class="bk"><img src="img/covers/b05.jpg" alt="ปก มะนาวไปหาหมอ · Cover of Lemon Heals" loading="lazy" width="480" height="720"><div><span class="bkn">เล่ม 5 · Book 5</span><h3>มะนาวไปหาหมอ<span class="t-en" lang="en">Lemon Heals</span></h3><p>แม่ของคาร์ลอสป่วยหนัก มะนาวเป็นล่ามระหว่างภาษาอีสาน หมอไทย และบริษัทประกันอเมริกัน<span class="t-en" lang="en">Carlos's mother falls seriously ill, and Lemon interprets between Isaan, a Thai doctor and an American insurer.</span></p><span class="lvl">Advanced</span></div></article><article class="bk"><img src="img/covers/b06.jpg" alt="ปก มะนาวทำงาน · Cover of Lemon Works" loading="lazy" width="480" height="720"><div><span class="bkn">เล่ม 6 · Book 6</span><h3>มะนาวทำงาน<span class="t-en" lang="en">Lemon Works</span></h3><p>มะนาวได้นำทีม และได้คุณประเสริฐ นักธุรกิจที่เริ่มจากขนมของแม่ เป็นพี่เลี้ยงที่สอนให้กล้าฝันอีกครั้ง<span class="t-en" lang="en">Lemon leads her team, and Khun Prasert, who turned his mother's snack recipe into a factory, teaches her to dream again.</span></p><span class="lvl">Advanced → Professional</span></div></article><article class="bk"><img src="img/covers/b07.jpg" alt="ปก มะนาวไปงานเลี้ยง · Cover of Lemon Celebrates" loading="lazy" width="480" height="720"><div><span class="bkn">เล่ม 7 · Book 7</span><h3>มะนาวไปงานเลี้ยง<span class="t-en" lang="en">Lemon Celebrates</span></h3><p>ฟ้าจะแต่งงาน และขอให้มะนาวเป็นเพื่อนเจ้าสาว พร้อมคำอวยพรเป็นภาษาอังกฤษ<span class="t-en" lang="en">Fah is getting married and asks Lemon to be her bridesmaid, with a wedding toast in English.</span></p><span class="lvl">Professional → Fluent</span></div></article><article class="bk"><img src="img/covers/b08.jpg" alt="ปก มะนาวแก้ปัญหา · Cover of Lemon Resolves" loading="lazy" width="480" height="720"><div><span class="bkn">เล่ม 8 · Book 8</span><h3>มะนาวแก้ปัญหา<span class="t-en" lang="en">Lemon Resolves</span></h3><p>คาร์ลอสมาขอ สองครอบครัวต้องคุยเรื่องสินสอด และหน้าฝนทำน้ำท่วมอู่อีกครั้ง<span class="t-en" lang="en">Carlos asks for her hand, the families must talk about sinsod, and the rainy season floods the workshop again.</span></p><span class="lvl">Fluent</span></div></article><article class="bk"><img src="img/covers/b09.jpg" alt="ปก มะนาวออนไลน์ · Cover of Lemon Connects" loading="lazy" width="480" height="720"><div><span class="bkn">เล่ม 9 · Book 9</span><h3>มะนาวออนไลน์<span class="t-en" lang="en">Lemon Connects</span></h3><p>คาร์ลอสอยู่แอลเอหกเดือน วิดีโอคอลข้ามเวลา และคนในซอยที่หลอกฝรั่งออนไลน์<span class="t-en" lang="en">Carlos is in L.A. for six months: video calls across time zones, and someone in the soi scamming foreign men online.</span></p><span class="lvl">Fluent</span></div></article><article class="bk"><img src="img/covers/b10.jpg" alt="ปก มะนาวในสองโลก · Cover of Lemon Belongs" loading="lazy" width="480" height="720"><div><span class="bkn">เล่ม 10 · Book 10</span><h3>มะนาวในสองโลก<span class="t-en" lang="en">Lemon Belongs</span></h3><p>มะนาวตัดสินใจว่าบ้านอยู่ที่ไหน และเปิดมุมสอนภาษาอังกฤษให้พนักงานโรงแรม<span class="t-en" lang="en">Lemon decides where home is and opens an English corner for hotel workers, teaching the way Carlos taught her.</span></p><span class="lvl">Fluent → Bilingual</span></div></article></div>
-<div class="actions"><a class="btn" href="../#newsletter">รับข่าวเมื่อหนังสือออก · Get news</a><a class="btn ghost" style="color:var(--teal);border-color:var(--teal)" href="../">หนังสือเล่มอื่นของผู้เขียน · Other books</a></div>
+<div class="actions"><a class="btn" href="{AUTHOR}#newsletter">รับข่าวเมื่อหนังสือออก · Get news</a><a class="btn ghost" style="color:var(--teal);border-color:var(--teal)" href="{AUTHOR}">หนังสือเล่มอื่นของผู้เขียน · Other books</a></div>
 </div></section>
 '''
 page('index.html', 'การผจญภัยของมะนาว · The Adventures of Lemon', 'นิยายสองภาษาไทย–อังกฤษ สำหรับคนไทยที่อยากพูดภาษาอังกฤษ · A bilingual Thai–English novel, with real places, Southern Thai culture and free learning tools.', index)
@@ -575,7 +576,7 @@ readp = f"""
 <p class="lead en">A bilingual novel that starts from the English you already speak. The first chapters are almost all Thai; the English grows until you stop noticing it.</p>
 <div class="actions"><a class="btn big" href="Lemon_Chapters_1-3.pdf" download>⬇ ดาวน์โหลดฟรี · Free download (PDF)</a><a class="btn ghost" href="{SHARE}">ส่งให้เพื่อนทางไลน์ · Share on LINE</a></div>
 <p class="small">บทที่ 1–3 · 54 หน้า · 2.9 MB · ไม่ต้องสมัคร ไม่ต้องจ่าย<span class="t-en" lang="en">Chapters 1–3 · 54 pages · no sign-up, no payment</span></p></div>
-<img class="cover" src="../assets/lemon-cover.jpg" alt="ปกหนังสือ · Book cover" width="600" height="900">
+<img class="cover" src="img/cover.jpg" alt="ปกหนังสือ · Book cover" width="600" height="900">
 </div></div>
 
 <section class="paper"><div class="wrap">
@@ -602,7 +603,7 @@ readp = f"""
 <div><h2>เลี้ยงกาแฟมะนาวหนึ่งแก้ว</h2><p class="en">Buy Lemon a coffee</p>
 {bi('ชอบสามบทนี้ไหม เล่มเต็มกำลังจะออก ถ้าอยากช่วยให้เสร็จเร็วขึ้น สนับสนุนผู้เขียนได้ผ่านพร้อมเพย์ จะยี่สิบบาทหรือเท่าไหร่ก็ได้', 'Enjoyed these chapters? The full book is on its way. If you would like to help finish it, you can support the author by PromptPay, any amount.')}
 {bi('สแกนด้วยแอปธนาคารไหนก็ได้', 'Scan with any Thai banking app.')}
-<div class="actions"><a class="btn dark" href="../#newsletter">รับข่าวเมื่อเล่มเต็มออก · Tell me when it is out</a></div></div>
+<div class="actions"><a class="btn dark" href="{AUTHOR}#newsletter">รับข่าวเมื่อเล่มเต็มออก · Tell me when it is out</a></div></div>
 <figure class="pp"><img src="img/promptpay.jpg" alt="พร้อมเพย์ของผู้เขียน · Author's PromptPay QR" width="720" height="1060" loading="lazy"></figure>
 </div></section>
 """
