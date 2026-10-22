@@ -145,3 +145,15 @@ footer a{color:#fff}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .place > div,.hero .wrap > *{min-width:0}
+/* bilingual: English directly under the Thai */
+.t-en{display:block;font-family:var(--en);font-style:italic;color:var(--soft);font-size:.9em;line-height:1.55;margin-top:3px}
+.hero .t-en,.band .t-en{color:#CFE5E8}
+.eyebrow .t-en{font-size:13px;letter-spacing:0;font-weight:400;color:#CFE5E8;margin-top:2px}
+.nav a small{display:block;font:italic 400 11px/1.1 var(--en);opacity:.8;margin-top:2px;text-align:center}
+.facts li .t-en{font-size:.88em}
+.band.slim{padding-block:22px}
+.band.slim .intro{margin:0;max-width:52em}
+.shelf .t-en{font-size:15px;margin-top:2px}
+.tile p .t-en{font-size:13.5px}
+.stat span .t-en{font-size:13px}
+.person p{margin-top:8px}
