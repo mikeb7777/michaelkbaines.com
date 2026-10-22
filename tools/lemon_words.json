@@ -1,0 +1,1302 @@
+[
+{
+"n": 1,
+"en": "The Graduation",
+"th": "วันรับปริญญา",
+"words": [
+[
+"graduation",
+"การรับปริญญา",
+"Today is her graduation."
+],
+[
+"gate",
+"ประตู (ทางเข้า)",
+"We are at the wrong gate."
+],
+[
+"parking",
+"ที่จอดรถ",
+"Parking full."
+],
+[
+"full",
+"เต็ม",
+"The parking is full."
+],
+[
+"photo",
+"รูปถ่าย",
+"Can you take a photo?"
+],
+[
+"smile",
+"ยิ้ม",
+"Smile! One, two, three!"
+],
+[
+"congratulations",
+"ยินดีด้วย",
+"Congratulations!"
+],
+[
+"family",
+"ครอบครัว",
+"Her family is proud."
+],
+[
+"first",
+"คนแรก ที่หนึ่ง",
+"You are the first."
+],
+[
+"promise",
+"สัญญา",
+"Lemon made two promises."
+]
+],
+"echo": []
+},
+{
+"n": 2,
+"en": "The Debt",
+"th": "หนี้",
+"words": [
+[
+"housekeeping",
+"แผนกแม่บ้าน",
+"Housekeeping! May I come in?"
+],
+[
+"interview",
+"สัมภาษณ์",
+"The interview was in English."
+],
+[
+"loan",
+"เงินกู้",
+"She pays her student loan every month."
+],
+[
+"interest",
+"ดอกเบี้ย",
+"Twenty percent interest every month."
+],
+[
+"envelope",
+"ซองจดหมาย",
+"She had five envelopes."
+],
+[
+"flood",
+"น้ำท่วม",
+"The flood came in October."
+],
+[
+"left",
+"ซ้าย",
+"Left! Left!"
+],
+[
+"right",
+"ขวา",
+"Right! Right!"
+],
+[
+"turn around",
+"หมุนตัว หันกลับ",
+"Turn around!"
+],
+[
+"again",
+"อีกครั้ง",
+"Again! Clap, clap!"
+]
+],
+"echo": []
+},
+{
+"n": 3,
+"en": "The Man Who Spoke For Her",
+"th": "ผู้ชายที่พูดแทนเธอ",
+"words": [
+[
+"sound",
+"เสียง",
+"Every letter has a sound."
+],
+[
+"syllable",
+"พยางค์",
+"Clap the syllables."
+],
+[
+"stress",
+"การเน้นเสียง",
+"The stress is on the first syllable."
+],
+[
+"dictionary",
+"พจนานุกรม",
+"A translator is not a dictionary."
+],
+[
+"translator",
+"เครื่องแปล",
+"The translator gives the meaning."
+],
+[
+"comfortable",
+"สบาย",
+"COMF-ter-bul."
+],
+[
+"our bad",
+"ความผิดเรา (ภาษาพูด)",
+"Totally our bad."
+],
+[
+"rumor",
+"ข่าวลือ",
+"I heard a rumor."
+],
+[
+"practice",
+"ฝึก",
+"Practice every day."
+],
+[
+"sure",
+"แน่ใจ",
+"Are you sure about him?"
+]
+],
+"echo": []
+},
+{
+"n": 4,
+"en": "The Toast and the Wrench",
+"th": "คำอวยพรกับประแจ",
+"words": [
+[
+"hello",
+"สวัสดี",
+"Hello, my name is Lemon."
+],
+[
+"good afternoon",
+"สวัสดีตอนบ่าย",
+"Good afternoon. Welcome."
+],
+[
+"welcome",
+"ยินดีต้อนรับ",
+"Welcome to the hotel."
+],
+[
+"name",
+"ชื่อ",
+"What is your name?"
+],
+[
+"room",
+"ห้อง",
+"I have a room."
+],
+[
+"desk",
+"เคาน์เตอร์ โต๊ะ",
+"Lemon is at the desk."
+],
+[
+"key",
+"กุญแจ",
+"Here is your key."
+],
+[
+"guest",
+"แขก",
+"The guest is tired."
+],
+[
+"fruit",
+"ผลไม้",
+"A lemon is a fruit."
+],
+[
+"nice to meet you",
+"ยินดีที่ได้รู้จัก",
+"Nice to meet you, Lemon."
+]
+],
+"echo": [],
+"rule": [
+"“In English, the person is the anchor. No anchor, the sentence floats away. Not ‘Am tired.’ Say ‘I am tired.’”",
+"“ในภาษาอังกฤษ คน (ประธาน) คือสมอเรือ ไม่มีสมอ ประโยคก็ลอยหายไป อย่าพูดว่า Am tired ให้พูดว่า I am tired”"
+]
+},
+{
+"n": 5,
+"en": "The Orchid and the Script",
+"th": "กล้วยไม้กับบทท่องจำ",
+"words": [
+[
+"towel",
+"ผ้าเช็ดตัว",
+"Can I have a towel, please?"
+],
+[
+"pharmacy",
+"ร้านขายยา",
+"Where is the pharmacy?"
+],
+[
+"where",
+"ที่ไหน",
+"Where is room 412?"
+],
+[
+"go straight",
+"ตรงไป",
+"Go straight."
+],
+[
+"turn right",
+"เลี้ยวขวา",
+"Turn right at the Seven-Eleven."
+],
+[
+"turn left",
+"เลี้ยวซ้าย",
+"Turn left at the beach."
+],
+[
+"next to",
+"ข้างๆ",
+"It is next to the pool."
+],
+[
+"help",
+"ช่วย",
+"Can you help me?"
+],
+[
+"orchid",
+"กล้วยไม้",
+"Thank you for the orchid."
+],
+[
+"beautiful",
+"สวย",
+"It is beautiful."
+]
+],
+"echo": [],
+"rule": [
+"“’How may I assist you?’ and ‘Can I help you?’ mean the same thing. One is a script. One is a person. Be a person.”",
+"“How may I assist you กับ Can I help you แปลเหมือนกัน แต่อันหนึ่งคือบทท่องจำ อีกอันคือคนจริงๆ จงเป็นคนจริงๆ”"
+]
+},
+{
+"n": 6,
+"en": "The Motorbike and the Promise",
+"th": "มอเตอร์ไซค์กับคำสัญญา",
+"words": [
+[
+"motorbike",
+"มอเตอร์ไซค์",
+"The motorbike does not start."
+],
+[
+"start",
+"เริ่ม / สตาร์ต",
+"Try to start it now."
+],
+[
+"fix",
+"ซ่อม",
+"I can fix it."
+],
+[
+"wrench",
+"ประแจ",
+"I have a wrench."
+],
+[
+"spark plug",
+"หัวเทียน",
+"The spark plug is dirty."
+],
+[
+"meeting",
+"การประชุม นัดหมาย",
+"I have a meeting at seven."
+],
+[
+"learn",
+"เรียน",
+"I want to learn English."
+],
+[
+"notebook",
+"สมุด",
+"Bring a notebook."
+],
+[
+"amazing",
+"เยี่ยมมาก น่าทึ่ง",
+"That is amazing!"
+],
+[
+"think",
+"คิด",
+"I must think."
+]
+],
+"echo": [],
+"rule": [
+"“Before you speak, listen. Listen to the music of the sentence. The music comes before the words.”",
+"“ก่อนพูด ให้ฟัง ฟังเสียงดนตรีของประโยค ดนตรีมาก่อนคำเสมอ”"
+]
+},
+{
+"n": 7,
+"en": "The Kitchen Island",
+"th": "เกาะกลางครัว",
+"words": [
+[
+"sentence",
+"ประโยค",
+"Today we build sentences."
+],
+[
+"eat",
+"กิน",
+"I eat rice."
+],
+[
+"read",
+"อ่าน",
+"You read books."
+],
+[
+"sit",
+"นั่ง",
+"We sit at the kitchen island."
+],
+[
+"kitchen",
+"ครัว",
+"The kitchen is quiet."
+],
+[
+"island",
+"เกาะ",
+"Koh Phi Phi is an island."
+],
+[
+"kitchen island",
+"เคาน์เตอร์กลางครัว",
+"We sit at the kitchen island."
+],
+[
+"funny",
+"ตลก",
+"Carlos speaks funny Thai."
+],
+[
+"terrible",
+"แย่มาก",
+"My Thai is terrible."
+],
+[
+"from",
+"มาจาก",
+"I am from Krabi."
+]
+],
+"echo": [],
+"rule": [
+"“A sentence is a chair. Person, action, thing. Three legs, it stands. And remember: your Thai brain already knows how to build this chair.”",
+"“ประโยคคือเก้าอี้ คน การกระทำ สิ่งของ สามขาก็ยืนได้ และจำไว้ สมองภาษาไทยของคุณรู้วิธีสร้างเก้าอี้ตัวนี้อยู่แล้ว”"
+]
+},
+{
+"n": 8,
+"en": "The L and R Sounds",
+"th": "เสียงแอลกับอาร์",
+"words": [
+[
+"mouth",
+"ปาก",
+"Look at the mouth."
+],
+[
+"tongue",
+"ลิ้น",
+"The tongue touches the teeth."
+],
+[
+"touch",
+"แตะ",
+"For L, the tongue touches."
+],
+[
+"light",
+"แสง ไฟ",
+"Turn on the light."
+],
+[
+"right",
+"ขวา ถูกต้อง",
+"Turn right. You are right."
+],
+[
+"rice",
+"ข้าว",
+"I eat rice."
+],
+[
+"lice",
+"เหา",
+"Nobody wants lice!"
+],
+[
+"wrong",
+"ผิด",
+"Long is not wrong."
+],
+[
+"record",
+"อัด (เสียง)",
+"Record your voice."
+],
+[
+"voice",
+"เสียง (คน)",
+"I do not like my voice."
+]
+],
+"echo": [],
+"rule": [
+"“Your mouth is a muscle. It has memory. L and R are not in your head. They are in your tongue. Train the muscle.”",
+"“ปากคือกล้ามเนื้อ มันมีความจำ เสียง L กับ R ไม่ได้อยู่ในหัว มันอยู่ที่ลิ้น ฝึกกล้ามเนื้อ”"
+]
+},
+{
+"n": 9,
+"en": "Signs and Orders",
+"th": "ป้ายและการสั่งอาหาร",
+"words": [
+[
+"sign",
+"ป้าย",
+"Read the sign."
+],
+[
+"parking",
+"ที่จอดรถ การจอด",
+"No parking here."
+],
+[
+"danger",
+"อันตราย",
+"Danger! Strong current."
+],
+[
+"current",
+"กระแสน้ำ",
+"The current is strong."
+],
+[
+"swim",
+"ว่ายน้ำ",
+"No swimming."
+],
+[
+"order",
+"สั่ง",
+"You order. I will not help."
+],
+[
+"for here",
+"ทานที่นี่",
+"For here, please."
+],
+[
+"to go",
+"เอากลับ",
+"To go, please."
+],
+[
+"toilet",
+"ห้องน้ำ ส้วม",
+"I clean toilets."
+],
+[
+"very well",
+"ดีมาก",
+"I clean them very well."
+],
+[
+"low",
+"ต่ำ",
+"The boat is very low."
+],
+[
+"safe",
+"ปลอดภัย",
+"She keeps the boat safe."
+]
+],
+"echo": [],
+"rule": [
+"“A sign has an invisible verb. ‘No swimming’ means ‘Do not swim here.’ When you can’t read the sign, read the world around it.”",
+"“ป้ายมีกริยาที่มองไม่เห็น No swimming แปลว่า อย่าว่ายน้ำที่นี่ ถ้าอ่านป้ายไม่ออก ให้อ่านโลกรอบๆ ป้าย”"
+]
+},
+{
+"n": 10,
+"en": "The Departure",
+"th": "การจากลา",
+"words": [
+[
+"continue",
+"ทำต่อ เรียนต่อ",
+"I will continue."
+],
+[
+"tomorrow",
+"พรุ่งนี้",
+"I am going to fly home tomorrow."
+],
+[
+"next week",
+"อาทิตย์หน้า",
+"He will go home next week."
+],
+[
+"fly",
+"บิน",
+"I will fly to Los Angeles."
+],
+[
+"leave",
+"ทิ้งไว้ จากไป",
+"I will leave you a notebook."
+],
+[
+"offer",
+"ข้อเสนอ",
+"The offer is open."
+],
+[
+"decide",
+"ตัดสินใจ",
+"She decides."
+],
+[
+"stay away",
+"อยู่ห่างๆ",
+"Stay away from her!"
+],
+[
+"marry",
+"แต่งงาน",
+"Marry me."
+],
+[
+"congratulations",
+"ยินดีด้วย",
+"Congratulations!"
+]
+],
+"echo": [],
+"rule": [
+"“’Will’ and ‘going to’ are small. But they carry the time on their backs. Drop them, and your future falls into the present.”",
+"“will กับ going to เป็นคำเล็ก แต่มันแบกเวลาไว้บนหลัง ถ้าทิ้งมัน อนาคตของคุณจะตกลงมาเป็นปัจจุบัน”"
+]
+},
+{
+"n": 11,
+"en": "The Doubt and the Island",
+"th": "ความสงสัยกับเกาะกลางครัว",
+"words": [
+[
+"owe",
+"เป็นหนี้",
+"I do not want to owe him."
+],
+[
+"electricity",
+"ไฟฟ้า",
+"This is the electricity money."
+],
+[
+"roof",
+"หลังคา",
+"The roof has a hole."
+],
+[
+"proud",
+"ภูมิใจ",
+"Her mother was proud."
+],
+[
+"visa",
+"วีซ่า",
+"I have a visa interview."
+],
+[
+"interview",
+"สัมภาษณ์",
+"The interview is tomorrow."
+],
+[
+"practice",
+"ฝึก",
+"She practiced every night."
+],
+[
+"alone",
+"ตามลำพัง โดดเดี่ยว",
+"The island stands alone."
+],
+[
+"pass",
+"ผ่าน (การสอบ)",
+"You will pass."
+],
+[
+"different",
+"ต่างกัน",
+"The voice was different."
+]
+],
+"echo": [],
+"rule": [
+"“A word you memorize belongs to the book. A word you write when nobody is watching belongs to you.”",
+"“คำที่คุณท่องจำเป็นของหนังสือ คำที่คุณเขียนได้ตอนไม่มีใครดู เป็นของคุณ”"
+]
+},
+{
+"n": 12,
+"en": "The Drive to Thai Town",
+"th": "ถนนสู่ไทยทาวน์",
+"words": [
+[
+"arrivals",
+"ขาเข้า",
+"Follow the signs to arrivals."
+],
+[
+"passport",
+"หนังสือเดินทาง",
+"May I see your passport?"
+],
+[
+"purpose",
+"จุดประสงค์",
+"What’s the purpose of your visit?"
+],
+[
+"suitcase",
+"กระเป๋าเดินทาง",
+"My suitcase has a yellow ribbon."
+],
+[
+"freeway",
+"ทางด่วน",
+"The freeway is a river of metal."
+],
+[
+"lane",
+"ช่องทางเดินรถ",
+"The lane ends."
+],
+[
+"merge",
+"รวม (เลน)",
+"Merge left."
+],
+[
+"brake",
+"เบรก",
+"Carlos braked hard."
+],
+[
+"liar",
+"คนโกหก",
+"Beer is a terrible liar."
+],
+[
+"spicy",
+"เผ็ด",
+"The som tam is very spicy."
+]
+],
+"echo": [],
+"rule": [
+"“When you do not know a word, ask the place. Where am I? What do these people want? The airport, the café, the road. Every place is a dictionary.”",
+"“เมื่อไม่รู้คำ ให้ถามสถานที่ ฉันอยู่ที่ไหน คนพวกนี้ต้องการอะไร สนามบิน ร้านกาแฟ ถนน ทุกที่คือพจนานุกรม”"
+]
+},
+{
+"n": 13,
+"en": "Steven and Beer",
+"th": "สตีเว่นกับเบียร์",
+"words": [
+[
+"bottlebrush",
+"แปรงล้างขวด",
+"The tree looks like a bottlebrush."
+],
+[
+"driveway",
+"ทางรถเข้าบ้าน",
+"The flowers fell on the driveway."
+],
+[
+"patient",
+"อดทน ใจเย็น",
+"Steven is a patient man."
+],
+[
+"belly",
+"ท้อง",
+"Beer has a round belly."
+],
+[
+"pregnant",
+"ตั้งครรภ์",
+"Beer is five months pregnant."
+],
+[
+"engaged",
+"หมั้น",
+"You’re engaged?"
+],
+[
+"propose",
+"ขอแต่งงาน",
+"How did he propose?"
+],
+[
+"knelt",
+"คุกเข่า (อดีตของ kneel)",
+"He knelt down on one knee."
+],
+[
+"public",
+"ต่อหน้าคนอื่น สาธารณะ",
+"It was a public proposal."
+],
+[
+"awake",
+"ตื่นอยู่",
+"At three a.m., she was wide awake."
+]
+],
+"echo": [],
+"rule": [
+"“When you tell a story in English, choose the time and hold it. Past is past. Do not let the present leak in.”",
+"“เวลาเล่าเรื่องเป็นภาษาอังกฤษ ให้เลือกเวลาแล้วถือไว้ อดีตคืออดีต อย่าปล่อยให้ปัจจุบันรั่วเข้ามา”"
+]
+},
+{
+"n": 14,
+"en": "The Business of Words",
+"th": "ธุรกิจของถ้อยคำ",
+"words": [
+[
+"invoice",
+"ใบแจ้งหนี้",
+"Please check this invoice."
+],
+[
+"quantity",
+"จำนวน",
+"The quantity is five hundred."
+],
+[
+"unit price",
+"ราคาต่อหน่วย",
+"The unit price is wrong."
+],
+[
+"total",
+"ยอดรวม",
+"The total is for fifty."
+],
+[
+"mistake",
+"ความผิดพลาด",
+"I think there might be a mistake."
+],
+[
+"good catch",
+"จับได้ดี หาเจอเก่ง",
+"Good catch!"
+],
+[
+"customer",
+"ลูกค้า",
+"The customer is in Seattle."
+],
+[
+"detail",
+"รายละเอียด",
+"Attention to detail."
+],
+[
+"lose face",
+"เสียหน้า",
+"She can fix it without losing face."
+],
+[
+"cute",
+"น่ารัก",
+"Your English is so cute."
+]
+],
+"echo": [],
+"rule": [
+"“’I think there might be a mistake’ is stronger than ‘You made a mistake.’ Soft words carry heavy things more safely.”",
+"“I think there might be a mistake แข็งแรงกว่า You made a mistake คำนุ่มๆ แบกของหนักได้ปลอดภัยกว่า”"
+]
+},
+{
+"n": 15,
+"en": "The Feeling of a Word",
+"th": "ความรู้สึกของคำ",
+"words": [
+[
+"feeling",
+"ความรู้สึก",
+"The feeling comes first."
+],
+[
+"lyrics",
+"เนื้อเพลง",
+"Look up the lyrics."
+],
+[
+"heavy",
+"หนัก",
+"Some words are heavy."
+],
+[
+"light",
+"เบา",
+"“Like” is a light word."
+],
+[
+"weight",
+"น้ำหนัก",
+"The word has weight."
+],
+[
+"polite",
+"สุภาพ",
+"Greng jai is polite."
+],
+[
+"protect",
+"ปกป้อง",
+"I hide my feelings to protect you."
+],
+[
+"self",
+"ตัวเอง",
+"English is a language of the self."
+],
+[
+"space",
+"ช่องว่าง พื้นที่",
+"Thai lives in the space between people."
+],
+[
+"float",
+"ลอย",
+"The word will float away."
+]
+],
+"echo": [],
+"rule": [
+"“Feel the weight before you speak. If the word is too light for the feeling, the feeling will float away.”",
+"“รู้สึกถึงน้ำหนักก่อนพูด ถ้าคำเบาเกินไปสำหรับความรู้สึก ความรู้สึกจะลอยหายไป”"
+]
+},
+{
+"n": 16,
+"en": "The Fiancé Arrives",
+"th": "คู่หมั้นมาถึง",
+"words": [
+[
+"surprise",
+"เซอร์ไพรส์ ทำให้ประหลาดใจ",
+"Surprise!"
+],
+[
+"fiancé",
+"คู่หมั้น (ผู้ชาย)",
+"I’m her fiancé."
+],
+[
+"invite",
+"เชิญ",
+"He walked in without being invited."
+],
+[
+"deposit",
+"เงินมัดจำ",
+"She already paid the deposit."
+],
+[
+"non-refundable",
+"ไม่คืนเงิน",
+"The deposit is non-refundable."
+],
+[
+"colleague",
+"เพื่อนร่วมงาน",
+"Sarah is a colleague."
+],
+[
+"notice",
+"สังเกต",
+"She was learning to notice."
+],
+[
+"although",
+"แม้ว่า",
+"Although he came, I am not happy."
+],
+[
+"however",
+"อย่างไรก็ตาม",
+"However, I was not asking myself."
+],
+[
+"calm",
+"สงบ ใจเย็น",
+"Carlos was calm."
+]
+],
+"echo": [],
+"rule": [
+"“Listen for ‘but,’ ‘although,’ ‘however.’ They show you where the speaker is changing direction. Often, the truth comes after the turn.”",
+"“ฟังคำว่า but, although, however มันบอกว่าผู้พูดกำลังเปลี่ยนทิศ และบ่อยครั้ง ความจริงอยู่หลังทางเลี้ยว”"
+]
+},
+{
+"n": 17,
+"en": "The Café in Torrance",
+"th": "ร้านกาแฟในทอร์แรนซ์",
+"words": [
+[
+"neighborhood",
+"ละแวกบ้าน",
+"It’s a neighborhood café."
+],
+[
+"compromise",
+"ประนีประนอม",
+"We can compromise."
+],
+[
+"stressed",
+"เครียด",
+"You’re just stressed."
+],
+[
+"jet lag",
+"อาการเพลียจากการเดินทางข้ามเวลา",
+"It’s the jet lag."
+],
+[
+"dramatic",
+"ดราม่า เล่นใหญ่",
+"If you want to be dramatic..."
+],
+[
+"seeing each other",
+"คบกัน (แบบแฟน)",
+"We’ve been seeing each other."
+],
+[
+"heartbroken",
+"ใจสลาย",
+"He did not look heartbroken."
+],
+[
+"inconvenienced",
+"รู้สึกเสียเวลา ไม่สะดวก",
+"He looked inconvenienced."
+],
+[
+"braver",
+"กล้ากว่า",
+"If I had been braver..."
+],
+[
+"regret",
+"ความเสียใจ เสียดาย",
+"The third room is regret."
+]
+],
+"echo": [],
+"rule": [
+"“’If’ is a door. ‘If I go, I will see.’ ‘If I had gone, I would have seen.’ Be careful what you build in that room. Some rooms you will live in for a long time.”",
+"“if คือประตู ระวังสิ่งที่คุณสร้างในห้องนั้น บางห้อง คุณจะต้องอยู่ในนั้นอีกนาน”"
+]
+},
+{
+"n": 18,
+"en": "The Aftermath",
+"th": "หลังพายุ",
+"words": [
+[
+"call off",
+"ยกเลิก",
+"She called off the engagement."
+],
+[
+"break down",
+"พังทลาย",
+"Something broke down in her chest."
+],
+[
+"give up",
+"เลิก ยอมแพ้",
+"I gave up something I never wanted."
+],
+[
+"look back",
+"หันกลับไปมอง",
+"She did not look back."
+],
+[
+"take back",
+"ถอนคืน",
+"I would take back four words."
+],
+[
+"move on",
+"ก้าวต่อไป",
+"It is time to move on."
+],
+[
+"no hard feelings",
+"ไม่ติดใจกัน",
+"No hard feelings."
+],
+[
+"mirror",
+"กระจก",
+"I tried to be a good mirror."
+],
+[
+"battle",
+"การต่อสู้",
+"Two battles in one morning."
+],
+[
+"empty",
+"ว่างเปล่า",
+"Empty is the first step to lighter."
+]
+],
+"echo": [],
+"rule": [
+"“Up, off, down, back. The little words change everything. ‘Give’ is generous. ‘Give up’ is the end. Learn them one at a time, inside real sentences.”",
+"“up, off, down, back คำเล็กๆ เปลี่ยนทุกอย่าง give คือการให้ give up คือการเลิก เรียนทีละคำ ในประโยคจริง”"
+]
+},
+{
+"n": 19,
+"en": "The Unanswered Message",
+"th": "ข้อความที่ยังไม่ได้ตอบ",
+"words": [
+[
+"security",
+"จุดตรวจความปลอดภัย",
+"They stood at the security line."
+],
+[
+"land",
+"(เครื่องบิน) ลงจอด",
+"Text me when you land."
+],
+[
+"window seat",
+"ที่นั่งริมหน้าต่าง",
+"Lemon had the window seat."
+],
+[
+"surgery",
+"การผ่าตัด",
+"She needs surgery next week."
+],
+[
+"emergency",
+"เหตุฉุกเฉิน",
+"It is not an emergency."
+],
+[
+"hospital",
+"โรงพยาบาล",
+"My mother is in the hospital."
+],
+[
+"gate",
+"ประตูขึ้นเครื่อง",
+"She called her mother from the gate."
+],
+[
+"transfer",
+"ต่อเครื่อง",
+"Follow the signs to transfer."
+],
+[
+"make merit",
+"ทำบุญ",
+"I will make merit for your mother."
+],
+[
+"until",
+"จนกระทั่ง",
+"She waited until the screen went dark."
+]
+],
+"echo": [],
+"rule": [
+"“’When,’ ‘before,’ ‘after,’ ‘until.’ Each one is a door. Learn which door opens which room. And after the door, stay in the present. The future is waiting in the other half of the sentence.”",
+"“when, before, after, until แต่ละคำคือประตู หลังประตูให้ใช้ปัจจุบัน อนาคตรออยู่อีกครึ่งหนึ่งของประโยค”"
+]
+},
+{
+"n": 20,
+"en": "Home",
+"th": "บ้าน",
+"words": [
+[
+"terminal",
+"อาคารผู้โดยสาร",
+"She walked through the small terminal."
+],
+[
+"barrier",
+"แผงกั้น",
+"Nong was waiting at the barrier."
+],
+[
+"smells good",
+"หอม กลิ่นดี",
+"Smells good, Mother."
+],
+[
+"tremble",
+"สั่น",
+"The pot trembled."
+],
+[
+"steady",
+"มั่นคง นิ่ง",
+"His hand was always steady."
+],
+[
+"compound",
+"บริเวณบ้าน",
+"The compound looked the same."
+],
+[
+"spirit house",
+"ศาลพระภูมิ",
+"The spirit house had fresh marigolds."
+],
+[
+"incense",
+"ธูป",
+"They carried three sticks of incense."
+],
+[
+"monk",
+"พระสงฆ์",
+"The monk was old."
+],
+[
+"merit",
+"บุญ",
+"They sent merit to someone far away."
+]
+],
+"echo": [],
+"rule": [
+"“The words you learned in English belong to the place where you learned them. The words you learned in Thai belong to the place where you grew up. You can live in both houses.”",
+"“คำที่คุณเรียนเป็นภาษาอังกฤษเป็นของที่ที่คุณเรียนมัน คำภาษาไทยเป็นของที่ที่คุณโตมา คุณอยู่ได้ทั้งสองบ้าน”"
+]
+},
+{
+"n": 21,
+"en": "The Restaurant",
+"th": "ร้านอาหาร",
+"words": [
+[
+"accounts",
+"บัญชี",
+"You keep very good accounts."
+],
+[
+"pay back",
+"ใช้คืน",
+"I will pay it back. Every baht."
+],
+[
+"full moon",
+"พระจันทร์เต็มดวง",
+"Loy Krathong is on the full moon."
+],
+[
+"candle",
+"เทียน",
+"Light the candle."
+],
+[
+"make a wish",
+"อธิษฐาน",
+"Make a wish."
+],
+[
+"let go",
+"ปล่อย",
+"We let go of the bad things."
+],
+[
+"show (someone) around",
+"พาเที่ยว",
+"I could show you around."
+],
+[
+"I’d like that",
+"ยินดีเลย",
+"“I’d like that,” he said."
+],
+[
+"paid in full",
+"จ่ายครบแล้ว",
+"PAID IN FULL."
+],
+[
+"come home",
+"กลับบ้าน",
+"Welcome home."
+]
+],
+"echo": [],
+"rule": [
+"“You do not need to know all of English. Begin from what you know. Use it today. Tomorrow, you will know a little more.”",
+"“คุณไม่จำเป็นต้องรู้ภาษาอังกฤษทั้งหมด เริ่มจากสิ่งที่คุณรู้ ใช้มันวันนี้ พรุ่งนี้คุณจะรู้มากขึ้นอีกนิด”"
+]
+}
+]

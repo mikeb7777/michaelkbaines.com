@@ -14,11 +14,11 @@ def credit(name, user, note=''):
 
 def bi(th, en, cls=''):
     c = f' class="{cls}"' if cls else ''
-    return f'<p{c}>{th}<span class="t-en">{en}</span></p>'
+    return f'<p{c}>{th}<span class="t-en" lang="en">{en}</span></p>'
 
 def li(f):
     th, en = f
-    return f'<li>{th}<span class="t-en">{en}</span></li>'
+    return f'<li>{th}<span class="t-en" lang="en">{en}</span></li>'
 
 PH = {
   'aonang': ('photo-1730772408559-c9d60fda6560', 'Aleksei Zhivilov', 'bb009x', 'คนขับเรือหางยาวนำเรือเข้าฝั่งที่กระบี่ · A boatman bringing a longtail in, Krabi'),
@@ -56,10 +56,10 @@ def video(vid, title, sub):
 
 LOGO = '''<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#F2C230"/><circle cx="50" cy="50" r="41" fill="#FFF4CC"/><g stroke="#F2C230" stroke-width="4"><line x1="50" y1="10" x2="50" y2="90"/><line x1="10" y1="50" x2="90" y2="50"/><line x1="22" y1="22" x2="78" y2="78"/><line x1="78" y1="22" x2="22" y2="78"/></g></svg>'''
 
-NAV = [('index.html', 'หน้าแรก', 'Home'), ('places.html', 'สถานที่', 'Places'), ('culture.html', 'วัฒนธรรม', 'Culture'), ('toolkit.html', 'เครื่องมือ', 'Toolkit')]
+NAV = [('index.html', 'หน้าแรก', 'Home'), ('places.html', 'สถานที่', 'Places'), ('culture.html', 'วัฒนธรรม', 'Culture'), ('listen.html', 'ฟังและพูด', 'Listen'), ('toolkit.html', 'เครื่องมือของคาร์ลอส', "Carlos's Toolkit")]
 
 def page(fname, title, desc, body, og='../assets/lemon-cover.jpg'):
-    nav = ''.join(f'<a href="{h}"{" aria-current=page" if h == fname else ""}>{t}<small>{e}</small></a>' for h, t, e in NAV)
+    nav = ''.join(f'<a href="{h}"{" aria-current=page" if h == fname else ""}{" class=navkit" if h == "toolkit.html" else ""}>{t}<small lang="en">{e}</small></a>' for h, t, e in NAV)
     html = f'''<!DOCTYPE html>
 <html lang="th">
 <head>
@@ -84,11 +84,38 @@ def page(fname, title, desc, body, og='../assets/lemon-cover.jpg'):
 <main>
 {body}
 </main>
-<footer><div class="wrap">
-<span>© 2026 Michael K. Baines · <a href="../">michaelkbaines.com</a> · <a href="../#newsletter">รับข่าวเมื่อหนังสือออก · Newsletter</a></span>
-<span>ไม่มีคุกกี้ วิดีโอโหลดเมื่อคุณกดเล่นเท่านั้น · No cookies; videos load only when you press play.</span>
-</div></footer>
+<footer><div class="wrap fgrid">
+<div><b class="fh">การผจญภัยของมะนาว</b><span class="t-en" lang="en">The Adventures of Lemon</span>
+<p>นิยายสองภาษาสำหรับคนไทยที่อยากพูดภาษาอังกฤษ<span class="t-en" lang="en">A bilingual novel for Thai adults who want to speak English.</span></p>
+<p><a href="../">michaelkbaines.com</a> · <a href="../#books">หนังสือเล่มอื่น · Other books</a> · <a href="../#newsletter">รับข่าว · Newsletter</a></p></div>
+<div><b class="fh">ในเว็บนี้ · On this site</b><ul>
+<li><a href="index.html">หน้าแรก · Home</a></li><li><a href="places.html#krabi">กระบี่ · Krabi</a></li><li><a href="places.html#la">ลอสแอนเจลิส · Los Angeles</a></li>
+<li><a href="culture.html">ภาคใต้และวัฒนธรรม · Culture</a></li><li><a href="listen.html">ฟังและพูด · Listen and speak</a></li><li><a href="toolkit.html">เครื่องมือของคาร์ลอส · Carlos's Toolkit</a></li></ul></div>
+<div><b class="fh">เรียนฟรี · Learn free</b><ul>
+<li><a href="https://dict.longdo.com" target="_blank" rel="noopener">Longdo Dict</a> <span>ไทย–อังกฤษ · Thai–English</span></li>
+<li><a href="https://dictionary.cambridge.org" target="_blank" rel="noopener">Cambridge Dictionary</a> <span>มีเสียง · with audio</span></li>
+<li><a href="https://lyricstraining.com" target="_blank" rel="noopener">LyricsTraining</a> <span>เพลง · songs</span></li>
+<li><a href="https://youglish.com" target="_blank" rel="noopener">YouGlish</a> <span>ฟังคนจริง · real voices</span></li>
+<li><a href="https://www.bbc.co.uk/learningenglish" target="_blank" rel="noopener">BBC Learning English</a></li></ul></div>
+<div><b class="fh">เที่ยวต่อ · Explore more</b><ul>
+<li><a href="https://www.tourismthailand.org" target="_blank" rel="noopener">Amazing Thailand (TAT)</a></li>
+<li><a href="https://www.discoverlosangeles.com" target="_blank" rel="noopener">Discover Los Angeles</a></li>
+<li><a href="https://www.getty.edu" target="_blank" rel="noopener">The Getty</a></li>
+<li><a href="https://griffithobservatory.org" target="_blank" rel="noopener">Griffith Observatory</a></li></ul></div>
+</div>
+<div class="wrap fbase"><span>© 2026 Michael K. Baines · กรุงเทพฯ · Bangkok</span><span>ภาพจาก Unsplash และภาพประกอบจากหนังสือ · Photos via Unsplash and art from the book</span><span>ไม่มีคุกกี้ วิดีโอโหลดเมื่อกดเล่นเท่านั้น · No cookies; videos load only when you press play.</span></div>
+</footer>
 <script>
+(function(){{
+  var ok='speechSynthesis' in window, voice=null;
+  function pick(){{var v=speechSynthesis.getVoices();voice=v.find(function(x){{return /en[-_]US/i.test(x.lang)}})||v.find(function(x){{return /^en/i.test(x.lang)}})||null;}}
+  if(ok){{pick(); speechSynthesis.onvoiceschanged=pick;}}
+  document.addEventListener('click',function(e){{
+    var b=e.target.closest('.spk'); if(!b) return;
+    if(!ok){{alert('เบราว์เซอร์นี้อ่านออกเสียงไม่ได้ · This browser cannot speak.');return;}}
+    speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(b.dataset.say); u.lang='en-US'; if(voice)u.voice=voice; u.rate=parseFloat(b.dataset.rate||'0.9'); speechSynthesis.speak(u);
+  }});
+}})();
 document.querySelectorAll('.frame[data-yt]').forEach(function(f){{
   f.querySelector('button').addEventListener('click',function(){{
     var i=document.createElement('iframe');
@@ -110,8 +137,12 @@ PH.update({
   'catalina': ('photo-1745907429414-56c75c35b30f', 'Erick Morales Oyola', 'ejmoralesoyola', 'อ่าวอวาลอน เกาะคาทาลินา · Avalon Harbor, Catalina Island'),
 })
 
+def speak(en):
+    t = en.replace('"', '&quot;')
+    return f'<button type="button" class="spk" data-say="{t}" aria-label="ฟัง · Listen">🔊</button><button type="button" class="spk slow" data-say="{t}" data-rate="0.6" aria-label="ฟังช้า · Listen slowly">🐢</button>'
+
 def say(en, th):
-    return f'<div class="say"><b>พูดเป็นภาษาอังกฤษ · Say it in English</b><span>{en}</span><br>{th}</div>'
+    return f'<div class="say"><b>พูดเป็นภาษาอังกฤษ · Say it in English</b><span lang="en">{en}</span> {speak(en)}<br>{th}</div>'
 
 def head(th, en):
     return f'<h2>{th}</h2><p class="en">{en}</p>'
@@ -131,6 +162,20 @@ index = f'''
 
 <section class="band slim"><div class="wrap">
 {bi('ทุกข้อความในเว็บนี้มีภาษาไทยอยู่บน ภาษาอังกฤษอยู่ล่าง อ่านไทยก่อน แล้วดูว่าภาษาอังกฤษพูดเรื่องเดียวกันอย่างไร แค่เลื่อนดูก็ได้เรียนแล้ว', 'Every line on this site is in Thai first, with English underneath. Read the Thai, then see how English says the same thing. Just scrolling is learning.', 'intro')}
+</div></section>
+
+<section class="kit"><div class="wrap kitgrid">
+<div><p class="kitlabel">★ เครื่องมือของคาร์ลอส · Carlos's Toolkit</p>
+<h2>ห้องเรียนหนึ่งชั่วโมง ชีวิตที่เหลือคือบทเรียน<span class="t-en" lang="en">Class is one hour. Life is the rest.</span></h2>
+{bi('เครื่องมือฟรีที่คาร์ลอสให้มะนาวในบทที่ 14 เพลง ซีรีส์ พจนานุกรม และคนจริง เลือกสัปดาห์ละหนึ่งอย่าง', 'The free tools Carlos gives Lemon in Chapter 14: songs, shows, dictionaries and real people. Pick one a week.')}
+<div class="actions"><a class="btn dark" href="toolkit.html">เปิดชุดเครื่องมือ · Open the toolkit →</a><a class="btn ghost2" href="listen.html">🎧 ฟังและพูดตามทุกบท · Listen to every chapter</a></div></div>
+<ol class="kitsteps">
+<li><b>🎵 ร้องเพลง</b><span class="t-en" lang="en">Sing: fill in the missing lyrics</span></li>
+<li><b>📺 ซับสองภาษา</b><span class="t-en" lang="en">Watch with Thai and English subtitles</span></li>
+<li><b>📖 พจนานุกรม ไม่ใช่เครื่องแปล</b><span class="t-en" lang="en">A dictionary, not a translator</span></li>
+<li><b>🎙️ อัดเสียงตัวเอง</b><span class="t-en" lang="en">Record yourself and compare</span></li>
+<li><b>💬 คุยกับคนจริง</b><span class="t-en" lang="en">Talk to real people</span></li>
+</ol>
 </div></section>
 
 <section id="watch"><div class="wrap">
@@ -429,14 +474,15 @@ for th, en, items in TOOLS:
     shelves += f'<h3 class="shelf">{th}<span class="t-en">{en}</span></h3><div class="tools">{cards}</div>'
 
 toolkit = f'''
-<div class="hero"><div class="wrap">
+<div class="hero kithero"><div class="wrap">
 <div><p class="eyebrow">เครื่องมือของคาร์ลอส · บทที่ 14<span class="t-en">Carlos's toolkit · Chapter 14</span></p>
 <h1>ห้องเรียนหนึ่งชั่วโมง ชีวิตที่เหลือคือบทเรียน<span class="en">Class is one hour. Life is the rest.</span></h1>
 <p class="lead">ไม่ต้องเพิ่มการบ้าน เปลี่ยนสิ่งที่คุณทำอยู่แล้วทุกวัน ฟังเพลง ดูซีรีส์ เล่นโทรศัพท์ ให้เป็นการเรียน เลือกทีละอย่าง สัปดาห์ละหนึ่งเครื่องมือ</p>
-<p class="lead en">You don't need more homework. Turn what you already do every day, music, shows, your phone, into learning. Pick one thing at a time: one tool per week.</p></div>
+<p class="lead en">You don't need more homework. Turn what you already do every day, music, shows, your phone, into learning. Pick one thing at a time: one tool per week.</p>
+<div class="actions"><a class="btn" href="#shelves">เริ่มเลย · Start here ↓</a><a class="btn ghost" href="listen.html">🎧 ฟังและพูดตามทุกบท · Listen to every chapter</a></div></div>
 <img class="art" src="img/act1.jpg" alt="อ่าวนาง ภาพจากหนังสือ" width="1400" height="747">
 </div></div>
-<section><div class="wrap">{shelves}</div></section>
+<section id="shelves"><div class="wrap">{shelves}</div></section>
 <section class="paper"><div class="wrap">
 <h2>สามสิบวันแรก วันละสิบห้านาที</h2><p class="en">Your first 30 days, 15 minutes a day</p>
 <p class="intro">พลาดหนึ่งวัน ไม่ต้องเริ่มใหม่ ทำวันถัดไปต่อเลย ไม่มีตัวเลขไหนกลายเป็นศูนย์<span class="t-en">Miss a day? Don't start again. Just carry on the next day. No number goes back to zero.</span></p>
@@ -466,4 +512,50 @@ toolkit = f'''
 </div></section>
 '''
 page('toolkit.html', 'เครื่องมือของคาร์ลอส · Carlos\'s Toolkit', 'เครื่องมือเรียนภาษาอังกฤษฟรีจากนิยาย การผจญภัยของมะนาว เพลง ซีรีส์ พจนานุกรม และแผนสามสิบวัน', toolkit)
+
+# ---------------- listen ----------------
+import json as _json
+_W = _json.load(open(os.path.join(os.path.dirname(__file__), 'lemon_words.json')))
+QQ = '"“”'
+chs = ''
+for c in _W:
+    if not c['words']: continue
+    rows = ''.join(f'<li><div><b lang="en">{w[0]}</b> <span class="th">{w[1]}</span><span class="ex" lang="en">{w[2]}</span></div><div class="btns">{speak(w[2] or w[0])}</div></li>' for w in c['words'])
+    rule = ''
+    if c.get('rule'):
+        r_en = c['rule'][0].strip(QQ)
+        rule = f'<p class="rulel"><span lang="en">“{r_en}”</span> {speak(r_en)}<span class="t-en">{c["rule"][1].strip(QQ)}</span></p>'
+    chs += (f'<article class="lch" id="ch{c["n"]}"><h3>บทที่ {c["n"]} · {c["th"]}<span class="t-en" lang="en">Chapter {c["n"]} · {c["en"]}</span></h3>'
+            f'<ul class="lw">{rows}</ul>{rule}'
+            f'<div class="rec"><button type="button" class="recb">🎙️ อัดเสียง · Record</button><button type="button" class="stopb" disabled>■ หยุด · Stop</button><audio controls hidden></audio>'
+            f'<span class="rech">พูดประโยคไหนก็ได้จากบทนี้ เสียงอยู่ในเครื่องคุณเท่านั้น<span class="t-en" lang="en">Say any sentence from this chapter. The recording stays on your device.</span></span></div></article>')
+jump = ''.join(f'<a href="#ch{c["n"]}">{c["n"]}</a>' for c in _W if c['words'])
+REC_JS = """<script>
+document.querySelectorAll('.rec').forEach(function(box){
+  var rb=box.querySelector('.recb'), sb=box.querySelector('.stopb'), au=box.querySelector('audio'), mr, chunks=[];
+  rb.addEventListener('click', async function(){
+    var st; try{ st=await navigator.mediaDevices.getUserMedia({audio:true}); }catch(e){ rb.textContent='ไม่มีไมค์ · No microphone'; return; }
+    chunks=[]; mr=new MediaRecorder(st); mr.ondataavailable=function(e){chunks.push(e.data)};
+    mr.onstop=function(){ au.src=URL.createObjectURL(new Blob(chunks,{type:mr.mimeType})); au.hidden=false; st.getTracks().forEach(function(t){t.stop()}); };
+    mr.start(); rb.disabled=true; sb.disabled=false; rb.textContent='● กำลังอัด · Recording';
+  });
+  sb.addEventListener('click', function(){ mr.stop(); rb.disabled=false; sb.disabled=true; rb.textContent='🎙️ อัดใหม่ · Record again'; });
+});
+</script>"""
+listenp = f"""
+<div class="hero"><div class="wrap"><div>
+<p class="eyebrow">ฟังและพูด · บทที่ 1–21<span class="t-en" lang="en">Listen and speak · Chapters 1–21</span></p>
+<h1>ฟัง พูดตาม อัดเสียง<span class="en">Listen, repeat, record</span></h1>
+<p class="lead">ทุกคำในกล่องคำศัพท์ของหนังสือ พร้อมเสียงอ่าน กด 🔊 ฟัง กด 🐢 ฟังช้า พูดตามสามครั้ง แล้วอัดเสียงตัวเอง</p>
+<p class="lead en">Every word from the book's word boxes, read aloud. Press 🔊 to listen and 🐢 to hear it slowly. Say it three times, then record yourself.</p>
+</div><img class="art" src="img/act2.jpg" alt="ภาพจากหนังสือ · Art from the book" width="1400" height="747"></div></div>
+<section><div class="wrap">
+<nav class="jump" aria-label="บท · Chapters"><span>ไปที่บท · Go to chapter</span>{jump}</nav>
+<p class="note">เสียงมาจากเบราว์เซอร์ของคุณ ถ้าไม่มีเสียง ให้ลองเปิดใน Chrome หรือ Safari เสียงอ่านโดยคนจริงจะมาเร็วๆ นี้<span class="t-en" lang="en">The voice comes from your browser. If you hear nothing, try Chrome or Safari. Recordings by real speakers are coming soon.</span></p>
+{chs}
+</div></section>
+{REC_JS}
+"""
+page('listen.html', 'ฟังและพูด · Listen and speak · The Adventures of Lemon', 'ฟังคำศัพท์ทุกบทของ การผจญภัยของมะนาว พูดตาม และอัดเสียงตัวเอง · Hear the words of every chapter, repeat them and record yourself.', listenp)
+
 print('built')
