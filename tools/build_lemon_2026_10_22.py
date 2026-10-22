@@ -48,6 +48,9 @@ def bookfig(src, cap):
     return f'<figure><img src="img/{src}" alt="{cap}" loading="lazy" width="1400" height="747">' \
            f'<figcaption>{cap} · ภาพจากหนังสือ · From the book</figcaption></figure>'
 
+def illfig(name, cap):
+    return f'<figure><img class="ill" src="img/il_{name}.jpg" alt="{cap}" loading="lazy" width="900" height="1125"><figcaption>{cap} · ภาพประกอบจากหนังสือ · Illustration from the book</figcaption></figure>'
+
 def video(vid, title, sub):
     return f'''<div class="video"><div class="frame" data-yt="{vid}">
 <img src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
@@ -208,7 +211,7 @@ index = f'''
 <div class="person"><b>ป้าเพ็ญ</b><span>Auntie Pen</span>{bi('หัวหน้าแม่บ้าน ข่าวของป้าเร็วกว่าไวไฟ', "The head housekeeper. Her news travels faster than Wi-Fi.")}</div>
 <div class="person"><b>เบียร์</b><span>Beer</span>{bi('เพื่อนสนิทตั้งแต่อนุบาล อยู่แคลิฟอร์เนีย คนที่สอนเสียงตัวอักษรให้มะนาวใต้ต้นมะม่วง', 'Her best friend since kindergarten, now in California. She taught Lemon letter sounds under the mango tree.')}</div>
 </div>
-<p class="note">ภาพตัวละครกำลังวาด จะมาเร็วๆ นี้<span class="t-en">Character illustrations are on the way.</span></p>
+<div class="gallery">{''.join(f'<figure><img src="img/il_{n}.jpg" alt="{c}" loading="lazy" width="900" height="1125"><figcaption>{c}</figcaption></figure>' for n, c in [('graduation','วันรับปริญญา · Graduation day'),('aerobics','แอโรบิกที่สวนธารา · Aerobics in Thara Park'),('towels','สงครามผ้าเช็ดตัว · The towel fight'),('railay','เรือหางยาวไปไร่เลย์ · Longtail to Railay'),('foodfight','สงครามส้มตำ · The food fight'),('krathong','ลอยกระทง · Loy Krathong')])}</div>
 </div></section>
 
 <section class="paper"><div class="wrap">
@@ -258,21 +261,20 @@ places = f'''
   ('เขาขนาบน้ำ ภูเขาหินปูนสองลูกสูงราว 100 เมตร ยืนประกบแม่น้ำกระบี่', 'Khao Khanap Nam: two limestone hills, about 100 metres high, stand on either side of the Krabi River.'),
   ('นั่งเรือหางยาวจากท่าเรือเจ้าฟ้าไปเขาขนาบน้ำราว 15 นาที', 'A longtail from Chao Fah Pier to Khao Khanap Nam takes about 15 minutes.')],
  'I live in Krabi Town, not in Ao Nang.', 'ฉันอยู่ในเมืองกระบี่ ไม่ได้อยู่อ่าวนาง')}
-{place(fig('temple'), 'วัดแก้วโกรวาราม', 'Wat Kaew Korawaram · the white temple', ['บทที่ 20 · Ch 20'],
+{place(illfig('watkaew', 'วัดแก้วโกรวาราม · Wat Kaew Korawaram'), 'วัดแก้วโกรวาราม', 'Wat Kaew Korawaram · the white temple', ['บทที่ 20 · Ch 20'],
  ('เช้าวันแรกที่กลับบ้าน มะนาวไปทำบุญกับแม่ที่วัดสีขาวบนเนินกลางเมืองกระบี่ ทำบุญให้แม่ของเพื่อนคนหนึ่ง แม่ไม่ถามว่าเพื่อนคนไหน แต่แม่รู้',
   "On her first morning home, Lemon goes with her mother to the white temple on the hill in the middle of Krabi Town. She makes merit for a friend's mother. Her mother doesn't ask which friend. She knows."),
  [('วัดสีขาวทั้งหลัง อยู่บนเนินกลางเมือง ต้องเดินขึ้นบันไดยาว', 'The whole temple is white, on a hill in the centre of town, up a long staircase.'),
   ('ข้างในมีภาพจิตรกรรมฝาผนัง', 'Inside, the walls are covered in murals.'),
   ('ถอดรองเท้าก่อนเข้าโบสถ์ แต่งกายสุภาพ', 'Take off your shoes before going in, and dress politely.')],
- 'Please take off your shoes.', 'กรุณาถอดรองเท้า',
- extra='<p class="note" style="margin-top:12px">ภาพนี้เป็นวัดไทยทั่วไป รอภาพจริงของผู้เขียน<span class="t-en">Photo shows a Thai temple; the author\'s own photo of Wat Kaew is coming.</span></p>')}
-{place(fig('buddha'), 'วัดถ้ำเสือ', 'Tiger Cave Temple · Wat Tham Suea', ['บทที่ 20 · Ch 20'],
+ 'Please take off your shoes.', 'กรุณาถอดรองเท้า')}
+{place(illfig('tigercave', 'บนยอดวัดถ้ำเสือ · At the top of Tiger Cave Temple'), 'วัดถ้ำเสือ', 'Tiger Cave Temple · Wat Tham Suea', ['บทที่ 20 · Ch 20'],
  ('หนองพามะนาวมาปีนบันไดราวหนึ่งพันสองร้อยหกสิบขั้น เพราะอ่านในพันทิปว่าคนอกหักต้องปีน ที่ยอด นักท่องเที่ยวขอให้เธอถ่ายรูป สี่ปีก่อนเธอยืนนิ่ง วันนี้เธอพูดว่า Sure',
   'Nong brings Lemon to climb about 1,260 steps, because he read on Pantip that broken hearts have to climb it. At the top, tourists ask her to take their photo. Four years ago she froze. Today she says, "Sure."'),
  [('อยู่ห่างจากเมืองกระบี่ราว 15 นาที', 'About 15 minutes from Krabi Town.'),
   ('บันไดราว 1,260 ขั้น แต่ละขั้นสูงไม่เท่ากัน ข้างบนมีพระพุทธรูปและวิวรอบทิศ', 'About 1,260 steps, all different heights. At the top: a golden Buddha and views in every direction.'),
   ('ระวังลิง มันชอบขโมยขวดน้ำ', 'Watch out for the monkeys. They love water bottles.')],
- 'Could you take a photo of us?', 'ช่วยถ่ายรูปให้หน่อยได้ไหม', extra=fig('monkey', 900))}
+ 'Could you take a photo of us?', 'ช่วยถ่ายรูปให้หน่อยได้ไหม', extra=fig('buddha', 900) + fig('monkey', 900))}
 {place(fig('market'), 'สวนธารา และถนนคนเดิน', 'Thara Park and Walking Street', ['บทที่ 2–3 · Ch 2–3', 'บทที่ 21 · Ch 21'],
  ('ทุกเย็น มะนาว แม่ ป้าเพ็ญ และดา มาเต้นแอโรบิกที่ลานริมแม่น้ำในสวนธารา ครูนับเป็นภาษาอังกฤษ และนี่คือที่ที่ป้าเพ็ญบอกว่าใส่ชุดดำแปลว่าโสด',
   'Every evening, Lemon, her mother, Auntie Pen and Da dance aerobics by the river in Thara Park. The teacher counts in English. And this is where Auntie Pen says wearing black means you are single.'),
@@ -296,6 +298,10 @@ places = f'''
 
 <section class="paper" id="la"><div class="wrap">
 {head('ลอสแอนเจลิส', 'Los Angeles')}
+<div class="angels"><div><b>สองเมืองแห่งเทวดา</b><span class="t-en" lang="en">Two Cities of Angels</span>
+{bi('กรุงเทพฯ แปลว่าเมืองแห่งเทวดา ลอสแอนเจลิสแปลว่าเทวดา ทั้งสองเมืองมีชื่อเต็มยาวมาก ชื่อเต็มของกรุงเทพฯ ยาวที่สุดในโลก 168 ตัวอักษร คนไทยท่องได้ในลมหายใจเดียว ส่วนชื่อแรกของแอลเอคือ El Pueblo de Nuestra Señora la Reina de los Ángeles ในบทที่ 12 มะนาวท่องชื่อเต็มของกรุงเทพฯ จนคาร์ลอสเกือบเลยทางออก', 'Krung Thep means City of Angels. Los Angeles means The Angels. Both have very long full names. Bangkok\'s, at 168 letters, is the longest city name in the world, and Thai children learn to say it in one breath. L.A.\'s first name was El Pueblo de Nuestra Señora la Reina de los Ángeles. In Chapter 12, Lemon recites Bangkok\'s full name and Carlos almost misses his exit.')}
+<p class="longname">กรุงเทพมหานคร อมรรัตนโกสินทร์ มหินทรายุธยา มหาดิลกภพ นพรัตนราชธานีบูรีรมย์ อุดมราชนิเวศน์มหาสถาน อมรพิมานอวตารสถิต สักกะทัตติยวิษณุกรรมประสิทธิ์</p>
+{say('Two cities of angels.', 'สองเมืองแห่งเทวดา')}</div></div>
 {bi('มะนาวไปอเมริกาหนึ่งเดือน พักบ้านเบียร์ที่ทอร์แรนซ์ คาร์ลอสให้การบ้านทุกวัน ไม่ใช่ในห้องเรียน แต่ในเมือง', "Lemon goes to America for one month and stays at Beer's house in Torrance. Carlos gives her homework every day, not in a classroom, but in the city.", 'intro')}
 {place(fig('lax'), 'สนามบินลอสแอนเจลิส', 'LAX · Los Angeles International Airport', ['บทที่ 12 · Ch 12'],
  ('มะนาวไม่รู้คำว่า purpose แต่เธอรู้จักห้องนี้และรู้จักคำถามนี้ สถานที่สอนคำศัพท์ได้ เธออ่านป้ายทุกป้ายที่แขวนจากเพดาน',
@@ -310,11 +316,11 @@ places = f'''
  [('ป้ายบอกทางบนฟรีเวย์เป็นสีเขียว ป้ายทางออกเขียนว่า EXIT', 'Freeway direction signs are green. Exit signs say EXIT.'),
   ('คนแอลเอบอกระยะทางเป็นเวลา ไม่ใช่ไมล์', 'People in L.A. give distance in minutes, not miles.')],
  "It's twenty minutes without traffic.", 'ถ้ารถไม่ติดยี่สิบนาที')}
-{place(bookfig('act2.jpg', 'ลอสแอนเจลิส · Los Angeles'), 'ไทยทาวน์', 'Thai Town', ['บทที่ 12 · Ch 12', 'บทที่ 17 · Ch 17'],
+{place(illfig('thaitown', 'ไทยทาวน์ ถนนฮอลลีวูดตัดกับถนนเวสเทิร์น · Thai Town at Hollywood Blvd and Western Ave'), 'ไทยทาวน์', 'Thai Town', ['บทที่ 12 · Ch 12', 'บทที่ 17 · Ch 17'],
  ('วันแรกในอเมริกา คาร์ลอสพามะนาวไปกินส้มตำที่ร้านอีสานเล็กๆ ป้าฟันทองพูดอีสานเร็วจนคาร์ลอสฟังไม่ทัน และมะนาวต้องแปลภาษาแม่ของเขาให้เขาฟัง',
   "On her first day in America, Carlos takes Lemon for som tam at a small Isaan restaurant. The gold-toothed auntie speaks Isaan so fast that Carlos can't keep up, and Lemon has to translate his own mother's language for him."),
  [('ย่านไทยทาวน์แห่งแรกในอเมริกา ตั้งชื่อเมื่อปี 1999', "America's first official Thai Town, named in 1999."),
-  ('อยู่บนถนนฮอลลีวูด ทางเข้ามีรูปปั้นอัปสรสีห์', 'On Hollywood Boulevard, with Apsonsi statues at the entrance.'),
+  ('อยู่บนถนนฮอลลีวูด ระหว่างถนนนอร์มังดีกับถนนเวสเทิร์น ทางเข้ามีรูปปั้นอัปสรสีห์', 'On Hollywood Boulevard between Normandie and Western Avenues, with Apsonsi statues at the entrance.'),
   ('ทุกเดือนเมษายนมีงานสงกรานต์', 'Every April there is a Songkran festival.')],
  'Medium spicy, please.', 'เผ็ดกลางค่ะ', extra=f'<div style="margin-top:14px">{video("2H6P4pRuCLU", "อาหารในงานสงกรานต์ ไทยทาวน์", "Songkran food in Thai Town")}</div>')}
 {place(fig('redondo'), 'ท่าเรือเรดอนโดบีช', 'Redondo Beach Pier', ['บทที่ 14 · Ch 14'],
@@ -391,7 +397,7 @@ culture = f'''
 
 <section id="festivals"><div class="wrap">
 {head('เทศกาล', 'Festivals')}
-<div class="place" style="border-top:0"><div class="media">{fig('krathong')}</div><div>
+<div class="place" style="border-top:0"><div class="media">{illfig('krathong', 'ลอยกระทงที่แม่น้ำกระบี่ · Loy Krathong on the Krabi River')}{fig('krathong', 900)}</div><div>
 <h3>ลอยกระทง</h3><p class="en">Loy Krathong · บทที่ 21 · Ch 21</p>
 {bi('คืนวันเพ็ญเดือนสิบสอง คนทั้งเมืองกระบี่ลงไปที่แม่น้ำ มะนาว แม่ ป้าเพ็ญ ฟ้า และดา ไปด้วยกัน ดาไม่ลอยกระทง แต่ไม่เคยพลาดโรตี มะนาวกับคาร์ลอสลอยกระทงหนึ่งใบให้แม่ของเขา',
  'On the night of the full moon of the twelfth month, the whole of Krabi Town goes down to the river. Lemon, her mother, Auntie Pen, Fah and Da go together. Da doesn\'t float a krathong, but she never misses the roti. Lemon and Carlos float one krathong together for his mother.')}
@@ -414,7 +420,7 @@ culture = f'''
 {bi('ในหนังสือ คาร์ลอสบอกว่าภาษาอังกฤษเป็นภาษาของ ตัวฉัน ส่วนภาษาไทยเป็นภาษาของ ช่องว่างระหว่างคน คำพวกนี้อยู่ในช่องว่างนั้น', 'In the book, Carlos says English is a language about "me", and Thai is a language about the space between people. These words live in that space.', 'intro')}
 <div class="cards">
 {card('เกรงใจ', 'Greng jai', ('ไม่อยากเป็นภาระ ไม่อยากทำให้ใครลำบากใจ มะนาวเกรงใจทุกคน จนลืมถามตัวเองว่าอยากได้อะไร', "Not wanting to be a burden or make anyone uncomfortable. Lemon is greng jai with everyone, until she forgets to ask herself what she wants."), "I don't want to trouble you.", 'ไม่อยากรบกวนค่ะ')}
-{card('บุญคุณ', 'Bun khun · a debt of gratitude', ('หนี้ที่ใช้คืนด้วยเงินไม่ได้ โรเบิร์ตจ่ายหนี้ห้าหมื่นให้พ่อ และมะนาวก็พูดคำว่าไม่ไม่ได้อีกเลย', "A debt money can't repay. Robert paid Father's 50,000-baht debt, and Lemon could never say no again."), 'I will never forget what you did for my family.', 'จะไม่ลืมสิ่งที่คุณทำให้ครอบครัวเรา')}
+{card('บุญคุณ', 'Bun khun · a debt of gratitude', ('หนี้ที่ใช้คืนด้วยเงินไม่ได้ เงินกู้ห้าหมื่นของพ่อพอกเป็นสามแสน โรเบิร์ตโอนจ่ายให้ในหนึ่งนาที และมะนาวก็พูดคำว่าไม่ไม่ได้อีกเลย', "A debt money can't repay. Father's 50,000-baht loan grew to 300,000. Robert paid it in one minute, and Lemon could never say no again."), 'I will never forget what you did for my family.', 'จะไม่ลืมสิ่งที่คุณทำให้ครอบครัวเรา')}
 {card('ลอตเตอรี่วันที่ 1 และ 16', 'The lottery, twice a month', ('พ่อส่งรูปลอตเตอรี่ในไลน์กลุ่มครอบครัวทุกงวด พร้อมคำว่า ลุ้น แปดสิบบาท แลกกับสองอาทิตย์ของความหวัง', 'Father posts his lottery ticket in the family LINE group every draw, with the word "ลุ้น". Eighty baht for two weeks of hope.'), 'Fingers crossed!', 'ลุ้น')}
 {card('ไลน์กลุ่มครอบครัว', 'The family LINE group', ('แม่ส่งสติกเกอร์ดอกกุหลาบ สวัสดีวันจันทร์ ทุกเช้า หนองส่งแมวหัวเราะกลับไป', 'Mother sends a rose sticker saying "Happy Monday" every morning. Nong sends back a laughing cat.'), 'Happy Monday! Have a nice day.', 'สวัสดีวันจันทร์')}
 {card('ศาลพระภูมิกับน้ำแดง', 'Spirit houses and red soda', ('ที่ไทยทาวน์ในแอลเอ มะนาวเจอศาลที่มีน้ำแดงวางไว้ เหมือนที่กระบี่ มีคนไกลบ้านหมื่นกิโลยังจำได้ว่าผีชอบน้ำแดง', 'In Thai Town, L.A., Lemon finds a spirit house with red soda, just like in Krabi. Someone ten thousand kilometres from home still remembers the spirits like red soda.'), 'Someone remembered the spirits like red soda.', 'มีคนจำได้ว่าผีชอบน้ำแดง')}
