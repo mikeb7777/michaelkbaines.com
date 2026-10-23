@@ -19,6 +19,7 @@
   <div class="wrap">
     <a class="name" href="./">Michael K. Baines</a>
     <nav class="nav" aria-label="Main">
+      <a href="./">Home</a>
       <a href="./#books">Books</a>
       <a href="what-holds.html" aria-current="page">What Holds</a>
       <a href="./#story">About</a>
@@ -77,6 +78,16 @@
     <div class="fbase"><span>&copy; 2026 Michael K. Baines</span><span>No cookies, no tracking. Earth: NASA imagery; 8K land and night maps by <a href="https://www.solarsystemscope.com/textures/">Solar System Scope</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></div>
   </div>
 </footer>
+
+<button id="toTop" type="button" aria-label="Back to top" hidden>&uarr;</button>
+<style>
+#toTop{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;width:46px;height:46px;border-radius:999px;border:1.5px solid var(--teal);background:var(--teal);color:#fff;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.18);opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s}
+#toTop.show{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){#toTop{transition:none}}
+</style>
+<script>
+(function(){var b=document.getElementById('toTop');function t(){var s=window.scrollY>400;b.hidden=!s;b.classList.toggle('show',s);}window.addEventListener('scroll',t,{passive:true});t();b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});})();
+</script>
 
 <script>
 (function () {

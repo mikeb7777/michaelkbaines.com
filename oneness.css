@@ -356,3 +356,6 @@ section.paper + section.paper{border-top:1px solid var(--line)}
 .people-band .person b{color:var(--lemon)}
 .people-band .person span{color:#C9C2B0}
 .people-band .person p{color:#F4F0E6}
+
+/* Filled cards on near-white paper sections: give the box a warm color instead of white-on-white */
+section.paper .card{background:var(--lemon-soft);border-color:#E5DCC4}
