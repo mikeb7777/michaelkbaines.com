@@ -294,3 +294,9 @@ body.home { background: var(--cream); }
   background:linear-gradient(90deg,rgba(0,0,0,.38) 0,rgba(255,255,255,.22) 2.2%,rgba(0,0,0,.18) 4.2%,rgba(255,255,255,.06) 6%,transparent 9%),
              linear-gradient(115deg,rgba(255,255,255,.16) 0,transparent 38%)}
 .bookhero .book.bookcover{filter:drop-shadow(18px 26px 26px rgba(0,0,0,.42))}
+
+/* Story/About band: teal (Lemon-page color) with white text */
+#story { background: var(--teal); color:#fff; }
+#story h1, #story h2, #story h3, #story h4 { color:#fff; }
+#story p, #story li { color: rgba(255,255,255,.9); }
+#story a, #story b, #story strong { color: var(--lemon); }
