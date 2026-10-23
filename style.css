@@ -284,3 +284,13 @@ body.home { background: var(--cream); }
   .books { padding: 64px 0 56px; }
 }
 @media (max-width: 520px) { .fgrid { grid-template-columns: 1fr; } }
+
+/* Book mockup: a cover becomes a standing hardback, with spine shading, page edges and a cast shadow. */
+.book{position:relative;display:block;width:100%;max-width:260px;transform:perspective(1600px) rotateY(-14deg);transform-origin:30% 50%;filter:drop-shadow(18px 26px 26px rgba(0,0,0,.42))}
+.book::before{content:"";position:absolute;top:1.2%;bottom:1.2%;right:-11px;width:12px;border-radius:0 3px 3px 0;
+  background:repeating-linear-gradient(180deg,#F7F2E4 0 2px,#DCD3BD 2px 3px),#F2ECDC;box-shadow:inset 4px 0 6px rgba(0,0,0,.18)}
+.book img{position:relative;display:block;width:100%;height:auto;border-radius:3px 6px 6px 3px;z-index:1}
+.book::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:3px 6px 6px 3px;
+  background:linear-gradient(90deg,rgba(0,0,0,.38) 0,rgba(255,255,255,.22) 2.2%,rgba(0,0,0,.18) 4.2%,rgba(255,255,255,.06) 6%,transparent 9%),
+             linear-gradient(115deg,rgba(255,255,255,.16) 0,transparent 38%)}
+.bookhero .book.bookcover{filter:drop-shadow(18px 26px 26px rgba(0,0,0,.42))}
