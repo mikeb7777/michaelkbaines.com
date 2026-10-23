@@ -1,5 +1,6 @@
 /* Earth emerging from the dark. One full-screen WebGL2 quad: the globe is ray-traced per pixel,
-   so it stays sharp at any size. Textures: NASA Blue Marble, Black Marble and cloud maps (public domain).
+   so it stays sharp at any size. Textures: NASA Blue Marble oceans and clouds (public domain); land and night lights at 8K from
+   Solar System Scope (CC BY 4.0, colour-matched and composited).
    Falls back to the static poster when WebGL2 is missing or motion is reduced. */
 (function () {
   var host = document.querySelector('.space');
@@ -10,8 +11,12 @@
   if (!gl) { host.classList.add('static'); return; }
 
   var base = cv.getAttribute('data-base') || 'assets/earth/';
-  var big = Math.max(screen.width, screen.height) * (window.devicePixelRatio || 1) > 1700;
-  var res = big ? '4k' : '2k';
+  /* texture tier: 8K on large or high-density screens whose GPU allows it, 4K in between, 2K on phones */
+  var px = Math.max(screen.width, screen.height) * (window.devicePixelRatio || 1);
+  var maxTex = gl.getParameter(gl.MAX_TEXTURE_SIZE);
+  var mob = Math.min(screen.width, screen.height) < 600;
+  var res = (!mob && px >= 2200 && maxTex >= 8192) ? '8k' : (px > 1700 && maxTex >= 4096) ? '4k' : '2k';
+  var cres = res === '8k' ? '4k' : res;
 
   var VS = '#version 300 es\nin vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
   var FS = [
@@ -38,7 +43,7 @@
     '  vec4 G[4];G[0]=vec4(.16,.78,.020,.6);G[1]=vec4(.42,.22,.013,-.9);G[2]=vec4(.07,.30,.009,.2);G[3]=vec4(.55,.88,.007,1.3);',
     '  for(int i=0;i<4;i++){vec2 d=u-G[i].xy*vec2(uRes.x/uRes.y,1.);float a=G[i].w;d=mat2(cos(a),-sin(a),sin(a),cos(a))*d;',
     '    d.y*=2.6;float r=length(d)/G[i].z;float arm=.5+.5*sin(atan(d.y,d.x)*2.-r*4.);',
-    '    c+=vec3(.85,.80,1.)*(exp(-r*r*.9)*.16*(.6+.4*arm)+exp(-r*r*14.)*.35);}',
+    '    c+=vec3(.86,.90,.95)*(exp(-r*r*.9)*.16*(.6+.4*arm)+exp(-r*r*14.)*.35);}',
     '  return c;}',
     'void main(){',
     '  vec2 f=gl_FragCoord.xy;',
@@ -169,7 +174,7 @@
   Promise.all([
     load(0, 'uDay', 'day-' + res + '.jpg'),
     load(1, 'uNight', 'night-' + res + '.jpg'),
-    load(2, 'uCloud', 'clouds-' + res + '.jpg'),
+    load(2, 'uCloud', 'clouds-' + cres + '.jpg'),
     load(3, 'uSurf', 'surface-2k.png')
   ]).then(function () { t0 = 0; requestAnimationFrame(frame); })
     .catch(function () { host.classList.add('static'); });
