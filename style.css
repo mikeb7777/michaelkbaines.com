@@ -230,9 +230,25 @@ body.home { background: var(--cream); }
 .art .t { position: absolute; left: 7%; right: 7%; bottom: 7%; font-family: var(--head); font-weight: 700; font-size: clamp(34px, 5.4vw, 64px); line-height: .98; letter-spacing: -.02em; }
 .art .t small { display: block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: .34em; letter-spacing: 0; margin-bottom: 8px; opacity: .85; }
 .art .t em { display: block; font-style: normal; font-family: 'Prompt', sans-serif; font-weight: 500; font-size: .3em; letter-spacing: 0; margin-top: 10px; }
-.toe .art { background: radial-gradient(circle at 70% 30%, #2A6C7A, var(--navy) 45%, var(--navy-2) 85%); color: #fff; }
+.toe .art { background: radial-gradient(circle at 72% 30%, #12404D, var(--navy-2) 70%); color: #fff; }
 .toe .art .t { color: #fff; } .toe .art .t small { color: var(--lemon); }
-.one .art { background: var(--teal); color: var(--cream); }
+.one .art { background: #0E2338; color: #F3EEE3; }
+.one .art .t { left: 6%; right: 6%; top: 9%; bottom: auto; text-align: center; font-family: var(--serif); font-weight: 700; letter-spacing: .02em; font-size: clamp(26px, 3.6vw, 44px); line-height: 1.05; }
+.one .art .t .cap { display: block; text-transform: uppercase; }
+.one .art .t .cap.wide { letter-spacing: .42em; margin-right: -.42em; }
+.one .art .t small { font-size: .42em; color: #D9C38E; margin: 16px 0 0; opacity: 1; }
+.one .art .ring { transform-box: fill-box; transform-origin: center; transition: transform 1.6s cubic-bezier(.2,.7,.2,1); }
+.one .art .glow { transform-box: fill-box; transform-origin: center; transition: transform 1.6s cubic-bezier(.2,.7,.2,1), opacity 1.6s; }
+.one .art:hover .ring { transform: scale(1.12); }
+.one .art:hover .glow { transform: scaleX(1.25); }
+.toe .art .toes, .toe .art .sole { transform-box: view-box; transform-origin: 292px 176px; transition: transform 1.6s cubic-bezier(.2,.7,.2,1); }
+.toe .art:hover .toes { transform: translateY(-6px); }
+.toe .art:hover .sole { transform: scale(1.04); }
+.ic2 .wrap { display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center; }
+.ic2logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+.ic2logo img:first-child { width: 64px; height: 64px; }
+.ic2logo img:last-child { width: auto; height: 52px; }
+@media (max-width: 760px) { .ic2 .wrap { grid-template-columns: 1fr; gap: 18px; } }
 .lem .art { background: var(--lemon); color: var(--navy); }
 .lem .art .t small { color: var(--teal); }
 .art .orbits, .art .petals, .art .slice > g { transform-box: view-box; transform-origin: 200px 200px; transition: transform 1.6s cubic-bezier(.2,.7,.2,1); }
