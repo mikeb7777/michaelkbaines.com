@@ -60,7 +60,7 @@ def video(vid, title, sub):
 
 LOGO = '''<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#F2C230"/><circle cx="50" cy="50" r="41" fill="#FFF4CC"/><g stroke="#F2C230" stroke-width="4"><line x1="50" y1="10" x2="50" y2="90"/><line x1="10" y1="50" x2="90" y2="50"/><line x1="22" y1="22" x2="78" y2="78"/><line x1="78" y1="22" x2="22" y2="78"/></g></svg>'''
 
-NAV = [('index.html', 'หน้าแรก', 'Home'), ('read.html', 'อ่านฟรี', 'Free chapters'), ('places.html', 'สถานที่', 'Places'), ('culture.html', 'วัฒนธรรม', 'Culture'), ('listen.html', 'ฟังและพูด', 'Listen'), ('toolkit.html', 'เครื่องมือของคาร์ลอส', "Carlos's Toolkit")]
+NAV = [('index.html', 'หน้าแรก', 'Home'), ('read.html', 'อ่านหนังสือ', 'Read the book'), ('places.html', 'สถานที่', 'Places'), ('culture.html', 'วัฒนธรรม', 'Culture'), ('listen.html', 'ฟังและพูด', 'Listen'), ('toolkit.html', 'เครื่องมือของคาร์ลอส', "Carlos's Toolkit")]
 
 def page(fname, title, desc, body, og='img/cover.jpg'):
     nav = ''.join(f'<a href="{h}"{" aria-current=page" if h == fname else ""}{" class=navkit" if h == "toolkit.html" else (" class=navfree" if h == "read.html" else "")}>{t}<small lang="en">{e}</small></a>' for h, t, e in NAV)
@@ -78,7 +78,7 @@ def page(fname, title, desc, body, og='img/cover.jpg'):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:ital,wght@0,400;0,600;1,400&family=Lora:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="lemon.css">
+<link rel="stylesheet" href="lemon.css?v=20261027">
 </head>
 <body>
 <header class="bar"><div class="wrap">
@@ -93,9 +93,9 @@ def page(fname, title, desc, body, og='img/cover.jpg'):
 <p>นิยายสองภาษาสำหรับคนไทยที่อยากพูดภาษาอังกฤษ<span class="t-en" lang="en">A bilingual novel for Thai adults who want to speak English.</span></p>
 <p><a href="{AUTHOR}">michaelkbaines.com</a> · <a href="{AUTHOR}#books">หนังสือเล่มอื่น · Other books</a> · <a href="{AUTHOR}#newsletter">รับข่าว · Newsletter</a></p></div>
 <div><b class="fh">ในเว็บนี้ · On this site</b><ul>
-<li><a href="index.html">หน้าแรก · Home</a></li><li><a href="read.html">อ่านฟรี 3 บทแรก · Free chapters</a></li><li><a href="places.html#krabi">กระบี่ · Krabi</a></li><li><a href="places.html#la">ลอสแอนเจลิส · Los Angeles</a></li>
+<li><a href="index.html">หน้าแรก · Home</a></li><li><a href="read.html">อ่านหนังสือ · Read the book</a></li><li><a href="places.html#krabi">กระบี่ · Krabi</a></li><li><a href="places.html#la">ลอสแอนเจลิส · Los Angeles</a></li>
 <li><a href="culture.html">ภาคใต้และวัฒนธรรม · Culture</a></li><li><a href="listen.html">ฟังและพูด · Listen and speak</a></li><li><a href="toolkit.html">เครื่องมือของคาร์ลอส · Carlos's Toolkit</a></li></ul></div>
-<div><b class="fh">เรียนฟรี · Learn free</b><ul>
+<div><b class="fh">แหล่งเรียนรู้ · Where to learn</b><ul>
 <li><a href="https://dict.longdo.com" target="_blank" rel="noopener">Longdo Dict</a> <span>ไทย–อังกฤษ · Thai–English</span></li>
 <li><a href="https://dictionary.cambridge.org" target="_blank" rel="noopener">Cambridge Dictionary</a> <span>มีเสียง · with audio</span></li>
 <li><a href="https://lyricstraining.com" target="_blank" rel="noopener">LyricsTraining</a> <span>เพลง · songs</span></li>
@@ -155,11 +155,11 @@ def head(th, en):
 index = f'''
 <div class="hero"><div class="wrap">
 <div>
-<p class="eyebrow">นิยายสองภาษา ไทย–อังกฤษ · เล่มหนึ่งกำลังจะออก<span class="t-en">A bilingual Thai–English novel · Book One coming soon</span></p>
+<p class="eyebrow">นิยายสองภาษา ไทย–อังกฤษ · อ่านได้แล้ววันนี้<span class="t-en">A bilingual Thai–English novel · Book One is here</span></p>
 <h1>การผจญภัยของมะนาว<span class="en">The Adventures of Lemon</span></h1>
 <p class="lead">มะนาวเป็นแม่บ้านโรงแรมที่อ่าวนาง พูดภาษาอังกฤษได้แค่ประโยคบนกระดาษของป้าเพ็ญ แล้ววันหนึ่งแขกห้อง 412 ก็ถามคำถามที่ไม่อยู่ในกระดาษ</p>
 <p class="lead en">Lemon is a hotel housekeeper in Ao Nang who can only speak the English on Auntie Pen's card. Then the guest in Room 412 asks a question that isn't on it.</p>
-<div class="actions"><a class="btn" href="read.html">⬇ อ่านฟรี 3 บทแรก · Read 3 chapters free</a><a class="btn ghost" href="#watch">▶ ดูก่อน · Watch first</a></div>
+<div class="actions"><a class="btn" href="read.html">⬇ อ่านหนังสือ · Read the book</a><a class="btn ghost" href="#watch">▶ ดูก่อน · Watch first</a></div>
 </div>
 <img class="cover" src="img/cover.jpg" alt="ปกหนังสือ การผจญภัยของมะนาว · Cover of The Adventures of Lemon" width="600" height="900">
 </div></div>
@@ -171,7 +171,7 @@ index = f'''
 <section class="kit"><div class="wrap kitgrid">
 <div><p class="kitlabel">★ เครื่องมือของคาร์ลอส · Carlos's Toolkit</p>
 <h2>ห้องเรียนหนึ่งชั่วโมง ชีวิตที่เหลือคือบทเรียน<span class="t-en" lang="en">Class is one hour. Life is the rest.</span></h2>
-{bi('เครื่องมือฟรีที่คาร์ลอสให้มะนาวในบทที่ 14 เพลง ซีรีส์ พจนานุกรม และคนจริง เลือกสัปดาห์ละหนึ่งอย่าง', 'The free tools Carlos gives Lemon in Chapter 14: songs, shows, dictionaries and real people. Pick one a week.')}
+{bi('เครื่องมือที่คาร์ลอสให้มะนาวในบทที่ 14 เพลง ซีรีส์ พจนานุกรม และคนจริง เลือกสัปดาห์ละหนึ่งอย่าง', 'The tools Carlos gives Lemon in Chapter 14: songs, shows, dictionaries and real people. Pick one a week.')}
 <div class="actions"><a class="btn dark" href="toolkit.html">เปิดชุดเครื่องมือ · Open the toolkit →</a><a class="btn ghost2" href="listen.html">🎧 ฟังและพูดตามทุกบท · Listen to every chapter</a></div></div>
 <ol class="kitsteps">
 <li><b>🎵 ร้องเพลง</b><span class="t-en" lang="en">Sing: fill in the missing lyrics</span></li>
@@ -231,7 +231,7 @@ index = f'''
 <div class="actions"><a class="btn" href="{AUTHOR}#newsletter">รับข่าวเมื่อหนังสือออก · Get news</a><a class="btn ghost" style="color:var(--teal);border-color:var(--teal)" href="{AUTHOR}">หนังสือเล่มอื่นของผู้เขียน · Other books</a></div>
 </div></section>
 '''
-page('index.html', 'การผจญภัยของมะนาว · The Adventures of Lemon', 'นิยายสองภาษาไทย–อังกฤษ สำหรับคนไทยที่อยากพูดภาษาอังกฤษ · A bilingual Thai–English novel, with real places, Southern Thai culture and free learning tools.', index)
+page('index.html', 'การผจญภัยของมะนาว · The Adventures of Lemon', 'นิยายสองภาษาไทย–อังกฤษ สำหรับคนไทยที่อยากพูดภาษาอังกฤษ · A bilingual Thai–English novel, with real places, Southern Thai culture and learning tools.', index)
 
 # ---------------- places ----------------
 def place(media, th, en, chips, body, facts, say_en, say_th, extra='', pid=''):
@@ -566,16 +566,39 @@ listenp = f"""
 page('listen.html', 'ฟังและพูด · Listen and speak · The Adventures of Lemon', 'ฟังคำศัพท์ทุกบทของ การผจญภัยของมะนาว พูดตาม และอัดเสียงตัวเอง · Hear the words of every chapter, repeat them and record yourself.', listenp)
 
 
-# ---------------- read (free chapters + promo) ----------------
-SHARE = 'https://line.me/R/msg/text/?' + 'อ่านฟรี 3 บทแรก การผจญภัยของมะนาว นิยายเรียนภาษาอังกฤษ https://michaelkbaines.com/lemon/read.html'.replace(' ', '%20')
+# ---------------- read (the book, on the honor system) ----------------
+FULL = 'The_Adventures_of_Lemon_Book_One.pdf'
+SAMPLE = 'Lemon_Chapters_1-3.pdf'
+def _pdfinfo(fn):
+    path = os.path.join(OUT, fn)
+    if not os.path.exists(path): return None
+    try:
+        from pypdf import PdfReader
+        n = len(PdfReader(path).pages)
+    except Exception:
+        n = 0
+    return n, os.path.getsize(path) / 1e6
+_full = _pdfinfo(FULL)
+_samp = _pdfinfo(SAMPLE) or (54, 2.9)
+if _full:
+    DL, DL_TH, DL_EN = FULL, f'เล่มหนึ่งทั้งเล่ม · {_full[0]} หน้า · {_full[1]:.0f} MB · ไม่ต้องสมัคร', f'The whole of Book One · {_full[0]} pages · {_full[1]:.0f} MB · no sign-up'
+    DL_BTN = '⬇ ดาวน์โหลดหนังสือ · Download the book (PDF)'
+    ALT = f'<p class="small">เน็ตช้า? <a href="{SAMPLE}" download>เริ่มจาก 3 บทแรก ({_samp[1]:.1f} MB)</a><span class="t-en" lang="en">Slow connection? <a href="{SAMPLE}" download>Start with the first three chapters</a></span></p>'
+else:
+    DL, DL_TH, DL_EN = SAMPLE, f'บทที่ 1–3 · {_samp[0]} หน้า · {_samp[1]:.1f} MB · ไม่ต้องสมัคร เล่มเต็มกำลังจะขึ้นเว็บ', f'Chapters 1–3 · {_samp[0]} pages · no sign-up · the whole book is on its way'
+    DL_BTN = '⬇ ดาวน์โหลด 3 บทแรก · Download chapters 1–3 (PDF)'
+    ALT = ''
+SHARE = 'https://line.me/R/msg/text/?' + 'การผจญภัยของมะนาว นิยายเรียนภาษาอังกฤษ อ่านก่อน จ่ายตามกำลัง https://michaelkbaines.com/lemon/read.html'.replace(' ', '%20')
 readp = f"""
 <div class="hero"><div class="wrap">
-<div><p class="eyebrow">อ่านฟรี 3 บทแรก<span class="t-en" lang="en">Read the first three chapters free</span></p>
+<div><p class="eyebrow">อ่านก่อน จ่ายตามกำลัง<span class="t-en" lang="en">Read first. Pay what is fair.</span></p>
 <h1>“Pool open. Can swim.”<span class="en">มะนาวพูดภาษาอังกฤษแบบโรงแรม เหมือนคนไทยอีกหลายล้านคน</span></h1>
 <p class="lead">นิยายสองภาษาที่เริ่มจากภาษาอังกฤษที่คุณพูดอยู่แล้ว ภาษาไทยเกือบทั้งเล่มในบทแรก แล้วภาษาอังกฤษค่อยๆ เพิ่มขึ้นจนคุณไม่ทันรู้ตัว</p>
 <p class="lead en">A bilingual novel that starts from the English you already speak. The first chapters are almost all Thai; the English grows until you stop noticing it.</p>
-<div class="actions"><a class="btn big" href="Lemon_Chapters_1-3.pdf" download>⬇ ดาวน์โหลดฟรี · Free download (PDF)</a><a class="btn ghost" href="{SHARE}">ส่งให้เพื่อนทางไลน์ · Share on LINE</a></div>
-<p class="small">บทที่ 1–3 · 54 หน้า · 2.9 MB · ไม่ต้องสมัคร ไม่ต้องจ่าย<span class="t-en" lang="en">Chapters 1–3 · 54 pages · no sign-up, no payment</span></p></div>
+<div class="actions"><a class="btn big" href="{DL}" download>{DL_BTN}</a><a class="btn ghost" href="{SHARE}">ส่งให้เพื่อนทางไลน์ · Share on LINE</a></div>
+<p class="small">{DL_TH}<span class="t-en" lang="en">{DL_EN}</span></p>
+{ALT}
+<p class="small"><a href="#honor">หนังสือเล่มนี้ใช้ระบบความไว้ใจ อ่านวิธีจ่ายด้านล่าง</a><span class="t-en" lang="en"><a href="#honor">This book runs on the honor system. How it works is below.</a></span></p></div>
 <img class="cover" src="img/cover.jpg" alt="ปกหนังสือ · Book cover" width="600" height="900">
 </div></div>
 
@@ -593,20 +616,21 @@ readp = f"""
 <div class="stats">
 <div class="stat"><b>95%</b><span>ไทยในบทแรก คุณเข้าใจเกือบทุกคำ<span class="t-en">Thai in Chapter 1: you understand almost everything</span></span></div>
 <div class="stat"><b>21</b><span>บท ภาษาอังกฤษเพิ่มขึ้นทีละนิด<span class="t-en">chapters, a little more English each time</span></span></div>
-<div class="stat"><b>🎧</b><span>ฟังเสียงทุกคำฟรี<span class="t-en">every word read aloud, free</span></span></div>
+<div class="stat"><b>🎧</b><span>ฟังเสียงทุกคำ พูดตาม อัดเสียงตัวเอง<span class="t-en">every word read aloud, to repeat and record</span></span></div>
 <div class="stat"><b>0</b><span>กฎไวยากรณ์ที่ต้องท่อง<span class="t-en">grammar rules to memorize</span></span></div>
 </div>
-<div class="actions"><a class="btn" href="Lemon_Chapters_1-3.pdf" download>⬇ ดาวน์โหลดฟรี · Free download</a><a class="btn ghost" href="listen.html#ch1">🎧 ฟังบทที่ 1 · Listen to Chapter 1</a></div>
+<div class="actions"><a class="btn" href="{DL}" download>{DL_BTN}</a><a class="btn ghost" href="listen.html#ch1">🎧 ฟังบทที่ 1 · Listen to Chapter 1</a></div>
 </div></section>
 
-<section><div class="wrap support">
-<div><h2>เลี้ยงกาแฟมะนาวหนึ่งแก้ว</h2><p class="en">Buy Lemon a coffee</p>
-{bi('ชอบสามบทนี้ไหม เล่มเต็มกำลังจะออก ถ้าอยากช่วยให้เสร็จเร็วขึ้น สนับสนุนผู้เขียนได้ผ่านพร้อมเพย์ จะยี่สิบบาทหรือเท่าไหร่ก็ได้', 'Enjoyed these chapters? The full book is on its way. If you would like to help finish it, you can support the author by PromptPay, any amount.')}
-{bi('สแกนด้วยแอปธนาคารไหนก็ได้', 'Scan with any Thai banking app.')}
-<div class="actions"><a class="btn dark" href="{AUTHOR}#newsletter">รับข่าวเมื่อเล่มเต็มออก · Tell me when it is out</a></div></div>
+<section id="honor"><div class="wrap support">
+<div><h2>ระบบความไว้ใจ</h2><p class="en">The honor system</p>
+{bi('อ่านก่อน แล้วค่อยตัดสินใจ ถ้าการจ่ายเงินเป็นภาระสำหรับคุณ หนังสือเล่มนี้เป็นของคุณ อ่านได้เลยไม่ต้องจ่าย', 'Read first, then decide. If paying would be a hardship for you, the book is yours. Read it and keep it.')}
+{bi('ถ้าคุณพอมีกำลัง และหนังสือช่วยคุณได้ ช่วยจ่ายตามที่คุณคิดว่าเหมาะสม ผู้เขียนไม่ได้หวังกำไร แค่ไม่อยากขาดทุน และอยากได้ค่าใช้จ่ายกับเวลาที่ลงไปคืนมาบ้าง', 'If you can afford it and the book helps you, please pay what you think is fair. The author is not trying to make a profit, only not to lose money, and to recover some of the cost and time that went into it.')}
+{bi('ได้หนังสือมาจากเพื่อนหรือจากนามบัตร ก็ใช้ระบบเดียวกัน สแกนพร้อมเพย์ด้วยแอปธนาคารไหนก็ได้', 'Got the book from a friend or from a card? Same system. Scan the PromptPay code with any Thai banking app.')}
+<div class="actions"><a class="btn dark" href="{AUTHOR}#newsletter">รับข่าวเมื่อเล่มสองออก · Tell me when Book Two is out</a></div></div>
 <figure class="pp"><img src="img/promptpay.jpg" alt="พร้อมเพย์ของผู้เขียน · Author's PromptPay QR" width="720" height="1060" loading="lazy"></figure>
 </div></section>
 """
-page('read.html', 'อ่านฟรี 3 บทแรก · The Adventures of Lemon', 'ดาวน์โหลดฟรีสามบทแรกของ การผจญภัยของมะนาว นิยายสองภาษาไทย–อังกฤษ · Download the first three chapters of The Adventures of Lemon free.', readp)
+page('read.html', 'อ่านหนังสือ · The Adventures of Lemon', 'อ่าน การผจญภัยของมะนาว นิยายสองภาษาไทย–อังกฤษ อ่านก่อน จ่ายตามกำลัง · Read The Adventures of Lemon, a bilingual Thai–English novel. Read first, pay what is fair.', readp)
 
 print('built')
