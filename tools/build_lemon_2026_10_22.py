@@ -78,12 +78,12 @@ def page(fname, title, desc, body, og='img/cover.jpg'):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:ital,wght@0,400;0,600;1,400&family=Lora:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="lemon.css?v=20261027f">
+<link rel="stylesheet" href="lemon.css?v=20261027h">
 </head>
 <body>
 <header class="bar"><div class="wrap">
 <a class="brand" href="index.html">{LOGO}<span>การผจญภัยของมะนาว<small>The Adventures of Lemon</small></span></a>
-<nav class="nav" aria-label="เมนู · Menu">{nav}</nav>
+<nav class="nav" aria-label="เมนู · Menu"><a href="../" class=navauthor>&larr; ผู้เขียน<small lang="en">Author home</small></a>{nav}</nav>
 </div></header>
 <main>
 {body}
@@ -432,7 +432,7 @@ culture = f'''
 {bi('ในหนังสือ คาร์ลอสบอกว่าภาษาอังกฤษเป็นภาษาของ ตัวฉัน ส่วนภาษาไทยเป็นภาษาของ ช่องว่างระหว่างคน คำพวกนี้อยู่ในช่องว่างนั้น', 'In the book, Carlos says English is a language about "me", and Thai is a language about the space between people. These words live in that space.', 'intro')}
 <div class="cards">
 {card('เกรงใจ', 'Greng jai', ('ไม่อยากเป็นภาระ ไม่อยากทำให้ใครลำบากใจ มะนาวเกรงใจทุกคน จนลืมถามตัวเองว่าอยากได้อะไร', "Not wanting to be a burden or make anyone uncomfortable. Lemon is greng jai with everyone, until she forgets to ask herself what she wants."), "I don't want to trouble you.", 'ไม่อยากรบกวนค่ะ')}
-{card('บุญคุณ', 'Bun khun · a debt of gratitude', ('หนี้ที่ใช้คืนด้วยเงินไม่ได้ เงินกู้ห้าหมื่นของพ่อพอกเป็นสามแสน โรเบิร์ตโอนจ่ายให้ในหนึ่งนาที และมะนาวก็พูดคำว่าไม่ไม่ได้อีกเลย', "A debt money can't repay. Father's 50,000-baht loan grew to 300,000. Robert paid it in one minute, and Lemon could never say no again."), 'I will never forget what you did for my family.', 'จะไม่ลืมสิ่งที่คุณทำให้ครอบครัวเรา')}
+{card('บุญคุณ', 'Bun khun · a debt of gratitude', ('หนี้ที่ใช้คืนด้วยเงินไม่ได้ หนี้ก้อนเล็กๆ ที่พ่อกู้มาหลายปีพอกเป็นสามแสน โรเบิร์ตโอนจ่ายให้ในหนึ่งนาที และมะนาวก็พูดคำว่าไม่ไม่ได้อีกเลย', "A debt money can't repay. Father's years of small loans grew to 300,000. Robert paid it in one minute, and Lemon could never say no again."), 'I will never forget what you did for my family.', 'จะไม่ลืมสิ่งที่คุณทำให้ครอบครัวเรา')}
 {card('ลอตเตอรี่วันที่ 1 และ 16', 'The lottery, twice a month', ('พ่อส่งรูปลอตเตอรี่ในไลน์กลุ่มครอบครัวทุกงวด พร้อมคำว่า ลุ้น แปดสิบบาท แลกกับสองอาทิตย์ของความหวัง', 'Father posts his lottery ticket in the family LINE group every draw, with the word "ลุ้น". Eighty baht for two weeks of hope.'), 'Fingers crossed!', 'ลุ้น')}
 {card('ไลน์กลุ่มครอบครัว', 'The family LINE group', ('แม่ส่งสติกเกอร์ดอกกุหลาบ สวัสดีวันจันทร์ ทุกเช้า หนองส่งแมวหัวเราะกลับไป', 'Mother sends a rose sticker saying "Happy Monday" every morning. Nong sends back a laughing cat.'), 'Happy Monday! Have a nice day.', 'สวัสดีวันจันทร์')}
 {card('ศาลพระภูมิกับน้ำแดง', 'Spirit houses and red soda', ('ที่ไทยทาวน์ในแอลเอ มะนาวเจอศาลที่มีน้ำแดงวางไว้ เหมือนที่กระบี่ มีคนไกลบ้านหมื่นกิโลยังจำได้ว่าผีชอบน้ำแดง', 'In Thai Town, L.A., Lemon finds a spirit house with red soda, just like in Krabi. Someone ten thousand kilometres from home still remembers the spirits like red soda.'), 'Someone remembered the spirits like red soda.', 'มีคนจำได้ว่าผีชอบน้ำแดง')}
@@ -578,7 +578,7 @@ page('listen.html', 'ฟังและพูด · Listen and speak · The Adve
 
 
 # ---------------- read (the book, on the honor system) ----------------
-FULL = 'The_Adventures_of_Lemon_Book_One.pdf'
+FULL = 'The_Adventures_of_Lemon_Rev1A.pdf'
 SAMPLE = 'Lemon_Chapters_1-3.pdf'
 def _pdfinfo(fn):
     path = os.path.join(OUT, fn)
@@ -617,7 +617,7 @@ readp = f"""
 {head('ในสามบทแรก', 'In the first three chapters')}
 <div class="cards">
 <div class="card"><img class="cardimg" src="img/il_graduation.jpg" alt="" loading="lazy" width="900" height="1125"><h3>1 · วันรับปริญญา</h3><p class="en">The Graduation</p>{bi('ครอบครัวทั้งบ้านวิ่งผิดประตู พ่อในสูทยืมที่ใหญ่เกินตัว และนักท่องเที่ยวที่ขอให้มะนาวถ่ายรูป แต่เธอพูดไม่ออก', 'The whole family runs to the wrong gate, Father wears a borrowed suit far too big, and a tourist asks Lemon to take a photo. She freezes.')}</div>
-<div class="card"><img class="cardimg" src="img/il_envelopes.jpg" alt="" loading="lazy" width="900" height="1125"><h3>2 · หนี้</h3><p class="en">The Debt</p>{bi('น้ำท่วมอู่ พ่อกู้เงินนอกระบบห้าหมื่น ซองเงินเดือนห้าซอง แอโรบิกที่สวนธารา และข่าวลือว่าใส่ดำแปลว่าโสด', 'A flood, a 50,000-baht informal loan, five payday envelopes, aerobics in Thara Park, and the rumor that black means single.')}</div>
+<div class="card"><img class="cardimg" src="img/il_envelopes.jpg" alt="" loading="lazy" width="900" height="1125"><h3>2 · หนี้</h3><p class="en">The Debt</p>{bi('หนี้นอกระบบที่พ่อกู้ทีละนิดมาหลายปี ค่าเทอม ค่ารถ ค่างวดบ้าน แล้วน้ำก็ท่วมอู่ ซองเงินเดือนห้าซอง แอโรบิกที่สวนธารา และข่าวลือว่าใส่ดำแปลว่าโสด', 'Years of small loans from a lender, for school fees, bus fare and the mortgage, then a flood in the workshop. Five payday envelopes, aerobics in Thara Park, and the rumor that black means single.')}</div>
 <div class="card"><img class="cardimg" src="img/il_mango.jpg" alt="" loading="lazy" width="900" height="1125"><h3>3 · ผู้ชายที่พูดแทนเธอ</h3><p class="en">The Man Who Spoke For Her</p>{bi('เบียร์สอนเสียงตัวอักษรใต้ต้นมะม่วง โรเบิร์ตจ่ายหนี้สามแสนในหนึ่งนาที และบุญคุณที่ไม่มีวันหมด', 'Beer teaches letter sounds under the mango tree, Robert pays a 300,000-baht debt in one minute, and a debt of gratitude that never ends.')}</div>
 </div>
 </div></section>

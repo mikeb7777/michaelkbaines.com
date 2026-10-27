@@ -316,3 +316,7 @@ html{-webkit-text-size-adjust:100%}
 .nx b{display:block;font:600 14px/1.3 var(--display);color:var(--teal)}
 .nx span{display:block;font:italic 13px/1.3 var(--en);color:var(--soft)}
 .nx em{display:inline-block;margin-top:5px;font:600 11px var(--display);font-style:normal;background:var(--lemon-soft);border:1px solid var(--lemon);border-radius:999px;padding:2px 8px;white-space:nowrap}
+.nav a.navauthor{box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.thanks{margin-top:14px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);font-size:15px;line-height:1.55}
+.thanks a{color:inherit;font-weight:600}
+.thanks .t-en{display:block;margin-top:6px;opacity:.9}
