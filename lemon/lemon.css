@@ -320,3 +320,4 @@ html{-webkit-text-size-adjust:100%}
 .thanks{margin-top:14px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);font-size:15px;line-height:1.55}
 .thanks a{color:inherit;font-weight:600}
 .thanks .t-en{display:block;margin-top:6px;opacity:.9}
+.thanks .thx-act{display:block;margin-top:10px;font-weight:600}
