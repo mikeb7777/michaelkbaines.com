@@ -78,7 +78,7 @@ def page(fname, title, desc, body, og='img/cover.jpg'):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:ital,wght@0,400;0,600;1,400&family=Lora:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="lemon.css?v=20261027i">
+<link rel="stylesheet" href="lemon.css?v=20261027j">
 </head>
 <body>
 <header class="bar"><div class="wrap">
