@@ -291,3 +291,10 @@ html{-webkit-text-size-adjust:100%}
   background:linear-gradient(90deg,rgba(0,0,0,.38) 0,rgba(255,255,255,.22) 2.2%,rgba(0,0,0,.18) 4.2%,rgba(255,255,255,.06) 6%,transparent 9%),
              linear-gradient(115deg,rgba(255,255,255,.16) 0,transparent 38%)}
 .hero .book.cover{box-shadow:none;border-radius:0;transform:perspective(1600px) rotateY(-14deg)}
+
+/* author's note */
+.anote{display:grid;grid-template-columns:.8fr 1.6fr;gap:40px;align-items:start}
+.anote .sig{font:600 15px/1.4 var(--display);margin-top:18px;color:var(--lemon)}
+.anote .sig .t-en{display:block;font:italic 400 14px/1.4 var(--en);color:#CFE5E8}
+.anote-b p{margin:0 0 16px}
+@media(max-width:820px){.anote{grid-template-columns:1fr;gap:12px}}

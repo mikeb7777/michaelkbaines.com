@@ -78,7 +78,7 @@ def page(fname, title, desc, body, og='img/cover.jpg'):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:ital,wght@0,400;0,600;1,400&family=Lora:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="lemon.css?v=20261027">
+<link rel="stylesheet" href="lemon.css?v=20261027b">
 </head>
 <body>
 <header class="bar"><div class="wrap">
@@ -221,6 +221,17 @@ index = f'''
 <div class="card"><h3>เริ่มจากที่คุณรู้</h3><p class="en">Begin from what you know</p>{bi('บทแรกเป็นภาษาไทยเกือบทั้งหมด ภาษาอังกฤษเพิ่มขึ้นทีละนิดตามที่มะนาวเก่งขึ้น', 'The first chapter is almost all Thai. English grows a little at a time as Lemon gets better.')}</div>
 <div class="card"><h3>เป็นละคร ไม่ใช่ตำรา</h3><p class="en">A drama, not a textbook</p>{bi('มีคู่แข่ง มีแม่ผัวในอนาคต มีสงครามผ้าเช็ดตัว และสงครามส้มตำที่ทำให้โดนห้ามเข้าร้าน', 'A rival, a future mother-in-law, a towel war, and a som tam fight that gets everyone banned from a restaurant.')}</div>
 <div class="card"><h3>ชีวิตจริงของคนไทย</h3><p class="en">Real Thai life</p>{bi('หนี้นอกระบบ ซองเงินเดือนห้าซอง แอปที่เลิกใช้ และความกลัวพูดผิดที่คนไทยหลายคนรู้จัก', 'Informal debt, five payday envelopes, abandoned apps, and the fear of mistakes that many Thai people know.')}</div>
+</div>
+</div></section>
+
+<section class="band" id="why"><div class="wrap anote">
+<div class="anote-h">{head('ทำไมผมเขียนเรื่องมะนาว', 'Why I wrote Lemon')}<p class="sig">ไมเคิล เค. เบนส์<span class="t-en" lang="en">Michael K. Baines</span></p></div>
+<div class="anote-b">
+{bi('ผมเคยสอนภาษาอังกฤษที่มหาวิทยาลัยราชภัฏอุบลราชธานี นักศึกษาที่นั่นเก่งและน่ารักมาก สอนสนุกทุกวัน', 'I used to teach English at Ubon Ratchathani Rajabhat University. The students there were amazing, and a pleasure to work with.')}
+{bi('ต่อมาแฟนขอให้ผมช่วยสอนภาษาอังกฤษ ตอนนั้นเธอดูคลิปที่เขียนคำอังกฤษเป็นตัวอักษรไทย ผมบอกเธอว่าความจำแบบนั้นไม่มีบริบท ทุกอย่างคือความสัมพันธ์ เราต้องมีความสัมพันธ์ถึงจะจำได้นาน', 'Later my girlfriend asked me to help her learn English. She was watching a video that showed English words written in Thai. I told her that kind of memory has no context. Everything is relationships, and you need relationships to form lasting memories.')}
+{bi('เวลาใช้แผนที่ในโทรศัพท์เป็นภาษาไทย ผมได้ยินว่า “เลี้ยวซ้าย เลี้ยวขวา” ผมรู้ว่าแปลว่า turn left กับ turn right ไม่ใช่เพราะท่องจำ แต่เพราะเสียงนั้นผูกอยู่กับการเลี้ยวจริงๆ', 'When I use the map on my phone in Thai, it says something that sounds like “leo sai, leo kwa.” I know they mean turn left and turn right, not because I memorized them, but because the sounds are tied to the act of turning.')}
+{bi('ผมจึงเขียนหนังสือเล่มนี้แบบนั้น ทุกคำมาพร้อมภาพและเหตุการณ์ ให้คำมีความสัมพันธ์กับชีวิต และผู้อ่านเองก็ต้องมีความสัมพันธ์กับเรื่องด้วย นั่นคือเหตุผลที่เป็นนิยาย แบบละครที่คนไทยชอบอยู่แล้ว', 'So I wrote this book that way: every word arrives with an image and a moment, so it has a relationship to life. The reader has to be in a relationship too, and that is the reason for a story, the kind of drama Thai readers already enjoy.')}
+{bi('ช่วงนี้การท่องเที่ยวซบเซา ผมหวังว่าหนังสือเล่มนี้จะช่วยคนที่ทำงานดูแลนักท่องเที่ยวได้บ้าง และช่วยให้คนที่มาเที่ยวได้รู้จักชีวิตของคนที่ดูแลพวกเขา', 'Tourism is in decline. I hope this book can help the people who work in it, and show visitors something of the lives of the people who serve them.')}
 </div>
 </div></section>
 
@@ -591,7 +602,7 @@ else:
 SHARE = 'https://line.me/R/msg/text/?' + 'การผจญภัยของมะนาว นิยายเรียนภาษาอังกฤษ อ่านก่อน จ่ายตามกำลัง https://michaelkbaines.com/lemon/read.html'.replace(' ', '%20')
 readp = f"""
 <div class="hero"><div class="wrap">
-<div><p class="eyebrow">อ่านก่อน จ่ายตามกำลัง<span class="t-en" lang="en">Read first. Pay what is fair.</span></p>
+<div><p class="eyebrow">อ่านก่อน จ่ายตามกำลัง<span class="t-en" lang="en">Read first. Pay what you want.</span></p>
 <h1>“Pool open. Can swim.”<span class="en">มะนาวพูดภาษาอังกฤษแบบโรงแรม เหมือนคนไทยอีกหลายล้านคน</span></h1>
 <p class="lead">นิยายสองภาษาที่เริ่มจากภาษาอังกฤษที่คุณพูดอยู่แล้ว ภาษาไทยเกือบทั้งเล่มในบทแรก แล้วภาษาอังกฤษค่อยๆ เพิ่มขึ้นจนคุณไม่ทันรู้ตัว</p>
 <p class="lead en">A bilingual novel that starts from the English you already speak. The first chapters are almost all Thai; the English grows until you stop noticing it.</p>
@@ -625,12 +636,12 @@ readp = f"""
 <section id="honor"><div class="wrap support">
 <div><h2>ระบบความไว้ใจ</h2><p class="en">The honor system</p>
 {bi('อ่านก่อน แล้วค่อยตัดสินใจ ถ้าการจ่ายเงินเป็นภาระสำหรับคุณ หนังสือเล่มนี้เป็นของคุณ อ่านได้เลยไม่ต้องจ่าย', 'Read first, then decide. If paying would be a hardship for you, the book is yours. Read it and keep it.')}
-{bi('ถ้าคุณพอมีกำลัง และหนังสือช่วยคุณได้ ช่วยจ่ายตามที่คุณคิดว่าเหมาะสม ผู้เขียนไม่ได้หวังกำไร แค่ไม่อยากขาดทุน และอยากได้ค่าใช้จ่ายกับเวลาที่ลงไปคืนมาบ้าง', 'If you can afford it and the book helps you, please pay what you think is fair. The author is not trying to make a profit, only not to lose money, and to recover some of the cost and time that went into it.')}
+{bi('ถ้าคุณพอมีกำลัง และหนังสือช่วยคุณได้ ช่วยจ่ายเท่าไหร่ก็ได้ตามใจ ผู้เขียนไม่ได้หวังกำไร แค่ไม่อยากขาดทุน และอยากได้ค่าใช้จ่ายกับเวลาที่ลงไปคืนมาบ้าง', 'If you can afford it and the book helps you, please pay whatever you want. The author is not trying to make a profit, only not to lose money, and to recover some of the cost and time that went into it.')}
 {bi('ได้หนังสือมาจากเพื่อนหรือจากนามบัตร ก็ใช้ระบบเดียวกัน สแกนพร้อมเพย์ด้วยแอปธนาคารไหนก็ได้', 'Got the book from a friend or from a card? Same system. Scan the PromptPay code with any Thai banking app.')}
 <div class="actions"><a class="btn dark" href="{AUTHOR}#newsletter">รับข่าวเมื่อเล่มสองออก · Tell me when Book Two is out</a></div></div>
 <figure class="pp"><img src="img/promptpay.jpg" alt="พร้อมเพย์ของผู้เขียน · Author's PromptPay QR" width="720" height="1060" loading="lazy"></figure>
 </div></section>
 """
-page('read.html', 'อ่านหนังสือ · The Adventures of Lemon', 'อ่าน การผจญภัยของมะนาว นิยายสองภาษาไทย–อังกฤษ อ่านก่อน จ่ายตามกำลัง · Read The Adventures of Lemon, a bilingual Thai–English novel. Read first, pay what is fair.', readp)
+page('read.html', 'อ่านหนังสือ · The Adventures of Lemon', 'อ่าน การผจญภัยของมะนาว นิยายสองภาษาไทย–อังกฤษ อ่านก่อน จ่ายตามกำลัง · Read The Adventures of Lemon, a bilingual Thai–English novel. Read first, pay what you want.', readp)
 
 print('built')
