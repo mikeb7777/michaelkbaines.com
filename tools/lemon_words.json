@@ -229,11 +229,7 @@
 "Nice to meet you, Lemon."
 ]
 ],
-"echo": [],
-"rule": [
-"“In English, the person is the anchor. No anchor, the sentence floats away. Not ‘Am tired.’ Say ‘I am tired.’”",
-"“ในภาษาอังกฤษ คน (ประธาน) คือสมอเรือ ไม่มีสมอ ประโยคก็ลอยหายไป อย่าพูดว่า Am tired ให้พูดว่า I am tired”"
-]
+"echo": []
 },
 {
 "n": 5,
@@ -291,11 +287,7 @@
 "It is beautiful."
 ]
 ],
-"echo": [],
-"rule": [
-"“’How may I assist you?’ and ‘Can I help you?’ mean the same thing. One is a script. One is a person. Be a person.”",
-"“How may I assist you กับ Can I help you แปลเหมือนกัน แต่อันหนึ่งคือบทท่องจำ อีกอันคือคนจริงๆ จงเป็นคนจริงๆ”"
-]
+"echo": []
 },
 {
 "n": 6,
@@ -353,11 +345,7 @@
 "I must think."
 ]
 ],
-"echo": [],
-"rule": [
-"“Before you speak, listen. Listen to the music of the sentence. The music comes before the words.”",
-"“ก่อนพูด ให้ฟัง ฟังเสียงดนตรีของประโยค ดนตรีมาก่อนคำเสมอ”"
-]
+"echo": []
 },
 {
 "n": 7,
@@ -415,11 +403,7 @@
 "I am from Krabi."
 ]
 ],
-"echo": [],
-"rule": [
-"“A sentence is a chair. Person, action, thing. Three legs, it stands. And remember: your Thai brain already knows how to build this chair.”",
-"“ประโยคคือเก้าอี้ คน การกระทำ สิ่งของ สามขาก็ยืนได้ และจำไว้ สมองภาษาไทยของคุณรู้วิธีสร้างเก้าอี้ตัวนี้อยู่แล้ว”"
-]
+"echo": []
 },
 {
 "n": 8,
@@ -477,11 +461,7 @@
 "I do not like my voice."
 ]
 ],
-"echo": [],
-"rule": [
-"“Your mouth is a muscle. It has memory. L and R are not in your head. They are in your tongue. Train the muscle.”",
-"“ปากคือกล้ามเนื้อ มันมีความจำ เสียง L กับ R ไม่ได้อยู่ในหัว มันอยู่ที่ลิ้น ฝึกกล้ามเนื้อ”"
-]
+"echo": []
 },
 {
 "n": 9,
@@ -549,11 +529,7 @@
 "She keeps the boat safe."
 ]
 ],
-"echo": [],
-"rule": [
-"“A sign has an invisible verb. ‘No swimming’ means ‘Do not swim here.’ When you can’t read the sign, read the world around it.”",
-"“ป้ายมีกริยาที่มองไม่เห็น No swimming แปลว่า อย่าว่ายน้ำที่นี่ ถ้าอ่านป้ายไม่ออก ให้อ่านโลกรอบๆ ป้าย”"
-]
+"echo": []
 },
 {
 "n": 10,
@@ -611,11 +587,7 @@
 "Congratulations!"
 ]
 ],
-"echo": [],
-"rule": [
-"“’Will’ and ‘going to’ are small. But they carry the time on their backs. Drop them, and your future falls into the present.”",
-"“will กับ going to เป็นคำเล็ก แต่มันแบกเวลาไว้บนหลัง ถ้าทิ้งมัน อนาคตของคุณจะตกลงมาเป็นปัจจุบัน”"
-]
+"echo": []
 },
 {
 "n": 11,
@@ -673,11 +645,7 @@
 "The voice was different."
 ]
 ],
-"echo": [],
-"rule": [
-"“A word you memorize belongs to the book. A word you write when nobody is watching belongs to you.”",
-"“คำที่คุณท่องจำเป็นของหนังสือ คำที่คุณเขียนได้ตอนไม่มีใครดู เป็นของคุณ”"
-]
+"echo": []
 },
 {
 "n": 12,
@@ -735,11 +703,7 @@
 "The som tam is very spicy."
 ]
 ],
-"echo": [],
-"rule": [
-"“When you do not know a word, ask the place. Where am I? What do these people want? The airport, the café, the road. Every place is a dictionary.”",
-"“เมื่อไม่รู้คำ ให้ถามสถานที่ ฉันอยู่ที่ไหน คนพวกนี้ต้องการอะไร สนามบิน ร้านกาแฟ ถนน ทุกที่คือพจนานุกรม”"
-]
+"echo": []
 },
 {
 "n": 13,
@@ -797,14 +761,126 @@
 "At three a.m., she was wide awake."
 ]
 ],
-"echo": [],
-"rule": [
-"“When you tell a story in English, choose the time and hold it. Past is past. Do not let the present leak in.”",
-"“เวลาเล่าเรื่องเป็นภาษาอังกฤษ ให้เลือกเวลาแล้วถือไว้ อดีตคืออดีต อย่าปล่อยให้ปัจจุบันรั่วเข้ามา”"
-]
+"echo": []
 },
 {
 "n": 14,
+"en": "A Friendly Ghost in Compton",
+"th": "ผีใจดีที่คอมป์ตัน",
+"words": [
+[
+"sweetie",
+"ที่รัก (คำเรียกแบบเป็นกันเอง)",
+"What can I get you, sweetie?"
+],
+[
+"pound",
+"ปอนด์ (หน่วยน้ำหนัก)",
+"Crab is sold by the pound."
+],
+[
+"passport",
+"หนังสือเดินทาง",
+"I left my passport on the seat."
+],
+[
+"brave",
+"กล้าหาญ",
+"I am brave."
+],
+[
+"lawn",
+"สนามหญ้าหน้าบ้าน",
+"The lawns were green and neat."
+],
+[
+"manners",
+"มารยาท",
+"Where are your manners?"
+],
+[
+"homesick",
+"คิดถึงบ้าน",
+"I was homesick."
+],
+[
+"recognize",
+"จำได้ (เมื่อเห็น)",
+"You recognize it when you see it."
+],
+[
+"delivery",
+"การส่งของ",
+"They use a delivery service."
+],
+[
+"dangerous",
+"อันตราย",
+"Compton is very dangerous. I ate too much."
+]
+],
+"echo": []
+},
+{
+"n": 15,
+"en": "Thai Town Nights",
+"th": "ค่ำคืนที่ไทยทาวน์",
+"words": [
+[
+"guess",
+"เดา",
+"Guess first. Then check."
+],
+[
+"canvas",
+"ผ้าใบ",
+"Oil on canvas."
+],
+[
+"touch",
+"แตะ จับ",
+"Please do not touch the artwork."
+],
+[
+"culture",
+"วัฒนธรรม",
+"We bring our culture with us."
+],
+[
+"festival",
+"เทศกาล",
+"Thai New Year is a big festival."
+],
+[
+"miss",
+"คิดถึง",
+"They miss Thai food."
+],
+[
+"welcome",
+"ยินดีต้อนรับ",
+"You are welcome here."
+],
+[
+"slang",
+"คำแสลง",
+"Spill the tea is slang."
+],
+[
+"translate",
+"แปล",
+"Thank you for translating."
+],
+[
+"congrats",
+"ยินดีด้วย",
+"Congrats!"
+]
+],
+"echo": []
+},
+{
+"n": 16,
 "en": "The Business of Words",
 "th": "ธุรกิจของถ้อยคำ",
 "words": [
@@ -859,14 +935,10 @@
 "Your English is so cute."
 ]
 ],
-"echo": [],
-"rule": [
-"“’I think there might be a mistake’ is stronger than ‘You made a mistake.’ Soft words carry heavy things more safely.”",
-"“I think there might be a mistake แข็งแรงกว่า You made a mistake คำนุ่มๆ แบกของหนักได้ปลอดภัยกว่า”"
-]
+"echo": []
 },
 {
-"n": 15,
+"n": 17,
 "en": "The Feeling of a Word",
 "th": "ความรู้สึกของคำ",
 "words": [
@@ -921,14 +993,10 @@
 "The word will float away."
 ]
 ],
-"echo": [],
-"rule": [
-"“Feel the weight before you speak. If the word is too light for the feeling, the feeling will float away.”",
-"“รู้สึกถึงน้ำหนักก่อนพูด ถ้าคำเบาเกินไปสำหรับความรู้สึก ความรู้สึกจะลอยหายไป”"
-]
+"echo": []
 },
 {
-"n": 16,
+"n": 18,
 "en": "The Fiancé Arrives",
 "th": "คู่หมั้นมาถึง",
 "words": [
@@ -983,14 +1051,10 @@
 "Carlos was calm."
 ]
 ],
-"echo": [],
-"rule": [
-"“Listen for ‘but,’ ‘although,’ ‘however.’ They show you where the speaker is changing direction. Often, the truth comes after the turn.”",
-"“ฟังคำว่า but, although, however มันบอกว่าผู้พูดกำลังเปลี่ยนทิศ และบ่อยครั้ง ความจริงอยู่หลังทางเลี้ยว”"
-]
+"echo": []
 },
 {
-"n": 17,
+"n": 19,
 "en": "The Café in Torrance",
 "th": "ร้านกาแฟในทอร์แรนซ์",
 "words": [
@@ -1045,14 +1109,10 @@
 "The third room is regret."
 ]
 ],
-"echo": [],
-"rule": [
-"“’If’ is a door. ‘If I go, I will see.’ ‘If I had gone, I would have seen.’ Be careful what you build in that room. Some rooms you will live in for a long time.”",
-"“if คือประตู ระวังสิ่งที่คุณสร้างในห้องนั้น บางห้อง คุณจะต้องอยู่ในนั้นอีกนาน”"
-]
+"echo": []
 },
 {
-"n": 18,
+"n": 20,
 "en": "The Aftermath",
 "th": "หลังพายุ",
 "words": [
@@ -1107,14 +1167,10 @@
 "Empty is the first step to lighter."
 ]
 ],
-"echo": [],
-"rule": [
-"“Up, off, down, back. The little words change everything. ‘Give’ is generous. ‘Give up’ is the end. Learn them one at a time, inside real sentences.”",
-"“up, off, down, back คำเล็กๆ เปลี่ยนทุกอย่าง give คือการให้ give up คือการเลิก เรียนทีละคำ ในประโยคจริง”"
-]
+"echo": []
 },
 {
-"n": 19,
+"n": 21,
 "en": "The Unanswered Message",
 "th": "ข้อความที่ยังไม่ได้ตอบ",
 "words": [
@@ -1169,14 +1225,10 @@
 "She waited until the screen went dark."
 ]
 ],
-"echo": [],
-"rule": [
-"“’When,’ ‘before,’ ‘after,’ ‘until.’ Each one is a door. Learn which door opens which room. And after the door, stay in the present. The future is waiting in the other half of the sentence.”",
-"“when, before, after, until แต่ละคำคือประตู หลังประตูให้ใช้ปัจจุบัน อนาคตรออยู่อีกครึ่งหนึ่งของประโยค”"
-]
+"echo": []
 },
 {
-"n": 20,
+"n": 22,
 "en": "Home",
 "th": "บ้าน",
 "words": [
@@ -1231,14 +1283,10 @@
 "They sent merit to someone far away."
 ]
 ],
-"echo": [],
-"rule": [
-"“The words you learned in English belong to the place where you learned them. The words you learned in Thai belong to the place where you grew up. You can live in both houses.”",
-"“คำที่คุณเรียนเป็นภาษาอังกฤษเป็นของที่ที่คุณเรียนมัน คำภาษาไทยเป็นของที่ที่คุณโตมา คุณอยู่ได้ทั้งสองบ้าน”"
-]
+"echo": []
 },
 {
-"n": 21,
+"n": 23,
 "en": "The Restaurant",
 "th": "ร้านอาหาร",
 "words": [
@@ -1251,6 +1299,11 @@
 "pay back",
 "ใช้คืน",
 "I will pay it back. Every baht."
+],
+[
+"apply",
+"สมัคร (งาน)",
+"I would like to apply."
 ],
 [
 "full moon",
@@ -1283,20 +1336,69 @@
 "“I’d like that,” he said."
 ],
 [
-"paid in full",
-"จ่ายครบแล้ว",
-"PAID IN FULL."
-],
-[
 "come home",
 "กลับบ้าน",
 "Welcome home."
 ]
 ],
-"echo": [],
-"rule": [
-"“You do not need to know all of English. Begin from what you know. Use it today. Tomorrow, you will know a little more.”",
-"“คุณไม่จำเป็นต้องรู้ภาษาอังกฤษทั้งหมด เริ่มจากสิ่งที่คุณรู้ ใช้มันวันนี้ พรุ่งนี้คุณจะรู้มากขึ้นอีกนิด”"
+"echo": []
+},
+{
+"n": 24,
+"en": "Fruit Salad",
+"th": "สลัดผลไม้",
+"words": [
+[
+"high season",
+"ช่วงไฮซีซั่น",
+"In January, high season came."
+],
+[
+"cut hours",
+"ลดชั่วโมงทำงาน",
+"We may have to cut hours."
+],
+[
+"book",
+"จอง",
+"We would like to book all available rooms."
+],
+[
+"scam",
+"มิจฉาชีพ หลอกลวง",
+"It must be a scam."
+],
+[
+"check in",
+"เช็กอิน",
+"Lemon checked everyone in."
+],
+[
+"crib",
+"เปลเด็ก",
+"Do you have a crib?"
+],
+[
+"invite",
+"เชิญ",
+"I invited them."
+],
+[
+"cheap",
+"ถูก (ราคา)",
+"Very cheap tickets."
+],
+[
+"promote",
+"เลื่อนตำแหน่ง",
+"Khun Somchai promoted her."
+],
+[
+"paid in full",
+"จ่ายครบแล้ว",
+"PAID IN FULL."
 ]
+],
+"echo": []
 }
 ]

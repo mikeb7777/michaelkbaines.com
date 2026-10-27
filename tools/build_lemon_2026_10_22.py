@@ -78,7 +78,7 @@ def page(fname, title, desc, body, og='img/cover.jpg'):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:ital,wght@0,400;0,600;1,400&family=Lora:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="lemon.css?v=20261027d">
+<link rel="stylesheet" href="lemon.css?v=20261027e">
 </head>
 <body>
 <header class="bar"><div class="wrap">
@@ -266,35 +266,35 @@ places = f'''
 <section id="krabi"><div class="wrap">
 {head('กระบี่', 'Krabi')}
 {place(bookfig('act0.jpg', "บ้านกับอู่ของพ่อ ใต้ต้นมะม่วง · Father's workshop"),
- 'เมืองกระบี่', "Krabi Town · Lemon's home", ['บทที่ 1–3 · Ch 1–3', 'บทที่ 20–21 · Ch 20–21'],
+ 'เมืองกระบี่', "Krabi Town · Lemon's home", ['บทที่ 1–3 · Ch 1–3', 'บทที่ 22–24 · Ch 22–24'],
  ('บ้านไม้สองชั้นกับอู่ซ่อมรถของพ่ออยู่ในซอยเล็กๆ ในเมืองกระบี่ ไม่ใช่ที่อ่าวนาง ที่นี่คือที่ที่คนกระบี่ใช้ชีวิตจริง ตลาดเช้า วัด มัสยิด และแม่น้ำกระบี่',
   "Father's two-storey wooden house and workshop are in a small soi in Krabi Town, not in Ao Nang. This is where Krabi people really live: the morning market, the temple, the mosque and the Krabi River."),
  [('ชื่อ กระบี่ แปลว่า ดาบ และดาบไขว้คือสัญลักษณ์ของจังหวัด', 'Krabi means "sword", and crossed swords are the province\'s symbol.'),
   ('เขาขนาบน้ำ ภูเขาหินปูนสองลูกสูงราว 100 เมตร ยืนประกบแม่น้ำกระบี่', 'Khao Khanap Nam: two limestone hills, about 100 metres high, stand on either side of the Krabi River.'),
   ('นั่งเรือหางยาวจากท่าเรือเจ้าฟ้าไปเขาขนาบน้ำราว 15 นาที', 'A longtail from Chao Fah Pier to Khao Khanap Nam takes about 15 minutes.')],
  'I live in Krabi Town, not in Ao Nang.', 'ฉันอยู่ในเมืองกระบี่ ไม่ได้อยู่อ่าวนาง')}
-{place(illfig('watkaew', 'วัดแก้วโกรวาราม · Wat Kaew Korawaram'), 'วัดแก้วโกรวาราม', 'Wat Kaew Korawaram · the white temple', ['บทที่ 20 · Ch 20'],
+{place(illfig('watkaew', 'วัดแก้วโกรวาราม · Wat Kaew Korawaram'), 'วัดแก้วโกรวาราม', 'Wat Kaew Korawaram · the white temple', ['บทที่ 22 · Ch 22'],
  ('เช้าวันแรกที่กลับบ้าน มะนาวไปทำบุญกับแม่ที่วัดสีขาวบนเนินกลางเมืองกระบี่ ทำบุญให้แม่ของเพื่อนคนหนึ่ง แม่ไม่ถามว่าเพื่อนคนไหน แต่แม่รู้',
   "On her first morning home, Lemon goes with her mother to the white temple on the hill in the middle of Krabi Town. She makes merit for a friend's mother. Her mother doesn't ask which friend. She knows."),
  [('วัดสีขาวทั้งหลัง อยู่บนเนินกลางเมือง ต้องเดินขึ้นบันไดยาว', 'The whole temple is white, on a hill in the centre of town, up a long staircase.'),
   ('ข้างในมีภาพจิตรกรรมฝาผนัง', 'Inside, the walls are covered in murals.'),
   ('ถอดรองเท้าก่อนเข้าโบสถ์ แต่งกายสุภาพ', 'Take off your shoes before going in, and dress politely.')],
  'Please take off your shoes.', 'กรุณาถอดรองเท้า')}
-{place(illfig('tigercave', 'บนยอดวัดถ้ำเสือ · At the top of Tiger Cave Temple'), 'วัดถ้ำเสือ', 'Tiger Cave Temple · Wat Tham Suea', ['บทที่ 20 · Ch 20'],
+{place(illfig('tigercave', 'บนยอดวัดถ้ำเสือ · At the top of Tiger Cave Temple'), 'วัดถ้ำเสือ', 'Tiger Cave Temple · Wat Tham Suea', ['บทที่ 22 · Ch 22'],
  ('หนองพามะนาวมาปีนบันไดราวหนึ่งพันสองร้อยหกสิบขั้น เพราะอ่านในพันทิปว่าคนอกหักต้องปีน ที่ยอด นักท่องเที่ยวขอให้เธอถ่ายรูป สี่ปีก่อนเธอยืนนิ่ง วันนี้เธอพูดว่า Sure',
   'Nong brings Lemon to climb about 1,260 steps, because he read on Pantip that broken hearts have to climb it. At the top, tourists ask her to take their photo. Four years ago she froze. Today she says, "Sure."'),
  [('อยู่ห่างจากเมืองกระบี่ราว 15 นาที', 'About 15 minutes from Krabi Town.'),
   ('บันไดราว 1,260 ขั้น แต่ละขั้นสูงไม่เท่ากัน ข้างบนมีพระพุทธรูปและวิวรอบทิศ', 'About 1,260 steps, all different heights. At the top: a golden Buddha and views in every direction.'),
   ('ระวังลิง มันชอบขโมยขวดน้ำ', 'Watch out for the monkeys. They love water bottles.')],
  'Could you take a photo of us?', 'ช่วยถ่ายรูปให้หน่อยได้ไหม', extra=fig('buddha', 900) + fig('monkey', 900))}
-{place(fig('market'), 'สวนธารา และถนนคนเดิน', 'Thara Park and Walking Street', ['บทที่ 2–3 · Ch 2–3', 'บทที่ 21 · Ch 21'],
+{place(fig('market'), 'สวนธารา และถนนคนเดิน', 'Thara Park and Walking Street', ['บทที่ 2–3 · Ch 2–3', 'บทที่ 24 · Ch 24'],
  ('ทุกเย็น มะนาว แม่ ป้าเพ็ญ และดา มาเต้นแอโรบิกที่ลานริมแม่น้ำในสวนธารา ครูนับเป็นภาษาอังกฤษ และนี่คือที่ที่ป้าเพ็ญบอกว่าใส่ชุดดำแปลว่าโสด',
   'Every evening, Lemon, her mother, Auntie Pen and Da dance aerobics by the river in Thara Park. The teacher counts in English. And this is where Auntie Pen says wearing black means you are single.'),
  [('สวนสาธารณะฟรีริมแม่น้ำกระบี่ มีลู่วิ่งราว 1.15 กิโลเมตร', 'A free public park on the Krabi River, with a running track of about 1.15 km.'),
   ('ถนนคนเดินกระบี่เปิดศุกร์ เสาร์ อาทิตย์ ห้าโมงเย็นถึงสี่ทุ่ม', 'Krabi Walking Street is open Friday to Sunday, 5 to 10 p.m.')],
  'Left! Right! Turn around! Again!', 'ซ้าย ขวา หมุนตัว อีกครั้ง',
  extra='<p class="note" style="margin-top:12px">ภาพนี้เป็นตลาดกลางคืนในไทย ไม่ใช่ถนนคนเดินกระบี่โดยตรง<span class="t-en">Photo shows a Thai night market, not Krabi\'s Walking Street itself.</span></p>')}
-{place(fig('aonang'), 'อ่าวนาง', "Ao Nang · where Lemon works", ['บทที่ 2–10 · Ch 2–10', 'บทที่ 21 · Ch 21'],
+{place(fig('aonang'), 'อ่าวนาง', "Ao Nang · where Lemon works", ['บทที่ 2–10 · Ch 2–10', 'บทที่ 23–24 · Ch 23–24'],
  ('โรงแรมในเรื่องเป็นโรงแรมสมมุติ แต่ชายหาด ร้านตัดสูทของคุณราช และแถวเรือหางยาวเป็นของจริง ทุกเช้ามะนาวกับดาขี่มอเตอร์ไซค์จากเมืองมาที่นี่ ยี่สิบกิโลเมตร',
   "The hotel in the story is made up, but the beach, Mr. Raj's tailor shop and the line of longtail boats are real. Every morning Lemon and Da ride twenty kilometres here from town."),
  [('ร้านค้าหลายร้านที่อ่าวนางเป็นของคนจากอินเดีย เนปาล และอีกหลายประเทศ', 'Many Ao Nang shops are run by people from India, Nepal and other countries.'),
@@ -328,7 +328,7 @@ places = f'''
  [('ป้ายบอกทางบนฟรีเวย์เป็นสีเขียว ป้ายทางออกเขียนว่า EXIT', 'Freeway direction signs are green. Exit signs say EXIT.'),
   ('คนแอลเอบอกระยะทางเป็นเวลา ไม่ใช่ไมล์', 'People in L.A. give distance in minutes, not miles.')],
  "It's twenty minutes without traffic.", 'ถ้ารถไม่ติดยี่สิบนาที')}
-{place(illfig('thaitown', 'ไทยทาวน์ ถนนฮอลลีวูดตัดกับถนนเวสเทิร์น · Thai Town at Hollywood Blvd and Western Ave'), 'ไทยทาวน์', 'Thai Town', ['บทที่ 12 · Ch 12', 'บทที่ 17 · Ch 17'],
+{place(illfig('thaitown', 'ไทยทาวน์ ถนนฮอลลีวูดตัดกับถนนเวสเทิร์น · Thai Town at Hollywood Blvd and Western Ave'), 'ไทยทาวน์', 'Thai Town', ['บทที่ 12 · Ch 12', 'บทที่ 15 · Ch 15', 'บทที่ 19 · Ch 19'],
  ('วันแรกในอเมริกา คาร์ลอสพามะนาวไปกินส้มตำที่ร้านอีสานเล็กๆ ป้าฟันทองพูดอีสานเร็วจนคาร์ลอสฟังไม่ทัน และมะนาวต้องแปลภาษาแม่ของเขาให้เขาฟัง',
   "On her first day in America, Carlos takes Lemon for som tam at a small Isaan restaurant. The gold-toothed auntie speaks Isaan so fast that Carlos can't keep up, and Lemon has to translate his own mother's language for him."),
  [('ย่านไทยทาวน์แห่งแรกในอเมริกา ตั้งชื่อเมื่อปี 1999', "America's first official Thai Town, named in 1999."),
@@ -348,21 +348,21 @@ places = f'''
  [('ไดเนอร์อเมริกันมีเบาะแดง เคาน์เตอร์ยาว และกาแฟเติมฟรี', 'American diners have red seats, a long counter and free coffee refills.'),
   ('ทิปประมาณ 15–20 เปอร์เซ็นต์ของค่าอาหาร', 'The tip is about 15–20% of the bill.')],
  'Can I get a grilled cheese and a Coke, please?', 'ขอแซนด์วิชชีสย่างกับโค้กค่ะ', extra=fig('coast', 900))}
-{place(fig('getty'), 'เก็ตตี้ เซ็นเตอร์', 'The Getty Center', ['บทที่ 14 · Ch 14'],
+{place(fig('getty'), 'เก็ตตี้ เซ็นเตอร์', 'The Getty Center', ['บทที่ 15 · Ch 15'],
  ('การบ้านคือพิพิธภัณฑ์ อ่านป้ายทุกป้ายโดยไม่ใช้แอปแปล มะนาวอ่านไปสี่สิบเอ็ดป้าย เข้าใจครึ่งหนึ่ง สี่ปีก่อนเธออ่านเมนูยังไม่ได้',
   "The homework is a museum: read every label without a translation app. Lemon reads forty-one labels and understands about half. Four years ago she couldn't read a menu."),
  [('เข้าฟรี จ่ายแค่ค่าจอดรถ', 'Entry is free. You only pay for parking.'),
   ('รถรางไม่มีคนขับพาขึ้นเขา ใช้เวลาไม่กี่นาที', 'A driverless tram takes you up the hill in a few minutes.'),
   ('ภาพ Irises ของแวนโก๊ะอยู่ที่นี่', "Van Gogh's Irises hangs here.")],
  'Please do not touch the artwork.', 'กรุณาอย่าจับงานศิลปะ', extra=fig('gettyview', 900))}
-{place(fig('griffith'), 'หอดูดาวกริฟฟิธ', 'Griffith Observatory', ['บทที่ 15 · Ch 15'],
+{place(fig('griffith'), 'หอดูดาวกริฟฟิธ', 'Griffith Observatory', ['บทที่ 17 · Ch 17'],
  ('คาร์ลอสพามะนาวขึ้นเขาเหนือฮอลลีวูดตอนกลางคืน เธอส่องกล้องดูดาวเสาร์ แล้วพูดว่า มันเหมือนหมวก อาสาสมัครหัวเราะ มะนาวเล่นมุกภาษาอังกฤษได้โดยไม่ตั้งใจ',
   'Carlos takes Lemon up into the hills above Hollywood at night. She looks at Saturn through a telescope and says, "It is like a hat." The volunteer laughs. Lemon has made an English joke by accident.'),
  [('เข้าฟรี เปิดมาตั้งแต่ปี 1935', 'Free to enter, open since 1935.'),
   ('ส่องกล้องดูดาวฟรีทุกคืนที่ฟ้าใส ปิดวันจันทร์', 'Free telescope viewing on clear nights. Closed Mondays.'),
   ('มองเห็นป้าย HOLLYWOOD และไฟทั้งเมือง', 'You can see the Hollywood sign and the lights of the whole city.')],
  "I see it. I see the rings.", 'เห็นแล้ว เห็นวงแหวนแล้ว')}
-{place(fig('catalina'), 'เกาะคาทาลินา', 'Catalina Island', ['บทที่ 15 · Ch 15'],
+{place(fig('catalina'), 'เกาะคาทาลินา', 'Catalina Island', ['บทที่ 17 · Ch 17'],
  ('สตีเว่นเมาเรือ มะนาวบอกให้ไปยืนท้ายเรือแล้วมองเส้นขอบฟ้า ได้ผล บนเกาะคนขับรถกอล์ฟแทนรถยนต์ มะนาวขับเหมือนขี่มอเตอร์ไซค์ในเมืองกระบี่ เบียร์กรี๊ดตลอดทาง',
   'Steven gets seasick. Lemon tells him to stand at the back and look at the horizon. It works. On the island people drive golf carts instead of cars. Lemon drives like she rides her motorbike in Krabi Town. Beer screams the whole way.'),
  [('เรือเร็วจากลองบีชไปเมืองอวาลอนใช้เวลาราวหนึ่งชั่วโมง', 'The fast ferry from Long Beach to Avalon takes about an hour.'),
@@ -410,7 +410,7 @@ culture = f'''
 <section id="festivals"><div class="wrap">
 {head('เทศกาล', 'Festivals')}
 <div class="place" style="border-top:0"><div class="media">{illfig('krathong', 'ลอยกระทงที่แม่น้ำกระบี่ · Loy Krathong on the Krabi River')}{fig('krathong', 900)}</div><div>
-<h3>ลอยกระทง</h3><p class="en">Loy Krathong · บทที่ 21 · Ch 21</p>
+<h3>ลอยกระทง</h3><p class="en">Loy Krathong · บทที่ 23 · Ch 23</p>
 {bi('คืนวันเพ็ญเดือนสิบสอง คนทั้งเมืองกระบี่ลงไปที่แม่น้ำ มะนาว แม่ ป้าเพ็ญ ฟ้า และดา ไปด้วยกัน ดาไม่ลอยกระทง แต่ไม่เคยพลาดโรตี มะนาวกับคาร์ลอสลอยกระทงหนึ่งใบให้แม่ของเขา',
  'On the night of the full moon of the twelfth month, the whole of Krabi Town goes down to the river. Lemon, her mother, Auntie Pen, Fah and Da go together. Da doesn\'t float a krathong, but she never misses the roti. Lemon and Carlos float one krathong together for his mother.')}
 <ul class="facts">
@@ -466,7 +466,7 @@ TOOLS = [
  ('ถ้าคุณชอบร้องเพลง', 'If you love singing', [
   ('LyricsTraining', 'ดูมิวสิกวิดีโอแล้วเติมคำที่หายไป เริ่มจากระดับง่าย ฟรี', 'Watch a music video and fill in the missing words. Start at the easy level. Free.', 'https://lyricstraining.com', 'lyricstraining.com'),
   ('Musixmatch', 'เนื้อเพลงวิ่งตามเพลง บางเพลงมีคำแปล', 'Lyrics that move with the song. Some songs have translations.', 'https://www.musixmatch.com', 'musixmatch.com'),
-  ('วิธีของคาร์ลอส · บทที่ 15', 'พิมพ์ค้นหา: ชื่อเพลง + lyrics + Thai and English ฟังก่อน รู้สึกก่อน แล้วค่อยอ่าน', 'Search: song name + lyrics + Thai and English. Listen first, feel first, then read.', None, None)]),
+  ('วิธีของคาร์ลอส · บทที่ 17', 'พิมพ์ค้นหา: ชื่อเพลง + lyrics + Thai and English ฟังก่อน รู้สึกก่อน แล้วค่อยอ่าน', 'Search: song name + lyrics + Thai and English. Listen first, feel first, then read.', None, None)]),
  ('ถ้าคุณชอบดูซีรีส์และคลิป', 'If you love shows and videos', [
   ('Language Reactor', 'ซับอังกฤษและไทยพร้อมกันบน YouTube และ Netflix', 'English and Thai subtitles together on YouTube and Netflix.', 'https://www.languagereactor.com', 'languagereactor.com'),
   ('YouGlish', 'ฟังคนจริงพูดคำเดียวกันในคลิปจริงหลายร้อยคลิป', 'Hear real people say the same word in hundreds of real videos.', 'https://youglish.com', 'youglish.com'),
@@ -562,7 +562,7 @@ document.querySelectorAll('.rec').forEach(function(box){
 </script>"""
 listenp = f"""
 <div class="hero"><div class="wrap"><div>
-<p class="eyebrow">ฟังและพูด · บทที่ 1–21<span class="t-en" lang="en">Listen and speak · Chapters 1–21</span></p>
+<p class="eyebrow">ฟังและพูด · บทที่ 1–24<span class="t-en" lang="en">Listen and speak · Chapters 1–24</span></p>
 <h1>ฟัง พูดตาม อัดเสียง<span class="en">Listen, repeat, record</span></h1>
 <p class="lead">ทุกคำในกล่องคำศัพท์ของหนังสือ พร้อมเสียงอ่าน กด 🔊 ฟัง กด 🐢 ฟังช้า พูดตามสามครั้ง แล้วอัดเสียงตัวเอง</p>
 <p class="lead en">Every word from the book's word boxes, read aloud. Press 🔊 to listen and 🐢 to hear it slowly. Say it three times, then record yourself.</p>
@@ -626,7 +626,7 @@ readp = f"""
 {head('ทำไมอ่านแล้วได้ผล', 'Why it works')}
 <div class="stats">
 <div class="stat"><b>95%</b><span>ไทยในบทแรก คุณเข้าใจเกือบทุกคำ<span class="t-en">Thai in Chapter 1: you understand almost everything</span></span></div>
-<div class="stat"><b>21</b><span>บท ภาษาอังกฤษเพิ่มขึ้นทีละนิด<span class="t-en">chapters, a little more English each time</span></span></div>
+<div class="stat"><b>24</b><span>บท ภาษาอังกฤษเพิ่มขึ้นทีละนิด<span class="t-en">chapters, a little more English each time</span></span></div>
 <div class="stat"><b>🎧</b><span>ฟังเสียงทุกคำ พูดตาม อัดเสียงตัวเอง<span class="t-en">every word read aloud, to repeat and record</span></span></div>
 <div class="stat"><b>0</b><span>กฎไวยากรณ์ที่ต้องท่อง<span class="t-en">grammar rules to memorize</span></span></div>
 </div>
@@ -653,15 +653,15 @@ wbp = f"""
 <p class="lead">บทเรียนของคาร์ลอส คำถามตรวจความเข้าใจ งานเขียน เกมหาคำ ครอสเวิร์ด และคู่มือเสียงภาษาอังกฤษ แยกออกมาจากนิยาย เพื่อให้เรื่องเดินต่อไม่สะดุด และเราเพิ่มแบบฝึกหัดใหม่ได้เรื่อยๆ</p>
 <p class="lead en">Carlos's lessons, comprehension questions, writing, word searches, crosswords and the English sounds guide, kept out of the novel so the story keeps moving, and so new exercises can be added over time.</p>
 <div class="actions"><a class="btn big" href="Lemon_Workbook_Book1.pdf" download>⬇ ดาวน์โหลดสมุดแบบฝึกหัด · Download the workbook (PDF)</a></div>
-<p class="small">115 หน้า · 2.2 MB · พิมพ์ใช้เองหรือใช้ในห้องเรียนได้<span class="t-en" lang="en">115 pages · print it for yourself or your class</span></p></div>
+<p class="small">125 หน้า · 2.4 MB · พิมพ์ใช้เองหรือใช้ในห้องเรียนได้<span class="t-en" lang="en">125 pages · print it for yourself or your class</span></p></div>
 <img class="cover" src="img/cover.jpg" alt="ปกหนังสือ · Book cover" width="600" height="900">
 </div></div>
 <section class="paper"><div class="wrap">
 {head('เลือกบท', 'Pick a chapter')}
 {bi('แตะชื่อบทเพื่อเปิดสมุดแบบฝึกหัดที่หน้านั้น แตะ 🎧 เพื่อฟังคำศัพท์ของบท', 'Tap a chapter to open the workbook at that page. Tap 🎧 to hear the chapter words.')}
-<ol class="wblist"><li id="ch1"><a href="Lemon_Workbook_Book1.pdf#page=10"><b>บทที่ 1 · วันรับปริญญา</b><span lang="en">Chapter 1 · The Graduation</span></a><a class="ln" href="listen.html#ch1">🎧</a></li><li id="ch2"><a href="Lemon_Workbook_Book1.pdf#page=12"><b>บทที่ 2 · หนี้</b><span lang="en">Chapter 2 · The Debt</span></a><a class="ln" href="listen.html#ch2">🎧</a></li><li id="ch3"><a href="Lemon_Workbook_Book1.pdf#page=16"><b>บทที่ 3 · ผู้ชายที่พูดแทนเธอ</b><span lang="en">Chapter 3 · The Man Who Spoke For Her</span></a><a class="ln" href="listen.html#ch3">🎧</a></li><li id="ch4"><a href="Lemon_Workbook_Book1.pdf#page=21"><b>บทที่ 4 · คำอวยพรกับประแจ</b><span lang="en">Chapter 4 · The Toast and the Wrench</span></a><a class="ln" href="listen.html#ch4">🎧</a></li><li id="ch5"><a href="Lemon_Workbook_Book1.pdf#page=25"><b>บทที่ 5 · กล้วยไม้กับบทท่องจำ</b><span lang="en">Chapter 5 · The Orchid and the Script</span></a><a class="ln" href="listen.html#ch5">🎧</a></li><li id="ch6"><a href="Lemon_Workbook_Book1.pdf#page=28"><b>บทที่ 6 · มอเตอร์ไซค์กับคำสัญญา</b><span lang="en">Chapter 6 · The Motorbike and the Promise</span></a><a class="ln" href="listen.html#ch6">🎧</a></li><li id="ch7"><a href="Lemon_Workbook_Book1.pdf#page=31"><b>บทที่ 7 · เกาะกลางครัว</b><span lang="en">Chapter 7 · The Kitchen Island</span></a><a class="ln" href="listen.html#ch7">🎧</a></li><li id="ch8"><a href="Lemon_Workbook_Book1.pdf#page=35"><b>บทที่ 8 · เสียงแอลกับอาร์</b><span lang="en">Chapter 8 · The L and R Sounds</span></a><a class="ln" href="listen.html#ch8">🎧</a></li><li id="ch9"><a href="Lemon_Workbook_Book1.pdf#page=39"><b>บทที่ 9 · ป้ายและการสั่งอาหาร</b><span lang="en">Chapter 9 · Signs and Orders</span></a><a class="ln" href="listen.html#ch9">🎧</a></li><li id="ch10"><a href="Lemon_Workbook_Book1.pdf#page=44"><b>บทที่ 10 · การจากลา</b><span lang="en">Chapter 10 · The Departure</span></a><a class="ln" href="listen.html#ch10">🎧</a></li><li id="ch11"><a href="Lemon_Workbook_Book1.pdf#page=47"><b>บทที่ 11 · ความสงสัยกับเกาะกลางครัว</b><span lang="en">Chapter 11 · The Doubt and the Island</span></a><a class="ln" href="listen.html#ch11">🎧</a></li><li id="ch12"><a href="Lemon_Workbook_Book1.pdf#page=51"><b>บทที่ 12 · ถนนสู่ไทยทาวน์</b><span lang="en">Chapter 12 · The Drive to Thai Town</span></a><a class="ln" href="listen.html#ch12">🎧</a></li><li id="ch13"><a href="Lemon_Workbook_Book1.pdf#page=55"><b>บทที่ 13 · สตีเว่นกับเบียร์</b><span lang="en">Chapter 13 · Steven and Beer</span></a><a class="ln" href="listen.html#ch13">🎧</a></li><li id="ch14"><a href="Lemon_Workbook_Book1.pdf#page=59"><b>บทที่ 14 · ธุรกิจของถ้อยคำ</b><span lang="en">Chapter 14 · The Business of Words</span></a><a class="ln" href="listen.html#ch14">🎧</a></li><li id="ch15"><a href="Lemon_Workbook_Book1.pdf#page=62"><b>บทที่ 15 · ความรู้สึกของคำ</b><span lang="en">Chapter 15 · The Feeling of a Word</span></a><a class="ln" href="listen.html#ch15">🎧</a></li><li id="ch16"><a href="Lemon_Workbook_Book1.pdf#page=66"><b>บทที่ 16 · คู่หมั้นมาถึง</b><span lang="en">Chapter 16 · The Fiancé Arrives</span></a><a class="ln" href="listen.html#ch16">🎧</a></li><li id="ch17"><a href="Lemon_Workbook_Book1.pdf#page=70"><b>บทที่ 17 · ร้านกาแฟในทอร์แรนซ์</b><span lang="en">Chapter 17 · The Café in Torrance</span></a><a class="ln" href="listen.html#ch17">🎧</a></li><li id="ch18"><a href="Lemon_Workbook_Book1.pdf#page=73"><b>บทที่ 18 · หลังพายุ</b><span lang="en">Chapter 18 · The Aftermath</span></a><a class="ln" href="listen.html#ch18">🎧</a></li><li id="ch19"><a href="Lemon_Workbook_Book1.pdf#page=76"><b>บทที่ 19 · ข้อความที่ยังไม่ได้ตอบ</b><span lang="en">Chapter 19 · The Unanswered Message</span></a><a class="ln" href="listen.html#ch19">🎧</a></li><li id="ch20"><a href="Lemon_Workbook_Book1.pdf#page=80"><b>บทที่ 20 · บ้าน</b><span lang="en">Chapter 20 · Home</span></a><a class="ln" href="listen.html#ch20">🎧</a></li><li id="ch21"><a href="Lemon_Workbook_Book1.pdf#page=85"><b>บทที่ 21 · ร้านอาหาร</b><span lang="en">Chapter 21 · The Restaurant</span></a><a class="ln" href="listen.html#ch21">🎧</a></li></ol>
+<ol class="wblist"><li id="ch1"><a href="Lemon_Workbook_Book1.pdf#page=11"><b>บทที่ 1 · วันรับปริญญา</b><span lang="en">Chapter 1 · The Graduation</span></a><a class="ln" href="listen.html#ch1">🎧</a></li><li id="ch2"><a href="Lemon_Workbook_Book1.pdf#page=13"><b>บทที่ 2 · หนี้</b><span lang="en">Chapter 2 · The Debt</span></a><a class="ln" href="listen.html#ch2">🎧</a></li><li id="ch3"><a href="Lemon_Workbook_Book1.pdf#page=17"><b>บทที่ 3 · ผู้ชายที่พูดแทนเธอ</b><span lang="en">Chapter 3 · The Man Who Spoke For Her</span></a><a class="ln" href="listen.html#ch3">🎧</a></li><li id="ch4"><a href="Lemon_Workbook_Book1.pdf#page=22"><b>บทที่ 4 · คำอวยพรกับประแจ</b><span lang="en">Chapter 4 · The Toast and the Wrench</span></a><a class="ln" href="listen.html#ch4">🎧</a></li><li id="ch5"><a href="Lemon_Workbook_Book1.pdf#page=26"><b>บทที่ 5 · กล้วยไม้กับบทท่องจำ</b><span lang="en">Chapter 5 · The Orchid and the Script</span></a><a class="ln" href="listen.html#ch5">🎧</a></li><li id="ch6"><a href="Lemon_Workbook_Book1.pdf#page=29"><b>บทที่ 6 · มอเตอร์ไซค์กับคำสัญญา</b><span lang="en">Chapter 6 · The Motorbike and the Promise</span></a><a class="ln" href="listen.html#ch6">🎧</a></li><li id="ch7"><a href="Lemon_Workbook_Book1.pdf#page=32"><b>บทที่ 7 · เกาะกลางครัว</b><span lang="en">Chapter 7 · The Kitchen Island</span></a><a class="ln" href="listen.html#ch7">🎧</a></li><li id="ch8"><a href="Lemon_Workbook_Book1.pdf#page=36"><b>บทที่ 8 · เสียงแอลกับอาร์</b><span lang="en">Chapter 8 · The L and R Sounds</span></a><a class="ln" href="listen.html#ch8">🎧</a></li><li id="ch9"><a href="Lemon_Workbook_Book1.pdf#page=40"><b>บทที่ 9 · ป้ายและการสั่งอาหาร</b><span lang="en">Chapter 9 · Signs and Orders</span></a><a class="ln" href="listen.html#ch9">🎧</a></li><li id="ch10"><a href="Lemon_Workbook_Book1.pdf#page=45"><b>บทที่ 10 · การจากลา</b><span lang="en">Chapter 10 · The Departure</span></a><a class="ln" href="listen.html#ch10">🎧</a></li><li id="ch11"><a href="Lemon_Workbook_Book1.pdf#page=48"><b>บทที่ 11 · ความสงสัยกับเกาะกลางครัว</b><span lang="en">Chapter 11 · The Doubt and the Island</span></a><a class="ln" href="listen.html#ch11">🎧</a></li><li id="ch12"><a href="Lemon_Workbook_Book1.pdf#page=52"><b>บทที่ 12 · ถนนสู่ไทยทาวน์</b><span lang="en">Chapter 12 · The Drive to Thai Town</span></a><a class="ln" href="listen.html#ch12">🎧</a></li><li id="ch13"><a href="Lemon_Workbook_Book1.pdf#page=56"><b>บทที่ 13 · สตีเว่นกับเบียร์</b><span lang="en">Chapter 13 · Steven and Beer</span></a><a class="ln" href="listen.html#ch13">🎧</a></li><li id="ch14"><a href="Lemon_Workbook_Book1.pdf#page=60"><b>บทที่ 14 · ผีใจดีที่คอมป์ตัน</b><span lang="en">Chapter 14 · A Friendly Ghost in Compton</span></a><a class="ln" href="listen.html#ch14">🎧</a></li><li id="ch15"><a href="Lemon_Workbook_Book1.pdf#page=63"><b>บทที่ 15 · ค่ำคืนที่ไทยทาวน์</b><span lang="en">Chapter 15 · Thai Town Nights</span></a><a class="ln" href="listen.html#ch15">🎧</a></li><li id="ch16"><a href="Lemon_Workbook_Book1.pdf#page=66"><b>บทที่ 16 · ธุรกิจของถ้อยคำ</b><span lang="en">Chapter 16 · The Business of Words</span></a><a class="ln" href="listen.html#ch16">🎧</a></li><li id="ch17"><a href="Lemon_Workbook_Book1.pdf#page=69"><b>บทที่ 17 · ความรู้สึกของคำ</b><span lang="en">Chapter 17 · The Feeling of a Word</span></a><a class="ln" href="listen.html#ch17">🎧</a></li><li id="ch18"><a href="Lemon_Workbook_Book1.pdf#page=73"><b>บทที่ 18 · คู่หมั้นมาถึง</b><span lang="en">Chapter 18 · The Fiancé Arrives</span></a><a class="ln" href="listen.html#ch18">🎧</a></li><li id="ch19"><a href="Lemon_Workbook_Book1.pdf#page=77"><b>บทที่ 19 · ร้านกาแฟในทอร์แรนซ์</b><span lang="en">Chapter 19 · The Café in Torrance</span></a><a class="ln" href="listen.html#ch19">🎧</a></li><li id="ch20"><a href="Lemon_Workbook_Book1.pdf#page=80"><b>บทที่ 20 · หลังพายุ</b><span lang="en">Chapter 20 · The Aftermath</span></a><a class="ln" href="listen.html#ch20">🎧</a></li><li id="ch21"><a href="Lemon_Workbook_Book1.pdf#page=83"><b>บทที่ 21 · ข้อความที่ยังไม่ได้ตอบ</b><span lang="en">Chapter 21 · The Unanswered Message</span></a><a class="ln" href="listen.html#ch21">🎧</a></li><li id="ch22"><a href="Lemon_Workbook_Book1.pdf#page=87"><b>บทที่ 22 · บ้าน</b><span lang="en">Chapter 22 · Home</span></a><a class="ln" href="listen.html#ch22">🎧</a></li><li id="ch23"><a href="Lemon_Workbook_Book1.pdf#page=92"><b>บทที่ 23 · ร้านอาหาร</b><span lang="en">Chapter 23 · The Restaurant</span></a><a class="ln" href="listen.html#ch23">🎧</a></li><li id="ch24"><a href="Lemon_Workbook_Book1.pdf#page=95"><b>บทที่ 24 · สลัดผลไม้</b><span lang="en">Chapter 24 · Fruit Salad</span></a><a class="ln" href="listen.html#ch24">🎧</a></li></ol>
 {head('คู่มือเรียน', 'Study guides')}
-<ul class="wblist"><li><a href="Lemon_Workbook_Book1.pdf#page=6"><b>ทำไมวิธีนี้ได้ผล</b><span lang="en">Why This Works</span></a></li><li><a href="Lemon_Workbook_Book1.pdf#page=89"><b>เสียงภาษาอังกฤษสำหรับคนไทย</b><span lang="en">English Sounds for Thai Speakers</span></a></li><li><a href="Lemon_Workbook_Book1.pdf#page=96"><b>สามสิบวันแรกของคุณ</b><span lang="en">Your First 30 Days</span></a></li><li><a href="Lemon_Workbook_Book1.pdf#page=98"><b>เริ่มจากงานของคุณ</b><span lang="en">Start From Your Job</span></a></li><li><a href="Lemon_Workbook_Book1.pdf#page=101"><b>เรียนต่อ</b><span lang="en">Keep Going</span></a></li><li><a href="Lemon_Workbook_Book1.pdf#page=104"><b>เฉลย</b><span lang="en">Puzzle Answers</span></a></li><li><a href="Lemon_Workbook_Book1.pdf#page=109"><b>อภิธานศัพท์</b><span lang="en">Glossary</span></a></li></ul>
+<ul class="wblist"><li><a href="Lemon_Workbook_Book1.pdf#page=7"><b>ทำไมวิธีนี้ได้ผล</b><span lang="en">Why This Works</span></a></li><li><a href="Lemon_Workbook_Book1.pdf#page=99"><b>เสียงภาษาอังกฤษสำหรับคนไทย</b><span lang="en">English Sounds for Thai Speakers</span></a></li><li><a href="Lemon_Workbook_Book1.pdf#page=106"><b>สามสิบวันแรกของคุณ</b><span lang="en">Your First 30 Days</span></a></li><li><a href="Lemon_Workbook_Book1.pdf#page=108"><b>เริ่มจากงานของคุณ</b><span lang="en">Start From Your Job</span></a></li><li><a href="Lemon_Workbook_Book1.pdf#page=111"><b>เรียนต่อ</b><span lang="en">Keep Going</span></a></li><li><a href="Lemon_Workbook_Book1.pdf#page=114"><b>เฉลย</b><span lang="en">Puzzle Answers</span></a></li><li><a href="Lemon_Workbook_Book1.pdf#page=119"><b>อภิธานศัพท์</b><span lang="en">Glossary</span></a></li></ul>
 </div></section>
 """
 page('workbook.html', 'สมุดแบบฝึกหัด · The Adventures of Lemon Workbook', 'แบบฝึกหัด บทเรียนของคาร์ลอส เกมคำ และคู่มือเสียง ทุกบทของ การผจญภัยของมะนาว · Exercises, Carlos\'s lessons, word games and the sounds guide for every chapter.', wbp)
