@@ -1,5 +1,5 @@
 /* Earth emerging from the dark. One full-screen WebGL2 quad: the globe is ray-traced per pixel,
-   so it stays sharp at any size. Textures: NASA Blue Marble oceans and clouds (public domain); land and night lights at 8K from
+   so it stays sharp at any size. Clouds ride on their own shell, turn at their own pace and cast shadows; relief comes from an elevation map. Textures: NASA Blue Marble oceans and clouds (public domain); land and night lights at 8K from
    Solar System Scope (CC BY 4.0, colour-matched and composited).
    Falls back to the static poster when WebGL2 is missing or motion is reduced. */
 (function () {
@@ -45,6 +45,10 @@
     '    d.y*=2.6;float r=length(d)/G[i].z;float arm=.5+.5*sin(atan(d.y,d.x)*2.-r*4.);',
     '    c+=vec3(.86,.90,.95)*(exp(-r*r*.9)*.16*(.6+.4*arm)+exp(-r*r*14.)*.35);}',
     '  return c;}',
+    'float lum(vec3 c){return dot(c,vec3(.2126,.7152,.0722));}',
+    'vec3 sat(vec3 c,float k){float l=lum(c);return max(vec3(0.),mix(vec3(l),c,k));}',
+    /* cloud cover at a direction on the cloud shell, which turns on its own */
+    'float cloudAt(vec3 d,mat3 Mc,vec2 dx,vec2 dy){vec3 w=Mc*d;vec2 uv=vec2(atan(w.x,w.z)/(2.*PI)+.5,.5-asin(clamp(w.y,-1.,1.))/PI);return smoothstep(.05,1.,tex(uCloud,uv,dx,dy).r);}',
     'void main(){',
     '  vec2 f=gl_FragCoord.xy;',
     '  vec2 p=(f-uGeo.xy)/uGeo.z;',
@@ -54,32 +58,67 @@
     '  float sa=mix(2.85,1.22,I);',
     '  vec3 L=normalize(vec3(-sin(sa),.32,cos(sa)));',
     '  vec3 col=sky(f)*smoothstep(.0,.6,uIntro);',
+    '  mat3 M=ry(uSpin)*rx(uTilt.y)*rz(-.41+uTilt.x);',
+    '  mat3 Mc=ry(uSpin+uCloudSpin)*rx(uTilt.y)*rz(-.41+uTilt.x);',
+    '  const float RC=1.0065;',
+    '  float px1=1./uGeo.z;',
     '  if(r<1.){',
     '    float z=sqrt(1.-r2);vec3 n=vec3(p,z);',
-    '    mat3 M=ry(uSpin)*rx(uTilt.y)*rz(-.41+uTilt.x);',
     '    vec3 w=M*n;',
     '    float lon=atan(w.x,w.z),lat=asin(clamp(w.y,-1.,1.));',
     '    vec2 uv=vec2(lon/(2.*PI)+.5,.5-lat/PI);',
     '    vec2 dx=wrapd(dFdx(uv)),dy=wrapd(dFdy(uv));',
     '    vec3 day=tex(uDay,uv,dx,dy).rgb;day=pow(day,vec3(2.2));',
     '    vec3 ngt=pow(tex(uNight,uv,dx,dy).rgb,vec3(2.2));',
-    '    vec2 cuv=uv+vec2(uCloudSpin,0.);',
-    '    float cl=tex(uCloud,cuv,dx,dy).r;cl=smoothstep(.04,1.,cl)*.92;',
-    '    vec4 sf=tex(uSurf,uv,dx,dy);float water=sf.r;',
+    '    vec4 sf=tex(uSurf,uv,dx,dy);float water=smoothstep(.35,.65,sf.r);',
+    /* relief: elevation map for mountains, fine colour detail from the 8K land map */
+    '    vec2 ts=vec2(1./2048.,1./1024.);',
+    '    float he=tex(uSurf,uv+vec2(ts.x,0.),dx,dy).g-tex(uSurf,uv-vec2(ts.x,0.),dx,dy).g;',
+    '    float hn=tex(uSurf,uv-vec2(0.,ts.y),dx,dy).g-tex(uSurf,uv+vec2(0.,ts.y),dx,dy).g;',
+    '    vec2 dt=vec2(1.)/vec2(textureSize(uDay,0));',
+    '    float fe=lum(tex(uDay,uv+vec2(dt.x,0.),dx,dy).rgb)-lum(tex(uDay,uv-vec2(dt.x,0.),dx,dy).rgb);',
+    '    float fn=lum(tex(uDay,uv-vec2(0.,dt.y),dx,dy).rgb)-lum(tex(uDay,uv+vec2(0.,dt.y),dx,dy).rgb);',
+    '    float cl0=cos(lat);vec3 E=vec3(cos(lon),0.,-sin(lon)),N=vec3(-sin(lon)*sin(lat),cl0,-cos(lon)*sin(lat));',
+    '    float land=1.-water;',
+    '    vec3 nw=normalize(w-(E*(he*7.+fe*2.2)+N*(hn*7.+fn*2.2))*land);',
+    '    vec3 Lw=M*L;',
     '    float d=dot(n,L);',
+    '    float dr=mix(d,dot(nw,Lw),.85);',
     '    float lit=smoothstep(-.06,.28,d);',
-    '    float shadow=1.-.45*tex(uCloud,cuv+vec2(.0015,-.001),dx,dy).r;',
+    /* clouds sit on a shell just above the ground and cast a soft shadow away from the sun */
+    '    float s=-d+sqrt(d*d+RC*RC-1.);',
+    '    float shd=cloudAt(normalize(n+L*s*1.6),Mc,dx,dy);',
+    '    float shadow=1.-.55*shd*smoothstep(-.1,.2,d);',
     '    vec3 V=vec3(0,0,1);vec3 H=normalize(L+V);',
-    '    float spec=pow(max(dot(n,H),0.),220.)*water*(1.-cl)*.45+pow(max(dot(n,H),0.),40.)*water*(1.-cl)*.006;',
-    '    vec3 surf=day*max(d,0.)*1.25*shadow+vec3(1.,.95,.85)*spec*lit;',
-    '    surf=mix(surf,vec3(.96,.97,1.)*max(d,0.)*.98+vec3(.02,.03,.05)*lit,cl*.92);',
-    '    float nightMask=(1.-smoothstep(-.18,.06,d))*(1.-cl*.8);',
-    '    float nl=dot(ngt,vec3(.3,.59,.11));surf+=vec3(1.,.72,.38)*smoothstep(.03,.5,nl)*nl*nightMask*2.2;',
+    '    float nh=max(dot(n,H),0.);',
+    '    float spec=(pow(nh,260.)*.75+pow(nh,36.)*.035)*water;',
+    '    vec3 surf=day*max(dr,0.)*1.3*shadow+vec3(1.,.93,.8)*spec*lit*shadow;',
+    '    float nightMask=(1.-smoothstep(-.18,.06,d));',
+    '    float nl=dot(ngt,vec3(.3,.59,.11));surf+=vec3(1.,.72,.38)*smoothstep(.03,.5,nl)*nl*nightMask*2.2*(1.-.8*cloudAt(n,Mc,dx,dy));',
     '    float rim=pow(1.-z,2.6);',
-    '    vec3 atm=vec3(.30,.55,1.)*rim*(smoothstep(-.25,.45,d))*1.15;',
-    '    surf=surf*(1.-rim*.35)+atm;',
-    '    float edge=smoothstep(1.,.996,r);',
+    '    surf=surf*(1.-rim*.35)+vec3(.30,.55,1.)*rim*smoothstep(-.25,.45,d)*1.1;',
+    '    float edge=smoothstep(1.,1.-1.5*px1,r);',
     '    col=mix(col,surf,edge);',
+    '  }',
+    /* the cloud layer: its own rotation, lit with relief taken from its thickness */
+    '  if(r<RC){',
+    '    float zc=sqrt(RC*RC-r2);vec3 c=vec3(p,zc)/RC;',
+    '    vec3 w=Mc*c;',
+    '    float lon=atan(w.x,w.z),lat=asin(clamp(w.y,-1.,1.));',
+    '    vec2 uv=vec2(lon/(2.*PI)+.5,.5-lat/PI);',
+    '    vec2 dx=wrapd(dFdx(uv)),dy=wrapd(dFdy(uv));',
+    '    float cl=smoothstep(.05,1.,tex(uCloud,uv,dx,dy).r);',
+    '    vec2 ct=vec2(1.)/vec2(textureSize(uCloud,0));',
+    '    float ce=tex(uCloud,uv+vec2(ct.x,0.),dx,dy).r-tex(uCloud,uv-vec2(ct.x,0.),dx,dy).r;',
+    '    float cn=tex(uCloud,uv-vec2(0.,ct.y),dx,dy).r-tex(uCloud,uv+vec2(0.,ct.y),dx,dy).r;',
+    '    vec3 E=vec3(cos(lon),0.,-sin(lon)),N=vec3(-sin(lon)*sin(lat),cos(lat),-cos(lon)*sin(lat));',
+    '    vec3 nw=normalize(w-(E*ce+N*cn)*3.);',
+    '    float d=dot(c,L),dc=mix(d,dot(nw,Mc*L),.45)*smoothstep(-.08,.22,d);',
+    '    vec3 ccol=vec3(1.,.985,.96)*max(dc,0.)*1.08+vec3(.05,.08,.14)*smoothstep(-.2,.3,d);',
+    '    ccol*=mix(.82,1.,smoothstep(.2,.9,cl));',
+    '    float a=cl*.95*smoothstep(RC,RC-1.5*px1,r);',
+    '    if(r>1.)a*=.85;',
+    '    col=mix(col,ccol,a);',
     '  }',
     /* atmosphere glow outside the limb, only on the sunlit side */
     '  if(r>.985){',
@@ -89,8 +128,11 @@
     '    col+=vec3(.35,.62,1.)*(g*.75+g2)*smoothstep(.985,1.,r);',
     '  }',
     '  col*=smoothstep(0.,.35,uIntro)*.25+.75*I+.0;',
-    '  col=col/(1.+col*.35);',
+    /* commercial grade: filmic shoulder, richer colour, a touch more contrast */
+    '  col=col/(1.+col*.32);',
+    '  col=sat(col,1.22);',
     '  col=pow(col,vec3(1./2.2));',
+    '  col=mix(col,col*col*(3.-2.*col),.22);',
     '  col+=(h21(f+uTime)-.5)/255.;',
     '  o=vec4(col,1.);',
     '}'
@@ -150,7 +192,7 @@
     gl.uniform2f(U.uRes, W, H);
     gl.uniform3f(U.uGeo, g[0], H - g[1], g[2]);
     gl.uniform1f(U.uSpin, spin0 + (still ? 0 : t * 0.018));
-    gl.uniform1f(U.uCloudSpin, still ? 0 : t * 0.0009);
+    gl.uniform1f(U.uCloudSpin, 0.35 + (still ? 0 : t * 0.0075));
     gl.uniform1f(U.uIntro, intro);
     gl.uniform1f(U.uTime, still ? 0 : t);
     gl.uniform1f(U.uDpr, dpr);
