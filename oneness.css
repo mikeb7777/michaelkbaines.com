@@ -370,3 +370,7 @@ section.paper .card{background:var(--lemon-soft);border-color:#E5DCC4}
 .hero.solo .wrap{grid-template-columns:1fr}
 /* band starts on the exact colour the fade ends on, so the join is invisible; tighter top gap */
 .hero.solo{padding-block:16px 44px;background:linear-gradient(180deg,#0E2338 0%,#15284A 58%,#0B1C30 100%)}
+
+/* Buy-the-PDF: card copy + button spacing (Payhip on-site checkout) */
+.bk .buy-note{font-size:13px;line-height:1.5;color:#6B6456;margin:8px 0 12px}
+.bk.now .btn{margin-top:2px}
