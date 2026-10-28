@@ -302,5 +302,7 @@ body.home { background: var(--cream); }
 #story h1, #story h2, #story h3, #story h4 { color:#fff; }
 #story p, #story li { color: rgba(255,255,255,.9); }
 #story a, #story b, #story strong { color: var(--lemon); }
+#story blockquote { color:#fff; }
+#story blockquote cite { color: var(--lemon); }
 
 .honor { margin-top: 20px; max-width: 36em; font-size: 16px; color: var(--soft); border-left: 3px solid var(--lemon); padding-left: 14px; }
