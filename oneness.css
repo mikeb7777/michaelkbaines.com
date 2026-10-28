@@ -374,3 +374,6 @@ section.paper .card{background:var(--lemon-soft);border-color:#E5DCC4}
 /* Buy-the-PDF: card copy + button spacing (Payhip on-site checkout) */
 .bk .buy-note{font-size:13px;line-height:1.5;color:#6B6456;margin:8px 0 12px}
 .bk.now .btn{margin-top:2px}
+
+/* Hero lead-in: tagline above the book mockup so the image doesn't appear cold */
+.bookhero-tag{margin:0;text-align:center;padding:22px 16px 16px;background:#000a20;color:#D9CBA3;font:italic 400 clamp(15px,2.3vw,20px)/1.4 var(--en);letter-spacing:.02em}
