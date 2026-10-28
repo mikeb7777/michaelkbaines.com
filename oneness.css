@@ -361,7 +361,12 @@ section.paper + section.paper{border-top:1px solid var(--line)}
 section.paper .card{background:var(--lemon-soft);border-color:#E5DCC4}
 
 /* full-width book-mockup hero banner (Rediscovering Oneness) */
-.bookhero{background:#05070d;line-height:0}
-.bookhero img{display:block;width:100%;height:auto;max-height:82vh;object-fit:cover;object-position:center 42%}
+/* backdrop matches the image's own top edge (#000a20) so no line shows above it */
+.bookhero{background:#000a20;line-height:0;position:relative}
+/* show the whole 3:2 mockup uncropped on every screen (no max-height / cover crop) */
+.bookhero img{display:block;width:100%;height:auto}
+/* melt the reflective floor down into the text band's top colour: no seam */
+.bookhero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:12%;min-height:46px;pointer-events:none;background:linear-gradient(to bottom,rgba(14,35,56,0) 0%,#0E2338 100%)}
 .hero.solo .wrap{grid-template-columns:1fr}
-.hero.solo{padding-block:34px 44px;background:linear-gradient(168deg,#0E2338 0%,#15284A 55%,#0B1C30 100%)}
+/* band starts on the exact colour the fade ends on, so the join is invisible; tighter top gap */
+.hero.solo{padding-block:16px 44px;background:linear-gradient(180deg,#0E2338 0%,#15284A 58%,#0B1C30 100%)}
