@@ -11,12 +11,20 @@
   if (!gl) { host.classList.add('static'); return; }
 
   var base = cv.getAttribute('data-base') || 'assets/earth/';
-  /* texture tier: 8K on large or high-density screens whose GPU allows it, 4K in between, 2K on phones */
-  var px = Math.max(screen.width, screen.height) * (window.devicePixelRatio || 1);
+  /* texture tier: 8K only on true desktop-class screens. Tablets/phones get 4K/2K, because
+     iOS and iPadOS Safari cannot reliably decode the 33.6MP 8K JPEGs and silently fail. */
+  var sLong = Math.max(screen.width, screen.height), sShort = Math.min(screen.width, screen.height);
+  var px = sLong * (window.devicePixelRatio || 1);
   var maxTex = gl.getParameter(gl.MAX_TEXTURE_SIZE);
-  var mob = Math.min(screen.width, screen.height) < 600;
-  var res = (!mob && px >= 2200 && maxTex >= 8192) ? '8k' : (px > 1700 && maxTex >= 4096) ? '4k' : '2k';
-  var cres = res === '8k' ? '4k' : res;
+  var touch = (navigator.maxTouchPoints || 0) > 0;
+  var iOS = /iP(hone|ad|od)/.test(navigator.userAgent) ||
+            (navigator.platform === 'MacIntel' && (navigator.maxTouchPoints || 0) > 1);
+  var mob = sShort < 600;
+  var res = (mob || maxTex < 4096) ? '2k'
+          : (!iOS && !touch && sShort >= 1100 && px >= 2600 && maxTex >= 8192) ? '8k'
+          : '4k';
+  /* if a tier's textures fail to decode, step down a tier rather than falling to the static poster */
+  var CHAIN = res === '8k' ? ['8k', '4k', '2k'] : res === '4k' ? ['4k', '2k'] : ['2k'];
 
   var VS = '#version 300 es\nin vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
   var FS = [
@@ -68,19 +76,23 @@
     '    float lon=atan(w.x,w.z),lat=asin(clamp(w.y,-1.,1.));',
     '    vec2 uv=vec2(lon/(2.*PI)+.5,.5-lat/PI);',
     '    vec2 dx=wrapd(dFdx(uv)),dy=wrapd(dFdy(uv));',
-    '    vec3 day=tex(uDay,uv,dx,dy).rgb;day=pow(day,vec3(2.2));',
+    /* day colour with an unsharp mask so coastlines and continents read crisp, not muddy */
+    '    vec2 dt=vec2(1.)/vec2(textureSize(uDay,0));',
+    '    vec3 d0=tex(uDay,uv,dx,dy).rgb;',
+    '    vec3 dR=tex(uDay,uv+vec2(dt.x,0.),dx,dy).rgb,dL=tex(uDay,uv-vec2(dt.x,0.),dx,dy).rgb;',
+    '    vec3 dU=tex(uDay,uv-vec2(0.,dt.y),dx,dy).rgb,dD=tex(uDay,uv+vec2(0.,dt.y),dx,dy).rgb;',
+    '    d0+=(d0*4.-dR-dL-dU-dD)*.17;',
+    '    vec3 day=pow(max(d0,0.),vec3(2.2));',
     '    vec3 ngt=pow(tex(uNight,uv,dx,dy).rgb,vec3(2.2));',
     '    vec4 sf=tex(uSurf,uv,dx,dy);float water=smoothstep(.35,.65,sf.r);',
-    /* relief: elevation map for mountains, fine colour detail from the 8K land map */
+    /* relief: elevation map for mountains, fine colour detail from the land map */
     '    vec2 ts=vec2(1./2048.,1./1024.);',
     '    float he=tex(uSurf,uv+vec2(ts.x,0.),dx,dy).g-tex(uSurf,uv-vec2(ts.x,0.),dx,dy).g;',
     '    float hn=tex(uSurf,uv-vec2(0.,ts.y),dx,dy).g-tex(uSurf,uv+vec2(0.,ts.y),dx,dy).g;',
-    '    vec2 dt=vec2(1.)/vec2(textureSize(uDay,0));',
-    '    float fe=lum(tex(uDay,uv+vec2(dt.x,0.),dx,dy).rgb)-lum(tex(uDay,uv-vec2(dt.x,0.),dx,dy).rgb);',
-    '    float fn=lum(tex(uDay,uv-vec2(0.,dt.y),dx,dy).rgb)-lum(tex(uDay,uv+vec2(0.,dt.y),dx,dy).rgb);',
+    '    float fe=lum(dR)-lum(dL),fn=lum(dU)-lum(dD);',
     '    float cl0=cos(lat);vec3 E=vec3(cos(lon),0.,-sin(lon)),N=vec3(-sin(lon)*sin(lat),cl0,-cos(lon)*sin(lat));',
     '    float land=1.-water;',
-    '    vec3 nw=normalize(w-(E*(he*7.+fe*2.2)+N*(hn*7.+fn*2.2))*land);',
+    '    vec3 nw=normalize(w-(E*(he*10.+fe*3.2)+N*(hn*10.+fn*3.2))*land);',
     '    vec3 Lw=M*L;',
     '    float d=dot(n,L);',
     '    float dr=mix(d,dot(nw,Lw),.85);',
@@ -213,11 +225,15 @@
   }).observe(host);
   document.addEventListener('visibilitychange', function () { if (!document.hidden && !run) { run = true; requestAnimationFrame(frame); } });
 
-  Promise.all([
-    load(0, 'uDay', 'day-' + res + '.jpg'),
-    load(1, 'uNight', 'night-' + res + '.jpg'),
-    load(2, 'uCloud', 'clouds-' + cres + '.jpg'),
-    load(3, 'uSurf', 'surface-2k.png')
-  ]).then(function () { t0 = 0; requestAnimationFrame(frame); })
-    .catch(function () { host.classList.add('static'); });
+  function boot(i) {
+    var r = CHAIN[i], cr = r === '8k' ? '4k' : r;
+    Promise.all([
+      load(0, 'uDay', 'day-' + r + '.jpg'),
+      load(1, 'uNight', 'night-' + r + '.jpg'),
+      load(2, 'uCloud', 'clouds-' + cr + '.jpg'),
+      load(3, 'uSurf', 'surface-2k.png')
+    ]).then(function () { t0 = 0; requestAnimationFrame(frame); })
+      .catch(function () { if (i + 1 < CHAIN.length) boot(i + 1); else host.classList.add('static'); });
+  }
+  boot(0);
 })();
