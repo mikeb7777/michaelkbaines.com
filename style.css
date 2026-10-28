@@ -280,6 +280,8 @@ body.home { background: var(--cream); }
   .bk { grid-template-columns: 1fr; padding: 34px 0; gap: 22px; }
   .bk:nth-of-type(even) .art { order: 0; }
   .art { aspect-ratio: 5 / 4; }
+  /* keep the Oneness cover square on phones so the eclipse ring stays clear of the title */
+  .one .art { aspect-ratio: 1 / 1; }
   .txt .no { font-size: 52px; margin-bottom: 8px; }
   .books { padding: 64px 0 56px; }
 }

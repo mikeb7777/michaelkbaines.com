@@ -334,3 +334,6 @@ html{-webkit-text-size-adjust:100%}
 .idea .small,.idea .small .t-en{color:var(--soft)}
 .idea .chk{display:grid;grid-template-columns:auto 1fr;column-gap:10px}
 .idea .chk span{grid-column:2}
+
+/* Hero links must be legible on the dark hero (was teal-on-teal, invisible) */
+.hero a:not(.btn){color:var(--lemon);text-decoration:underline;text-underline-offset:2px}
