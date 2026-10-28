@@ -359,3 +359,9 @@ section.paper + section.paper{border-top:1px solid var(--line)}
 
 /* Filled cards on near-white paper sections: give the box a warm color instead of white-on-white */
 section.paper .card{background:var(--lemon-soft);border-color:#E5DCC4}
+
+/* full-width book-mockup hero banner (Rediscovering Oneness) */
+.bookhero{background:#05070d;line-height:0}
+.bookhero img{display:block;width:100%;height:auto;max-height:82vh;object-fit:cover;object-position:center 42%}
+.hero.solo .wrap{grid-template-columns:1fr}
+.hero.solo{padding-block:34px 44px;background:linear-gradient(168deg,#0E2338 0%,#15284A 55%,#0B1C30 100%)}
