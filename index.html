@@ -19,8 +19,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,500;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=20261028b">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Michael K. Baines","url":"https://michaelkbaines.com/","jobTitle":"Author and researcher","sameAs":["https://eequalsicsquared.com","https://orcid.org/0009-0001-8084-3870"]}</script>
+<style>
+.xgreet{position:fixed;top:0;left:0;right:0;z-index:40;display:none;background:rgba(6,40,52,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#F4EFE6;font-family:'Sarabun',system-ui,sans-serif;font-size:.92rem;line-height:1.35;text-align:center;padding:.55rem 2.6rem;border-bottom:1px solid rgba(201,184,142,.3)}
+.xgreet.show{display:block}
+.xgreet b{color:#E6C98A;font-weight:600}
+.xgreet .x{position:absolute;right:.4rem;top:50%;transform:translateY(-50%);background:none;border:0;color:#C9B88E;font-size:1.2rem;line-height:1;cursor:pointer;padding:.25rem .55rem}
+.xgreet .x:hover{color:#fff}
+@media(max-width:560px){.xgreet{font-size:.84rem;padding:.5rem 2.4rem}}
+</style>
 </head>
 <body class="home">
+<div class="xgreet" id="xgreet" role="note"><span><b>Season&rsquo;s greetings.</b> However you keep this time of year, may it bring you nearer to the people, and the world, you are already part of.</span><button class="x" id="xgreetClose" aria-label="Dismiss">&times;</button></div>
 <header class="top over">
   <div class="wrap">
     <a class="name" href="./"><svg viewBox="0 0 100 100" width="20" height="20" aria-hidden="true" style="vertical-align:middle;margin-right:8px"><g fill="none" stroke="currentColor" stroke-width="8.5" stroke-linecap="round"><circle cx="50" cy="50" r="30"/><line x1="8" y1="50" x2="92" y2="50"/></g></svg>Michael K. Baines</a>
@@ -337,6 +346,27 @@
 <script>
 (function(){var t=document.querySelector('.top.over'),s=document.querySelector('.space');if(!t||!s)return;
 function f(){t.classList.toggle('solid',window.scrollY>s.offsetHeight-70);}window.addEventListener('scroll',f,{passive:true});f();})();
+</script>
+<script>
+/* Universal season's greeting: shows mid-Dec to early Jan, dismissible, remembered per season. Add #greet-preview to force it. */
+(function(){
+  var el=document.getElementById('xgreet'); if(!el) return;
+  var now=new Date(), m=now.getMonth()+1, d=now.getDate(), y=now.getFullYear();
+  var inWindow=(m===12&&d>=15)||(m===1&&d<=2);
+  var preview=location.hash==='#greet-preview';
+  var season=(m===1)?y-1:y, key='xgreetDismiss'+season, dismissed=false;
+  try{dismissed=localStorage.getItem(key)==='1';}catch(e){}
+  if(!(preview||(inWindow&&!dismissed))) return;
+  el.classList.add('show'); document.body.classList.add('xgreet-on');
+  var hdr=document.querySelector('.top.over');
+  function place(){var h=el.offsetHeight; if(hdr) hdr.style.top=h+'px';}
+  place(); window.addEventListener('resize',place,{passive:true});
+  document.getElementById('xgreetClose').addEventListener('click',function(){
+    el.classList.remove('show'); document.body.classList.remove('xgreet-on');
+    if(hdr) hdr.style.top='';
+    try{localStorage.setItem(key,'1');}catch(e){}
+  });
+})();
 </script>
 </body>
 </html>
