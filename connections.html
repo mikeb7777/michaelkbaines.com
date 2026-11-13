@@ -68,11 +68,20 @@
   .log li{font-family:var(--sans);font-size:.78rem;line-height:1.45;color:#223851;margin-bottom:.35rem;display:flex;gap:.45rem}
   .log li b{color:var(--navy);font-weight:700;white-space:nowrap}
   .orgs{margin-top:1rem}
-  .orgs .lbl{font-family:var(--sans);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:.5rem}
+  .orggroup{margin-bottom:.75rem}
+  .orggroup:last-child{margin-bottom:0}
+  .orgs .lbl{font-family:var(--sans);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:.4rem}
   .orgs .chips{display:flex;flex-wrap:wrap;gap:.45rem}
   .chip{font-family:var(--sans);font-size:.8rem;padding:.3rem .62rem;border:1px solid var(--line);border-radius:6px;color:var(--navy);background:#FCFBF8}
   .chip:hover{border-color:var(--gold);color:var(--gold);text-decoration:none}
 
+  .cta{max-width:1180px;margin:2.4rem auto 0;padding:0 1.5rem}
+  .cta .box{background:var(--dark);color:#F4EFE6;border-radius:12px;padding:2.6rem 2.2rem}
+  .cta .eyebrow{font-family:var(--sans);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);margin-bottom:.9rem}
+  .cta h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700;margin-bottom:.8rem;color:#fff;line-height:1.1}
+  .cta p{font-size:1.06rem;color:#D8CBAE;max-width:70ch;margin-bottom:.95rem}
+  .cta p:last-child{margin-bottom:0}
+  .cta a{color:#D9A94A;font-weight:600}
   .note{max-width:1180px;margin:1.5rem auto 0;padding:1.8rem 1.5rem 4rem}
   .note .box{background:#F3EEE4;border-left:3px solid var(--gold);border-radius:4px;padding:1.3rem 1.5rem}
   .note p{font-size:.98rem;color:#223851;max-width:74ch;margin-bottom:.7rem}
@@ -118,6 +127,13 @@
   </section>
 
   <main class="grid" id="grid"></main>
+
+  <section class="cta"><div class="box">
+    <p class="eyebrow">What you can do</p>
+    <h2>Find your part in it</h2>
+    <p>Nothing here asks you to feel guilty, and none of it is a sales pitch. The links above are here for one reason: so that anyone who closes the book and feels the pull to do something has a place to begin. Pick the area that resonates, read further, and get involved at whatever scale fits your life. Learning more is a real first step. So is an afternoon, or a few dollars, given to people already at the work.</p>
+    <p>This directory is open. If your organization works in one of these areas and would like to be listed here, write to <a href="mailto:mkb.info@proton.me">mkb.info@proton.me</a> and I will add you.</p>
+  </div></section>
 
   <section class="note">
     <div class="box">
@@ -188,7 +204,7 @@ const DATA=[
   mlabel:"Mortality risk of chronic social isolation, by the Surgeon General's estimate.",
   asof:"U.S. Surgeon General Advisory, 2023",src:"https://www.hhs.gov/surgeongeneral/priorities/connection/index.html",
   base:"The Harvard Study of Adult Development (85+ years) finds relationship quality the strongest predictor of late-life health.",
-  orgs:[["Foundation for Social Connection","https://www.social-connection.org/"],["Campaign to End Loneliness","https://www.campaigntoendloneliness.org/"]]},
+  orgs:[["Science & reports",[["WHO Commission on Social Connection","https://www.who.int/groups/commission-on-social-connection"],["Harvard Study of Adult Development","https://www.adultdevelopmentstudy.org/"]]],["Nonprofits & campaigns",[["Foundation for Social Connection","https://www.social-connection.org/"],["Campaign to End Loneliness","https://www.campaigntoendloneliness.org/"],["GenWell Project","https://genwell.ca/"],["Marmalade Trust","https://www.marmaladetrust.org/"]]]]},
 
  {art:"air",cat:"Air",pill:"Boundary crossed",bad:true,crossed:true,dir:"up",unit:"ppm CO₂",
   conn:"One atmosphere, shared by every breathing thing. It keeps no record of who burned the carbon.",
@@ -197,7 +213,7 @@ const DATA=[
   mlabel:"Atmospheric CO₂ at Mauna Loa, a record, rising faster each decade.",
   asof:"NOAA Global Monitoring Lab, Apr 2026",src:"https://gml.noaa.gov/ccgg/trends/",
   base:"Pre-industrial baseline was ~280 ppm.",
-  orgs:[["Project Drawdown","https://drawdown.org/"],["Clean Air Task Force","https://www.catf.us/"]]},
+  orgs:[["Science & data",[["NOAA Global Monitoring Lab","https://gml.noaa.gov/ccgg/trends/"],["Keeling Curve (Scripps)","https://keelingcurve.ucsd.edu/"]]],["Government & policy",[["U.S. EPA: greenhouse gases","https://www.epa.gov/ghgemissions"],["IPCC","https://www.ipcc.ch/"]]],["Act & support",[["Project Drawdown","https://drawdown.org/"],["Clean Air Task Force","https://www.catf.us/"]]]]},
 
  {art:"climate",cat:"Climate",pill:"Boundary crossed",bad:true,crossed:true,dir:"up",unit:"°C",
   conn:"Heat added anywhere spreads everywhere. The number is small; the leverage is not.",
@@ -206,7 +222,7 @@ const DATA=[
   mlabel:"Global average temperature above pre-industrial; 2024 was the first full year past 1.5°C.",
   asof:"Copernicus / ECMWF, Jan 2025",src:"https://climate.copernicus.eu/copernicus-2024-first-year-exceed-15degc-above-pre-industrial-level",
   base:"The 1.5°C line is a threshold, not a range. 2024 was the first full calendar year to cross it, and the rise has not reversed since.",
-  orgs:[["Project Drawdown","https://drawdown.org/"],["Carbon Brief","https://www.carbonbrief.org/"]]},
+  orgs:[["Science & data",[["Copernicus Climate","https://climate.copernicus.eu/"],["NASA GISS","https://data.giss.nasa.gov/gistemp/"],["Berkeley Earth","https://berkeleyearth.org/"]]],["Government & policy",[["IPCC","https://www.ipcc.ch/"],["UNFCCC","https://unfccc.int/"]]],["Act & support",[["Project Drawdown","https://drawdown.org/"],["Carbon Brief","https://www.carbonbrief.org/"]]]]},
 
  {art:"water",cat:"Water",pill:"Boundary crossed",bad:true,crossed:true,dir:"down",unit:"pH",
   conn:"The same water has cycled through oceans, clouds and living bodies for billions of years. It is on loan.",
@@ -215,7 +231,7 @@ const DATA=[
   mlabel:"Surface-ocean pH is falling as the sea absorbs our carbon, roughly 30 to 40% more acidic than pre-industrial.",
   asof:"Stockholm Resilience Centre, 2025",src:"https://www.stockholmresilience.org/research/planetary-boundaries/the-nine-planetary-boundaries/ocean-acidification.html",
   base:"In 2025 ocean acidification became the seventh planetary boundary to be breached.",
-  orgs:[["Ocean Conservancy","https://oceanconservancy.org/"],["Surfrider Foundation","https://www.surfrider.org/"]]},
+  orgs:[["Science & data",[["Stockholm Resilience Centre","https://www.stockholmresilience.org/research/planetary-boundaries.html"],["NOAA Ocean Acidification Program","https://oceanacidification.noaa.gov/"],["GOA-ON network","https://www.goa-on.org/"]]],["Act & support",[["Ocean Conservancy","https://oceanconservancy.org/"],["Surfrider Foundation","https://www.surfrider.org/"]]]]},
 
  {art:"reef",cat:"Reef cycle",pill:"Boundary crossed",bad:true,crossed:true,dir:"up",unit:"% of reefs",
   conn:"Coral is a partnership: an animal and an algae living as one body. Heat the water and the partnership breaks.",
@@ -225,7 +241,7 @@ const DATA=[
   asof:"NOAA Coral Reef Watch, 2025",src:"https://coralreefwatch.noaa.gov/satellite/research/coral_bleaching_report.php",
   base:"Across 80+ countries. Each global event has reached further than the last; scientists now warn of near-annual bleaching.",
   log:[["Nov 2026","Fourth global bleaching event ongoing, 84% of reefs affected. Baseline set; this tracker will note any recovery at each update."]],
-  orgs:[["Coral Reef Alliance","https://coral.org/"],["Coral Restoration Foundation","https://www.coralrestoration.org/"]]},
+  orgs:[["Science & monitoring",[["NOAA Coral Reef Watch","https://coralreefwatch.noaa.gov/"],["Global Coral Reef Monitoring Network","https://gcrmn.net/"],["Reef Check","https://www.reefcheck.org/"]]],["Act & support",[["Coral Reef Alliance","https://coral.org/"],["Coral Restoration Foundation","https://www.coralrestoration.org/"]]]]},
 
  {art:"sea",cat:"Sea & ice",pill:"Worsening",bad:true,dir:"up",unit:"mm",
   conn:"Land ice and ocean are one budget. What melts on a mountain arrives at a coastline.",
@@ -234,7 +250,7 @@ const DATA=[
   mlabel:"Global mean sea level; 2024's rise ran well above what models expected, and the rate is accelerating.",
   asof:"NASA Sea Level, Mar 2025",src:"https://sealevel.nasa.gov/news/282",
   base:"The rate has more than doubled since the early 1990s.",
-  orgs:[["Climate Central","https://www.climatecentral.org/"],["ICCINET / NSIDC","https://nsidc.org/"]]},
+  orgs:[["Science & data",[["NASA Sea Level","https://sealevel.nasa.gov/"],["NSIDC (snow & ice)","https://nsidc.org/"]]],["Act & support",[["Climate Central","https://www.climatecentral.org/"],["Int'l Cryosphere Climate Initiative","https://iccinet.org/"]]]]},
 
  {art:"food",cat:"Food",pill:"Worsening",bad:true,dir:"down",unit:"% of 2000",
   conn:"Most of what you eat depends on a pollinator you never see. Their collapse is the quiet end of the food chain.",
@@ -243,7 +259,7 @@ const DATA=[
   mlabel:"U.S. butterfly abundance since 2000; insect and pollinator numbers are falling worldwide.",
   asof:"Science / UCLA, 2025",src:"https://www.ioes.ucla.edu/study-reveals-devastating-22-decline-in-u-s-butterflies/",
   base:"Pollinators underwrite roughly a third of global food crops.",
-  orgs:[["Xerces Society","https://www.xerces.org/"],["Rodale Institute","https://rodaleinstitute.org/"],["Kiss the Ground","https://kisstheground.com/"]]},
+  orgs:[["Science & networks",[["Pollinator Partnership","https://www.pollinator.org/"],["FAO: pollination","https://www.fao.org/pollination/en/"]]],["Act & support",[["Xerces Society","https://www.xerces.org/"],["Rodale Institute","https://rodaleinstitute.org/"],["Kiss the Ground","https://kisstheground.com/"]]]]},
 
  {art:"soil",cat:"Soil & land",pill:"Worsening",bad:true,dir:"up",unit:"% degraded",
   conn:"Soil is a living community, built over centuries. The food system runs on a layer we are spending faster than it forms.",
@@ -252,7 +268,7 @@ const DATA=[
   mlabel:"Share of the world's soils now degraded, with roughly 100 million hectares lost each year.",
   asof:"FAO / UNCCD, 2024",src:"https://www.unccd.int/",
   base:"Degradation strips the carbon, water and microbes that make land fertile.",
-  orgs:[["Rodale Institute","https://rodaleinstitute.org/"],["Regeneration International","https://regenerationinternational.org/"]]},
+  orgs:[["Government & science",[["FAO Global Soil Partnership","https://www.fao.org/global-soil-partnership/en/"],["UNCCD","https://www.unccd.int/"]]],["Act & support",[["Rodale Institute","https://rodaleinstitute.org/"],["Regeneration International","https://regenerationinternational.org/"],["Savory Institute","https://savory.global/"]]]]},
 
  {art:"water2",cat:"Fresh water",pill:"Boundary crossed",bad:true,crossed:true,dir:"down",unit:"% remaining",
   conn:"Wetlands are the planet's kidneys, filtering and storing fresh water. We have drained most of them.",
@@ -261,7 +277,7 @@ const DATA=[
   mlabel:"Share of the world's wetlands remaining; they are vanishing three times faster than forests.",
   asof:"Ramsar / Global Wetland Outlook",src:"https://www.global-wetland-outlook.ramsar.org/",
   base:"Freshwater use crossed its planetary boundary in the 2023 assessment.",
-  orgs:[["Wetlands International","https://www.wetlands.org/"],["American Rivers","https://www.americanrivers.org/"]]},
+  orgs:[["Government & science",[["Ramsar Convention on Wetlands","https://www.ramsar.org/"]]],["Act & support",[["Wetlands International","https://www.wetlands.org/"],["American Rivers","https://www.americanrivers.org/"],["Ducks Unlimited","https://www.ducks.org/"]]]]},
 
  {art:"bio",cat:"Biodiversity",pill:"Boundary crossed",bad:true,crossed:true,dir:"down",unit:"% of 1970",
   conn:"Every species is a thread in the same fabric. Pull enough threads and the weave, not just the thread, gives way.",
@@ -270,7 +286,7 @@ const DATA=[
   mlabel:"Average size of monitored wildlife populations over 50 years, across ~5,500 species.",
   asof:"WWF Living Planet Report, 2024",src:"https://www.worldwildlife.org/press-releases/catastrophic-73-decline-in-the-average-size-of-global-wildlife-populations-in-just-50-years-reveals-a-system-in-peril",
   base:"Freshwater populations have fallen furthest, by about 85%.",
-  orgs:[["WWF","https://www.worldwildlife.org/"],["IUCN","https://www.iucn.org/"],["Rainforest Trust","https://www.rainforesttrust.org/"]]},
+  orgs:[["Science & assessment",[["IUCN Red List","https://www.iucnredlist.org/"],["IPBES","https://www.ipbes.net/"]]],["Act & support",[["WWF","https://www.worldwildlife.org/"],["The Nature Conservancy","https://www.nature.org/"],["Rainforest Trust","https://www.rainforesttrust.org/"],["Conservation International","https://www.conservation.org/"]]]]},
 
  {art:"living",cat:"Living systems",pill:"7 of 9 crossed",bad:true,crossed:true,dir:"up",unit:"of 9",
   conn:"Nine limits keep the Earth in the range that let complex life arise. We are a single system testing its own edges.",
@@ -279,7 +295,7 @@ const DATA=[
   mlabel:"Planetary boundaries now crossed, with the breached ones continuing to worsen.",
   asof:"Stockholm Resilience Centre, 2025",src:"https://www.stockholmresilience.org/news--events/general-news/2025-09-24-seven-of-nine-planetary-boundaries-now-breached.html",
   base:"Climate, biosphere, land, freshwater, nutrient flows, novel entities and ocean acidity are all past safe limits.",
-  orgs:[["Stockholm Resilience Centre","https://www.stockholmresilience.org/"],["Project Drawdown","https://drawdown.org/"]]},
+  orgs:[["Science & data",[["Stockholm Resilience Centre","https://www.stockholmresilience.org/"],["Potsdam Institute (PIK)","https://www.pik-potsdam.de/en"],["Earth Commission","https://earthcommission.org/"]]],["Act & support",[["Project Drawdown","https://drawdown.org/"]]]]},
 
  {art:"birds",cat:"Birds",pill:"Worsening",bad:true,dir:"down",unit:"% of 1970",
   conn:"Birds are the sky's instrument panel. When they thin out, something upstream has already failed.",
@@ -288,7 +304,7 @@ const DATA=[
   mlabel:"Breeding birds lost in North America since 1970, with declines continuing across most habitats.",
   asof:"State of the Birds, 2025",src:"https://www.stateofthebirds.org/",
   base:"About a third of U.S. bird species are now of high or moderate conservation concern.",
-  orgs:[["Cornell Lab of Ornithology","https://www.birds.cornell.edu/"],["American Bird Conservancy","https://abcbirds.org/"],["Audubon","https://www.audubon.org/"]]},
+  orgs:[["Science & data",[["Cornell Lab of Ornithology","https://www.birds.cornell.edu/"]]],["Act & support",[["American Bird Conservancy","https://abcbirds.org/"],["National Audubon Society","https://www.audubon.org/"],["BirdLife International","https://www.birdlife.org/"]]]]},
 
  {art:"plants",cat:"Plants & forests",pill:"Worsening",bad:true,dir:"up",unit:"Mha/yr",
   conn:"Forests are the lungs and the memory of the land. Burning them spends carbon the land took centuries to store.",
@@ -297,7 +313,7 @@ const DATA=[
   mlabel:"Tropical primary forest lost in 2024, an all-time high, nearly double the year before.",
   asof:"Global Forest Watch / WRI, 2025",src:"https://research.wri.org/gfr/latest-analysis-deforestation-trends",
   base:"Fire was the leading driver for the first time, a loop between a warming climate and the forests that cool it.",
-  orgs:[["Rainforest Trust","https://www.rainforesttrust.org/"],["One Tree Planted","https://onetreeplanted.org/"],["Trillion Trees","https://www.trilliontrees.org/"]]},
+  orgs:[["Science & data",[["Global Forest Watch","https://www.globalforestwatch.org/"],["World Resources Institute","https://www.wri.org/"]]],["Act & support",[["Rainforest Trust","https://www.rainforesttrust.org/"],["One Tree Planted","https://onetreeplanted.org/"],["Trillion Trees","https://www.trilliontrees.org/"]]]]},
 
  {art:"fish",cat:"Fisheries",pill:"Worsening",bad:true,dir:"down",unit:"% sustainable",
   conn:"The ocean fed us for all of history on the assumption it was endless. It is a shared account, and it is overdrawn.",
@@ -306,7 +322,7 @@ const DATA=[
   mlabel:"Share of marine fish stocks fished beyond sustainable limits; the sustainable share keeps shrinking.",
   asof:"FAO, State of World Fisheries 2024",src:"https://openknowledge.fao.org/items/sofia-2024",
   base:"Aquaculture now supplies more seafood than wild capture for the first time.",
-  orgs:[["Marine Stewardship Council","https://www.msc.org/"],["Oceana","https://oceana.org/"]]},
+  orgs:[["Government & science",[["FAO Fisheries","https://www.fao.org/fishery/en"]]],["Act & support",[["Marine Stewardship Council","https://www.msc.org/"],["Oceana","https://oceana.org/"],["Seafood Watch","https://www.seafoodwatch.org/"]]]]},
 
  {art:"night",cat:"Night sky",pill:"Worsening",bad:true,dir:"down",unit:"stars visible",
   conn:"For all of human history the Milky Way was overhead. A birthright of scale and place is being switched off.",
@@ -315,7 +331,7 @@ const DATA=[
   mlabel:"Night-sky brightness is rising fast; where 250 stars were visible, a child may grow to see about 100.",
   asof:"Science (Kyba et al.), 2023",src:"https://www.science.org/doi/10.1126/science.abq7781",
   base:"Light pollution now hides the Milky Way from about a third of humanity.",
-  orgs:[["DarkSky International","https://darksky.org/"]]},
+  orgs:[["Science & citizen science",[["Globe at Night","https://globeatnight.org/"]]],["Act & support",[["DarkSky International","https://darksky.org/"]]]]},
 
  {art:"ozone",cat:"The exception",pill:"Recovering",bad:false,dir:"down",unit:"M km²",
   conn:"Proof the rest can move too: the one boundary we measured, named a cost on, and agreed to stop paying.",
@@ -324,7 +340,7 @@ const DATA=[
   mlabel:"The Antarctic ozone hole is shrinking; the layer is projected to recover around mid-century.",
   asof:"WMO/UNEP Ozone Assessment, 2023",src:"https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol",
   base:"After the Montreal Protocol (1987) phased out the chemicals responsible. No one had to make 8 billion people feel connected; they had to stop.",
-  orgs:[["UNEP OzonAction","https://www.unep.org/ozonaction/"],["NASA Ozone Watch","https://ozonewatch.gsfc.nasa.gov/"]]}
+  orgs:[["Government & science",[["UNEP OzonAction","https://www.unep.org/ozonaction/"],["NASA Ozone Watch","https://ozonewatch.gsfc.nasa.gov/"],["NOAA Ozone & Water Vapor","https://gml.noaa.gov/ozwv/"]]]]}
 ];
 
 /* ---------- chart renderer ---------- */
@@ -386,8 +402,7 @@ document.getElementById('grid').innerHTML=DATA.map(d=>`
       <div class="meta">As of: <a href="${d.src}" target="_blank" rel="noopener">${d.asof} &#8599;</a><span class="base">${d.base}</span></div>
       ${d.log&&d.log.length?`<ul class="log"><li class="loglbl" style="display:block">Update log</li>${d.log.map(e=>`<li><b>${e[0]}</b><span>${e[1]}</span></li>`).join('')}</ul>`:''}
       <div class="orgs">
-        <div class="lbl">Support this work</div>
-        <div class="chips">${d.orgs.map(o=>`<a class="chip" href="${o[1]}" target="_blank" rel="noopener">${o[0]}</a>`).join('')}</div>
+        ${d.orgs.map(g=>`<div class="orggroup"><div class="lbl">${g[0]}</div><div class="chips">${g[1].map(o=>`<a class="chip" href="${o[1]}" target="_blank" rel="noopener">${o[0]}</a>`).join('')}</div></div>`).join('')}
       </div>
     </div>
   </article>`).join('');
