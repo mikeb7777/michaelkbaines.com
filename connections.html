@@ -42,6 +42,16 @@
   .art .pill{position:absolute;right:.8rem;top:.8rem;z-index:3;font-family:var(--sans);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:.22rem .55rem;border-radius:20px}
   .pill.bad{color:#fff;background:rgba(164,71,31,.92)}
   .pill.good{color:#fff;background:rgba(62,107,79,.92)}
+  /* worsening: a slow warning pulse */
+  .pill.bad:not(.crossed){animation:undulate 2.6s ease-in-out infinite}
+  @keyframes undulate{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(164,71,31,0)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(164,71,31,.22)}}
+  /* boundary crossed: a blinking red/amber alarm */
+  .pill.crossed{color:#fff;background:#B42318;border:1.5px solid #F2B50A;animation:alarm 1.05s steps(1,end) infinite}
+  @keyframes alarm{0%{background:#B42318;color:#fff;box-shadow:0 0 0 0 rgba(242,181,10,.55)}50%{background:#F2B50A;color:#2a2000;box-shadow:0 0 0 5px rgba(242,181,10,0)}100%{background:#B42318;color:#fff}}
+  @media(prefers-reduced-motion:reduce){
+    .pill.bad:not(.crossed){animation:none}
+    .pill.crossed{animation:none;background:#B42318;color:#fff;border:1.5px solid #F2B50A}
+  }
   .body{padding:1.25rem 1.4rem 1.3rem;display:flex;flex-direction:column;flex:1}
   .conn{font-style:italic;color:var(--navy);font-size:1.02rem;margin-bottom:.9rem;min-height:3em}
   .chartwrap{margin:.2rem 0 .3rem}
@@ -176,7 +186,7 @@ const DATA=[
   base:"The Harvard Study of Adult Development (85+ years) finds relationship quality the strongest predictor of late-life health.",
   orgs:[["Foundation for Social Connection","https://www.social-connection.org/"],["Campaign to End Loneliness","https://www.campaigntoendloneliness.org/"]]},
 
- {art:"air",cat:"Air",pill:"Worsening",bad:true,dir:"up",unit:"ppm CO₂",
+ {art:"air",cat:"Air",pill:"Boundary crossed",bad:true,crossed:true,dir:"up",unit:"ppm CO₂",
   conn:"One atmosphere, shared by every breathing thing. It keeps no record of who burned the carbon.",
   series:[[1960,317],[1980,339],[2000,369],[2010,390],[2020,414],[2024,424],[2026,431]],limit:350,proj:[2030,445],
   limitLabel:"safe limit ~350 ppm",current:{val:"431",unit:"ppm"},
@@ -194,7 +204,7 @@ const DATA=[
   base:"A single year past 1.5°C is not the long-term breach, but the trend is unbroken.",
   orgs:[["Project Drawdown","https://drawdown.org/"],["Carbon Brief","https://www.carbonbrief.org/"]]},
 
- {art:"water",cat:"Water",pill:"Boundary crossed",bad:true,dir:"down",unit:"pH",
+ {art:"water",cat:"Water",pill:"Boundary crossed",bad:true,crossed:true,dir:"down",unit:"pH",
   conn:"The same water has cycled through oceans, clouds and living bodies for billions of years. It is on loan.",
   series:[[1850,8.17],[1950,8.12],[1990,8.10],[2010,8.07],[2024,8.04]],limit:8.04,proj:[2050,7.95],
   limitLabel:"boundary limit",current:{val:"8.04",unit:"ocean pH"},
@@ -239,7 +249,7 @@ const DATA=[
   base:"Degradation strips the carbon, water and microbes that make land fertile.",
   orgs:[["Rodale Institute","https://rodaleinstitute.org/"],["Regeneration International","https://regenerationinternational.org/"]]},
 
- {art:"water2",cat:"Fresh water",pill:"Worsening",bad:true,dir:"down",unit:"% remaining",
+ {art:"water2",cat:"Fresh water",pill:"Boundary crossed",bad:true,crossed:true,dir:"down",unit:"% remaining",
   conn:"Wetlands are the planet's kidneys, filtering and storing fresh water. We have drained most of them.",
   series:[[1700,100],[1900,71],[1970,50],[2015,35]],limit:100,proj:[2040,28],
   limitLabel:"pre-industrial extent",current:{val:"~35%",unit:"wetlands left"},
@@ -248,7 +258,7 @@ const DATA=[
   base:"Freshwater use crossed its planetary boundary in the 2023 assessment.",
   orgs:[["Wetlands International","https://www.wetlands.org/"],["American Rivers","https://www.americanrivers.org/"]]},
 
- {art:"bio",cat:"Biodiversity",pill:"Worsening",bad:true,dir:"down",unit:"% of 1970",
+ {art:"bio",cat:"Biodiversity",pill:"Boundary crossed",bad:true,crossed:true,dir:"down",unit:"% of 1970",
   conn:"Every species is a thread in the same fabric. Pull enough threads and the weave, not just the thread, gives way.",
   series:[[1970,100],[1980,85],[1990,68],[2000,52],[2010,40],[2020,27]],limit:100,proj:[2030,20],
   limitLabel:"1970 population level",current:{val:"−73%",unit:"since 1970"},
@@ -257,7 +267,7 @@ const DATA=[
   base:"Freshwater populations have fallen furthest, by about 85%.",
   orgs:[["WWF","https://www.worldwildlife.org/"],["IUCN","https://www.iucn.org/"],["Rainforest Trust","https://www.rainforesttrust.org/"]]},
 
- {art:"living",cat:"Living systems",pill:"Worsening",bad:true,dir:"up",unit:"of 9",
+ {art:"living",cat:"Living systems",pill:"7 of 9 crossed",bad:true,crossed:true,dir:"up",unit:"of 9",
   conn:"Nine limits keep the Earth in the range that let complex life arise. We are a single system testing its own edges.",
   series:[[2009,3],[2015,4],[2023,6],[2025,7]],limit:0,
   limitLabel:"all nine within safe range",current:{val:"7 of 9",unit:"breached"},
@@ -351,7 +361,7 @@ function chart(d){
 /* ---------- render ---------- */
 document.getElementById('grid').innerHTML=DATA.map(d=>`
   <article class="card">
-    <div class="art">${ART[d.art]||''}${PHOTO[d.art]?`<img class="photo" src="${PX+PHOTO[d.art][0]+PQ}" alt="${d.cat}" loading="lazy" onerror="this.remove()">`:''}<span class="artcat">${d.cat}</span><span class="pill ${d.bad?'bad':'good'}">${d.pill}</span></div>
+    <div class="art">${ART[d.art]||''}${PHOTO[d.art]?`<img class="photo" src="${PX+PHOTO[d.art][0]+PQ}" alt="${d.cat}" loading="lazy" onerror="this.remove()">`:''}<span class="artcat">${d.cat}</span><span class="pill ${d.bad?(d.crossed?'bad crossed':'bad'):'good'}">${d.pill}</span></div>
     <div class="body">
       <p class="conn">${d.conn}</p>
       ${d.series?`<div class="chartwrap">${chart(d)}</div>`:''}
