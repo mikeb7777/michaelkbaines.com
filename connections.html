@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connections</title>
+<style>
+  :root{
+    --cream:#FBFAF6; --paper:#FFFFFF; --ink:#13233A; --navy:#152B49;
+    --gold:#A9761F; --gold2:#B0812F; --slate:#5E7489; --line:#E7DFD1;
+    --bad:#A4471F; --good:#3E6B4F; --dark:#10202F; --mute:#223851;
+    --serif:Georgia,'Times New Roman',serif; --sans:'Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--cream);color:var(--ink);font-family:var(--serif);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--gold);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1180px;margin:0 auto}
+
+  .hero{background:var(--dark);color:#F4EFE6;padding:4rem 1.5rem 3.2rem}
+  .kicker{font-family:var(--sans);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);margin-bottom:1rem}
+  .hero h1{font-size:clamp(2.4rem,6vw,3.6rem);font-weight:700;letter-spacing:.5px;line-height:1.05;margin-bottom:.6rem}
+  .hero .sub{font-size:clamp(1.05rem,2.4vw,1.3rem);color:#CBB98F;font-style:italic;max-width:50ch}
+
+  .intro{max-width:1180px;margin:0 auto;padding:2.6rem 1.5rem 1rem}
+  .intro p{font-size:1.12rem;max-width:70ch;margin-bottom:1.1rem;color:#26384f}
+  .intro .lead{font-size:1.22rem}
+  .legend{display:flex;flex-wrap:wrap;gap:1.3rem;margin-top:1.4rem;font-family:var(--sans);font-size:.82rem;color:var(--mute)}
+  .legend span{display:flex;align-items:center;gap:.45rem}
+  .sw{width:26px;height:0;border-top:2px solid var(--ink)}
+  .sw.lim{border-top:2px dashed var(--slate)}
+  .sw.proj{border-top:2px dashed var(--bad)}
+  .sw.zone{height:12px;width:18px;border:none;background:#F3E4DC;border-radius:2px}
+
+  .grid{max-width:1180px;margin:0 auto;padding:1.5rem 1.5rem 1rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(345px,1fr));gap:1.5rem}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 4px rgba(20,30,50,.05)}
+  .art{height:132px;position:relative;overflow:hidden}
+  .art svg{display:block;width:100%;height:100%}
+  .art img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .art::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(10,18,30,.12) 0%,rgba(10,18,30,.42) 100%);pointer-events:none}
+  .art .artcat{position:absolute;left:1.1rem;bottom:.7rem;z-index:3;font-family:var(--sans);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.55)}
+  .art .pill{position:absolute;right:.8rem;top:.8rem;z-index:3;font-family:var(--sans);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:.22rem .55rem;border-radius:20px}
+  .pill.bad{color:#fff;background:rgba(164,71,31,.92)}
+  .pill.good{color:#fff;background:rgba(62,107,79,.92)}
+  .body{padding:1.25rem 1.4rem 1.3rem;display:flex;flex-direction:column;flex:1}
+  .conn{font-style:italic;color:var(--navy);font-size:1.02rem;margin-bottom:.9rem;min-height:3em}
+  .chartwrap{margin:.2rem 0 .3rem}
+  .chartwrap svg{width:100%;height:auto;display:block}
+  .reading{display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;border-top:1px solid var(--line);padding-top:.7rem;margin-top:.4rem}
+  .val{font-family:var(--sans);font-weight:700;color:var(--ink);font-size:1.7rem;line-height:1;display:flex;align-items:baseline;gap:.3rem}
+  .val .unit{font-size:.82rem;font-weight:600;color:var(--mute)}
+  .limlab{font-family:var(--sans);font-size:.72rem;color:var(--mute);text-align:right;max-width:46%}
+  .mlabel{font-size:.98rem;color:#2b3e55;margin-top:.6rem}
+  .meta{font-family:var(--sans);font-size:.75rem;color:var(--mute);margin-top:.5rem}
+  .meta .base{display:block;margin-top:.15rem}
+  .orgs{margin-top:1rem}
+  .orgs .lbl{font-family:var(--sans);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:.5rem}
+  .orgs .chips{display:flex;flex-wrap:wrap;gap:.45rem}
+  .chip{font-family:var(--sans);font-size:.8rem;padding:.3rem .62rem;border:1px solid var(--line);border-radius:6px;color:var(--navy);background:#FCFBF8}
+  .chip:hover{border-color:var(--gold);color:var(--gold);text-decoration:none}
+
+  .note{max-width:1180px;margin:1.5rem auto 0;padding:1.8rem 1.5rem 4rem}
+  .note .box{background:#F3EEE4;border-left:3px solid var(--gold);border-radius:4px;padding:1.3rem 1.5rem}
+  .note p{font-size:.98rem;color:#223851;max-width:74ch;margin-bottom:.7rem}
+  .note p:last-child{margin-bottom:0}
+  .note .thesis{font-family:var(--serif);font-style:italic;color:var(--navy);font-size:1.08rem}
+  .note .credits{font-family:var(--sans);font-size:.76rem;color:var(--mute);margin-top:.9rem;line-height:1.5}
+  .topbar{background:#081828;border-bottom:1px solid rgba(201,184,142,.25)}
+  .topbar .in{max-width:1180px;margin:0 auto;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .topbar a{color:#EFE7D4;font-family:var(--sans);font-size:.9rem;display:flex;align-items:center;gap:.6rem}
+  .topbar a:hover{text-decoration:none;color:#fff}
+  .topbar .brand svg{width:30px;height:30px;display:block}
+  .topbar .brand b{font-weight:700;letter-spacing:.3px}
+  .topbar .brand small{display:block;font-weight:400;font-size:.68rem;color:#C9B88E;letter-spacing:.04em}
+  .topbar .back{font-size:.82rem;color:#C9B88E}
+  .sitefoot{background:#081828;color:#CBBE9E;font-family:var(--sans);font-size:.82rem;padding:2.2rem 1.5rem}
+  .sitefoot .in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center;justify-content:space-between}
+  .sitefoot a{color:#EFE7D4}
+  @media(max-width:640px){.hero{padding:3rem 1.2rem 2.4rem}.grid{padding:1rem 1.2rem}.topbar .brand small{display:none}}
+</style>
+</head>
+<body>
+  <div class="topbar"><div class="in">
+    <a class="brand" href="rediscovering-oneness.html"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#081828"/><line x1="4" y1="50" x2="96" y2="50" stroke="#C9B88E" stroke-width="2.5"/><circle cx="50" cy="50" r="24" fill="none" stroke="#C9B88E" stroke-width="3"/></svg><span><b>Rediscovering Oneness</b><small>The Physical Case for Connection</small></span></a>
+    <a class="back" href="rediscovering-oneness.html">&larr; Back to the book</a>
+  </div></div>
+  <header class="hero">
+    <div class="wrap">
+      <div class="kicker">Rediscovering Oneness &middot; A Living Companion</div>
+      <h1>Connections</h1>
+      <p class="sub">The ways we are joined to the world, and the trackers that show how those joins are faring.</p>
+    </div>
+  </header>
+
+  <section class="intro">
+    <p class="lead">The book makes one argument: you are distinct, but you are not separate. Look closely at any edge you can name, your breath, your water, your food, your body, and you find exchange across it, not a wall.</p>
+    <p>If that is true, then the health of the whole is the condition of your own. Each tracker below reads like a vital sign: where the measure sat in the past, the safe limit, where it stands now, and where it is heading. Most lines run the wrong way. That is the honest picture, and it is also why each card names groups working to turn the line around.</p>
+    <div class="legend">
+      <span><span class="sw"></span> measured history</span>
+      <span><span class="sw proj"></span> projection</span>
+      <span><span class="sw lim"></span> safe limit</span>
+      <span><span class="sw zone"></span> danger zone</span>
+    </div>
+  </section>
+
+  <main class="grid" id="grid"></main>
+
+  <section class="note">
+    <div class="box">
+      <p class="thesis">Discreteness is real. Separateness is not.</p>
+      <p>Each value traces to the primary body named on its card, with the date it was last confirmed. Figures are refreshed about every six months, or sooner when a new measurement is published; for the current reading, follow the source link. Projections are shown as dashed lines and are illustrative of the present trend, not forecasts.</p>
+      <p>The organizations listed are a starting point, not an endorsement of any single campaign. Confirm that each still reflects work you want to support before giving.</p>
+      <p class="credits" id="credits"></p>
+    </div>
+  </section>
+
+  <footer class="sitefoot"><div class="in">
+    <span>&copy; 2026 Michael K. Baines &middot; Bangkok &middot; A living companion to <a href="rediscovering-oneness.html">Rediscovering Oneness</a></span>
+    <span><a href="./">michaelkbaines.com</a> &middot; <a href="what-holds.html">Claims, seen clearly</a></span>
+  </div></footer>
+
+<script>
+/* ---------- scene illustrations (duotone, palette-matched) ---------- */
+const sky=(a,b)=>`<defs><linearGradient id="g${a.replace(/\W/g,'')}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs>`;
+function scene(inner,a="#1b3a5c",b="#2c5579"){return `<svg viewBox="0 0 400 132" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">${sky('s'+a,b)}<rect width="400" height="132" fill="url(#gs${a.replace(/\W/g,'')})"/>${inner}</svg>`;}
+function grad(id,a,b){return `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs>`;}
+const G='#C9A24B';
+const ART={
+ connection:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c1','#16304e','#2a4e71')}<rect width="400" height="132" fill="url(#c1)"/>${[70,140,210,280,330].map((x,i)=>`<circle cx="${x}" cy="${60+(i%2?14:-6)}" r="13" fill="none" stroke="#EADFC4" stroke-width="2.2"/>`).join('')}<path d="M70 60 L140 74 L210 54 L280 74 L330 66" fill="none" stroke="${G}" stroke-width="2.2"/></svg>`,
+ air:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c2','#20334a','#3f6383')}<rect width="400" height="132" fill="url(#c2)"/><g fill="#EADFC4" opacity=".85"><ellipse cx="120" cy="52" rx="46" ry="18"/><ellipse cx="170" cy="44" rx="34" ry="15"/><ellipse cx="275" cy="66" rx="40" ry="16"/></g><g stroke="${G}" stroke-width="2" opacity=".8"><path d="M60 96 q10 -10 20 0 t20 0" fill="none"/><path d="M300 100 q10 -10 20 0 t20 0" fill="none"/></g></svg>`,
+ climate:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c3','#6b3a1f','#b9712e')}<rect width="400" height="132" fill="url(#c3)"/><circle cx="300" cy="46" r="30" fill="#F2C879"/>${[...Array(12)].map((_,i)=>{const a=i/12*6.283;return `<line x1="${300+Math.cos(a)*38}" y1="${46+Math.sin(a)*38}" x2="${300+Math.cos(a)*50}" y2="${46+Math.sin(a)*50}" stroke="#F2C879" stroke-width="2"/>`}).join('')}<path d="M0 108 L60 100 L120 112 L190 98 L260 110 L330 100 L400 112 L400 132 L0 132Z" fill="#3a2414"/></svg>`,
+ water:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c4','#123a4e','#1f6b86')}<rect width="400" height="132" fill="url(#c4)"/><g fill="none" stroke="#EADFC4" stroke-width="2" opacity=".75">${[30,52,74,96,118].map(y=>`<path d="M0 ${y} q50 -9 100 0 t100 0 t100 0 t100 0"/>`).join('')}</g></svg>`,
+ reef:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c5','#123a4e','#20718c')}<rect width="400" height="132" fill="url(#c5)"/><g stroke="${G}" stroke-width="3" fill="none" stroke-linecap="round"><path d="M80 132 V86 M80 100 q-14 -8 -20 -22 M80 96 q14 -8 20 -24"/><path d="M160 132 V78 M160 96 q-16 -6 -22 -26 M160 92 q16 -6 24 -22"/></g><g fill="#EADFC4"><circle cx="250" cy="96" r="10"/><circle cx="300" cy="78" r="13"/><circle cx="340" cy="100" r="9"/></g></svg>`,
+ sea:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c6','#20506a','#4e86a4')}<rect width="400" height="132" fill="url(#c6)"/><path d="M60 92 L110 40 L150 92Z" fill="#EDEFF2"/><path d="M120 92 L180 30 L240 92Z" fill="#F6F8FA"/><path d="M0 100 h400" stroke="#cfe0ea" stroke-width="2" opacity=".7"/><g fill="none" stroke="#cfe0ea" stroke-width="2" opacity=".6"><path d="M0 112 q50 -7 100 0 t100 0 t100 0 t100 0"/></g></svg>`,
+ food:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c7','#355021','#6c8a37')}<rect width="400" height="132" fill="url(#c7)"/><g transform="translate(210,60)"><ellipse cx="0" cy="0" rx="20" ry="11" fill="#2a2016"/><ellipse cx="-16" cy="-6" rx="16" ry="12" fill="#EADFC4" opacity=".9"/><ellipse cx="16" cy="-6" rx="16" ry="12" fill="#EADFC4" opacity=".9"/><path d="M-26 6 h52" stroke="${G}" stroke-width="3"/></g><circle cx="120" cy="86" r="16" fill="#F2C879"/>${[...Array(8)].map((_,i)=>{const a=i/8*6.283;return `<line x1="${120+Math.cos(a)*16}" y1="${86+Math.sin(a)*16}" x2="${120+Math.cos(a)*24}" y2="${86+Math.sin(a)*24}" stroke="#F2C879" stroke-width="2"/>`}).join('')}</svg>`,
+ soil:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c8','#6a4a2a','#8a5a30')}<rect width="400" height="132" fill="url(#c8)"/><rect y="52" width="400" height="26" fill="#3f2a18"/><rect y="78" width="400" height="22" fill="#5a3b22"/><rect y="100" width="400" height="32" fill="#775030"/><path d="M60 52 V132 M62 60 l-6 40 M200 52 V132 M198 64 l6 44 M320 52 V132 M322 60 l-5 46" stroke="#2a1a0e" stroke-width="2" opacity=".5"/><g fill="#8CA84B"><path d="M60 52 q-6 -16 2 -26 q8 10 2 26" /><path d="M200 52 q-6 -16 2 -26 q8 10 2 26"/></g></svg>`,
+ water2:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c9','#1b4254','#2f7389')}<rect width="400" height="132" fill="url(#c9)"/><path d="M0 70 q60 20 120 0 t120 0 t120 0 l40 0 0 62 -400 0Z" fill="#2a5e73"/><path d="M0 92 q60 18 120 0 t120 0 t120 0 l40 0 0 40 -400 0Z" fill="#3a7790" opacity=".8"/><g fill="none" stroke="#EADFC4" stroke-width="2" opacity=".6"><path d="M40 60 q50 16 100 0"/></g></svg>`,
+ bio:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c10','#2d4428','#5a7d3e')}<rect width="400" height="132" fill="url(#c10)"/><g fill="#1f2e18"><path d="M150 132 V84 h10 V70 h-6 l10 -10 10 10 h-6 v14 h30 V74 h-5 l9 -9 9 9 h-5 v22 h12 V132Z"/></g><g fill="#EADFC4" opacity=".9"><ellipse cx="300" cy="86" rx="40" ry="24"/><rect x="330" y="86" width="10" height="26"/><rect x="266" y="86" width="10" height="26"/><path d="M340 70 q14 -2 10 12"/></g></svg>`,
+ living:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c11','#101f33','#223a56')}<rect width="400" height="132" fill="url(#c11)"/><circle cx="200" cy="66" r="46" fill="none" stroke="${G}" stroke-width="2.5" stroke-dasharray="5 4"/><circle cx="200" cy="66" r="30" fill="#1f6b86"/><path d="M174 66 q12 -14 26 0 t26 0" fill="none" stroke="#9fd0e0" stroke-width="2"/><g fill="#EADFC4">${[...Array(9)].map((_,i)=>{const a=i/9*6.283-1.57;return `<circle cx="${200+Math.cos(a)*46}" cy="${66+Math.sin(a)*46}" r="${i<7?3.4:2.2}" fill="${i<7?'#A4471F':'#EADFC4'}"/>`}).join('')}</g></svg>`,
+ birds:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c12','#244a66','#5a86a2')}<rect width="400" height="132" fill="url(#c12)"/><g fill="none" stroke="#17202b" stroke-width="2.4" stroke-linecap="round">${[[70,44],[120,60],[180,38],[150,78],[240,56],[300,42],[280,84],[340,66]].map(([x,y])=>`<path d="M${x-12} ${y} q6 -8 12 0 q6 -8 12 0"/>`).join('')}</g><circle cx="320" cy="34" r="16" fill="#F2C879" opacity=".9"/></svg>`,
+ plants:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c13','#20351f','#3f6a37')}<rect width="400" height="132" fill="url(#c13)"/><g fill="#15230f">${[40,95,150,210,270,330,380].map((x,i)=>`<circle cx="${x}" cy="${70+(i%3)*6}" r="${22+(i%2)*6}"/>`).join('')}</g><path d="M250 60 q30 6 20 30" fill="none" stroke="${G}" stroke-width="3"/><path d="M260 90 l16 -10 -2 10" fill="${G}"/></svg>`,
+ fish:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c14','#123a4e','#1f6b86')}<rect width="400" height="132" fill="url(#c14)"/><g fill="#EADFC4" opacity=".9">${[[90,50],[150,70],[120,96],[210,56],[250,86],[300,62],[340,92]].map(([x,y])=>`<g transform="translate(${x},${y})"><ellipse rx="14" ry="7"/><path d="M14 0 l12 -7 0 14Z"/></g>`).join('')}</g></svg>`,
+ night:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c15','#0b1424','#1c2d47')}<rect width="400" height="132" fill="url(#c15)"/><g fill="#EADFC4">${[[40,30,1.6],[90,60,1],[140,24,1.8],[180,70,1],[220,40,1.4],[260,20,1],[300,54,1.6],[350,34,1.2],[370,72,1],[120,96,.8],[240,90,1]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}"/>`).join('')}</g><path d="M0 118 L60 108 L140 116 L220 104 L300 114 L400 106 L400 132 L0 132Z" fill="#0a1120"/></svg>`,
+ ozone:`<svg viewBox="0 0 400 132" xmlns="http://www.w3.org/2000/svg">${grad('c16','#13324a','#2f6a86')}<rect width="400" height="132" fill="url(#c16)"/><circle cx="200" cy="150" r="130" fill="#1f6b86"/><path d="M90 150 a130 130 0 0 1 220 0" fill="none" stroke="#8CD0B0" stroke-width="7" opacity=".85"/><path d="M110 150 a130 130 0 0 1 180 0" fill="none" stroke="#B8E6CF" stroke-width="4" opacity=".7"/><g fill="#EADFC4"><circle cx="70" cy="34" r="1.5"/><circle cx="330" cy="40" r="1.5"/><circle cx="200" cy="22" r="1.5"/></g></svg>`
+};
+
+/* ---------- photographs (hotlinked; SVG above is the fallback) ---------- */
+const PX="https://images.unsplash.com/";
+const PQ="?auto=format&fit=crop&w=800&q=70";
+const PHOTO={
+ connection:["photo-1740065592719-052d3e5ec6fb","Zacqueline Baldwin"],
+ air:["photo-1603437873662-dc1f44901825","engin akyurt"],
+ climate:["photo-1610557013547-dc7a52d44709","Elimende Inagella"],
+ water:["photo-1484291470158-b8f8d608850d","Christoffer Engström"],
+ reef:["photo-1708649290066-5f617003b93f","NEOM"],
+ sea:["photo-1690053712268-2e6d0bc394ad","Stephen Crane"],
+ food:["photo-1568526381923-caf3fd520382","Dmitry Grigoriev"],
+ soil:["photo-1582288916603-4698cf723bf6","Clay Banks"],
+ water2:["photo-1760548452970-5e4f0f525032","Jevgeņijs Grigorjevs"],
+ bio:["photo-1528732533941-ffd7083d5dfe","ray rui"],
+ living:["photo-1777047023536-8e47688b77f9","NASA"],
+ birds:["photo-1542382156909-9ae37b3f56fd","Mehdi Sepehri"],
+ plants:["photo-1759681770982-313332e7f42c","Kristaps Ungurs"],
+ fish:["photo-1544551763-77ef2d0cfc6c","Sebastian Pena Lambarri"],
+ night:["photo-1509773896068-7fd415d91e2e","Jackson Hendry"],
+ ozone:["photo-1534996858221-380b92700493","ActionVance"]
+};
+
+/* ---------- tracker data ---------- */
+const DATA=[
+ {art:"connection",cat:"Connection",pill:"Measured cost",bad:true,
+  conn:"The oldest finding in the book: a life goes better, and lasts longer, inside strong relationships.",
+  current:{val:"~15",unit:"cigarettes/day"},
+  mlabel:"Mortality risk of chronic social isolation, by the Surgeon General's estimate.",
+  asof:"U.S. Surgeon General Advisory, 2023",src:"https://www.hhs.gov/surgeongeneral/priorities/connection/index.html",
+  base:"The Harvard Study of Adult Development (85+ years) finds relationship quality the strongest predictor of late-life health.",
+  orgs:[["Foundation for Social Connection","https://www.social-connection.org/"],["Campaign to End Loneliness","https://www.campaigntoendloneliness.org/"]]},
+
+ {art:"air",cat:"Air",pill:"Worsening",bad:true,dir:"up",unit:"ppm CO₂",
+  conn:"One atmosphere, shared by every breathing thing. It keeps no record of who burned the carbon.",
+  series:[[1960,317],[1980,339],[2000,369],[2010,390],[2020,414],[2024,424],[2026,431]],limit:350,proj:[2030,445],
+  limitLabel:"safe limit ~350 ppm",current:{val:"431",unit:"ppm"},
+  mlabel:"Atmospheric CO₂ at Mauna Loa, a record, rising faster each decade.",
+  asof:"NOAA Global Monitoring Lab, Apr 2026",src:"https://gml.noaa.gov/ccgg/trends/",
+  base:"Pre-industrial baseline was ~280 ppm.",
+  orgs:[["Project Drawdown","https://drawdown.org/"],["Clean Air Task Force","https://www.catf.us/"]]},
+
+ {art:"climate",cat:"Climate",pill:"Worsening",bad:true,dir:"up",unit:"°C",
+  conn:"Heat added anywhere spreads everywhere. The number is small; the leverage is not.",
+  series:[[1900,-0.1],[1960,0.0],[1980,0.3],[2000,0.6],[2016,1.1],[2020,1.2],[2024,1.6]],limit:1.5,proj:[2030,1.7],
+  limitLabel:"Paris limit 1.5°C",current:{val:"+1.6",unit:"°C"},
+  mlabel:"Global average temperature above pre-industrial; 2024 was the first full year past 1.5°C.",
+  asof:"Copernicus / ECMWF, Jan 2025",src:"https://climate.copernicus.eu/copernicus-2024-first-year-exceed-15degc-above-pre-industrial-level",
+  base:"A single year past 1.5°C is not the long-term breach, but the trend is unbroken.",
+  orgs:[["Project Drawdown","https://drawdown.org/"],["Carbon Brief","https://www.carbonbrief.org/"]]},
+
+ {art:"water",cat:"Water",pill:"Boundary crossed",bad:true,dir:"down",unit:"pH",
+  conn:"The same water has cycled through oceans, clouds and living bodies for billions of years. It is on loan.",
+  series:[[1850,8.17],[1950,8.12],[1990,8.10],[2010,8.07],[2024,8.04]],limit:8.04,proj:[2050,7.95],
+  limitLabel:"boundary limit",current:{val:"8.04",unit:"ocean pH"},
+  mlabel:"Surface-ocean pH is falling as the sea absorbs our carbon, roughly 30 to 40% more acidic than pre-industrial.",
+  asof:"Stockholm Resilience Centre, 2025",src:"https://www.stockholmresilience.org/research/planetary-boundaries/the-nine-planetary-boundaries/ocean-acidification.html",
+  base:"In 2025 ocean acidification became the seventh planetary boundary to be breached.",
+  orgs:[["Ocean Conservancy","https://oceanconservancy.org/"],["Surfrider Foundation","https://www.surfrider.org/"]]},
+
+ {art:"reef",cat:"Reef cycle",pill:"Worsening",bad:true,dir:"up",unit:"% of reefs",
+  conn:"Coral is a partnership: an animal and an algae living as one body. Heat the water and the partnership breaks.",
+  series:[[1998,20],[2010,35],[2016,56],[2025,84]],limit:5,
+  limitLabel:"rare, local bleaching once",current:{val:"84%",unit:"of reefs"},
+  mlabel:"Share of the world's reefs hit by the 4th global bleaching event (2023–2025), the widest ever recorded.",
+  asof:"NOAA Coral Reef Watch, 2025",src:"https://coralreefwatch.noaa.gov/satellite/research/coral_bleaching_report.php",
+  base:"Across 80+ countries. Each global event has reached further than the last; scientists now warn of near-annual bleaching.",
+  orgs:[["Coral Reef Alliance","https://coral.org/"],["Coral Restoration Foundation","https://www.coralrestoration.org/"]]},
+
+ {art:"sea",cat:"Sea & ice",pill:"Worsening",bad:true,dir:"up",unit:"mm",
+  conn:"Land ice and ocean are one budget. What melts on a mountain arrives at a coastline.",
+  series:[[1993,0],[2000,25],[2010,55],[2020,95],[2024,115]],limit:0,proj:[2030,150],
+  limitLabel:"1993 baseline",current:{val:"+11.5",unit:"cm since 1993"},
+  mlabel:"Global mean sea level; 2024's rise ran well above what models expected, and the rate is accelerating.",
+  asof:"NASA Sea Level, Mar 2025",src:"https://sealevel.nasa.gov/news/282",
+  base:"The rate has more than doubled since the early 1990s.",
+  orgs:[["Climate Central","https://www.climatecentral.org/"],["ICCINET / NSIDC","https://nsidc.org/"]]},
+
+ {art:"food",cat:"Food",pill:"Worsening",bad:true,dir:"down",unit:"% of 2000",
+  conn:"Most of what you eat depends on a pollinator you never see. Their collapse is the quiet end of the food chain.",
+  series:[[2000,100],[2010,90],[2020,83],[2024,78]],limit:100,
+  limitLabel:"year-2000 level",current:{val:"−22%",unit:"butterflies"},
+  mlabel:"U.S. butterfly abundance since 2000; insect and pollinator numbers are falling worldwide.",
+  asof:"Science / UCLA, 2025",src:"https://www.ioes.ucla.edu/study-reveals-devastating-22-decline-in-u-s-butterflies/",
+  base:"Pollinators underwrite roughly a third of global food crops.",
+  orgs:[["Xerces Society","https://www.xerces.org/"],["Rodale Institute","https://rodaleinstitute.org/"],["Kiss the Ground","https://kisstheground.com/"]]},
+
+ {art:"soil",cat:"Soil & land",pill:"Worsening",bad:true,dir:"up",unit:"% degraded",
+  conn:"Soil is a living community, built over centuries. The food system runs on a layer we are spending faster than it forms.",
+  series:[[1980,15],[2000,25],[2015,30],[2024,33]],limit:0,proj:[2030,37],
+  limitLabel:"no net degradation",current:{val:"~33%",unit:"of soils"},
+  mlabel:"Share of the world's soils now degraded, with roughly 100 million hectares lost each year.",
+  asof:"FAO / UNCCD, 2024",src:"https://www.unccd.int/",
+  base:"Degradation strips the carbon, water and microbes that make land fertile.",
+  orgs:[["Rodale Institute","https://rodaleinstitute.org/"],["Regeneration International","https://regenerationinternational.org/"]]},
+
+ {art:"water2",cat:"Fresh water",pill:"Worsening",bad:true,dir:"down",unit:"% remaining",
+  conn:"Wetlands are the planet's kidneys, filtering and storing fresh water. We have drained most of them.",
+  series:[[1700,100],[1900,71],[1970,50],[2015,35]],limit:100,proj:[2040,28],
+  limitLabel:"pre-industrial extent",current:{val:"~35%",unit:"wetlands left"},
+  mlabel:"Share of the world's wetlands remaining; they are vanishing three times faster than forests.",
+  asof:"Ramsar / Global Wetland Outlook",src:"https://www.global-wetland-outlook.ramsar.org/",
+  base:"Freshwater use crossed its planetary boundary in the 2023 assessment.",
+  orgs:[["Wetlands International","https://www.wetlands.org/"],["American Rivers","https://www.americanrivers.org/"]]},
+
+ {art:"bio",cat:"Biodiversity",pill:"Worsening",bad:true,dir:"down",unit:"% of 1970",
+  conn:"Every species is a thread in the same fabric. Pull enough threads and the weave, not just the thread, gives way.",
+  series:[[1970,100],[1980,85],[1990,68],[2000,52],[2010,40],[2020,27]],limit:100,proj:[2030,20],
+  limitLabel:"1970 population level",current:{val:"−73%",unit:"since 1970"},
+  mlabel:"Average size of monitored wildlife populations over 50 years, across ~5,500 species.",
+  asof:"WWF Living Planet Report, 2024",src:"https://www.worldwildlife.org/press-releases/catastrophic-73-decline-in-the-average-size-of-global-wildlife-populations-in-just-50-years-reveals-a-system-in-peril",
+  base:"Freshwater populations have fallen furthest, by about 85%.",
+  orgs:[["WWF","https://www.worldwildlife.org/"],["IUCN","https://www.iucn.org/"],["Rainforest Trust","https://www.rainforesttrust.org/"]]},
+
+ {art:"living",cat:"Living systems",pill:"Worsening",bad:true,dir:"up",unit:"of 9",
+  conn:"Nine limits keep the Earth in the range that let complex life arise. We are a single system testing its own edges.",
+  series:[[2009,3],[2015,4],[2023,6],[2025,7]],limit:0,
+  limitLabel:"all nine within safe range",current:{val:"7 of 9",unit:"breached"},
+  mlabel:"Planetary boundaries now crossed, with the breached ones continuing to worsen.",
+  asof:"Stockholm Resilience Centre, 2025",src:"https://www.stockholmresilience.org/news--events/general-news/2025-09-24-seven-of-nine-planetary-boundaries-now-breached.html",
+  base:"Climate, biosphere, land, freshwater, nutrient flows, novel entities and ocean acidity are all past safe limits.",
+  orgs:[["Stockholm Resilience Centre","https://www.stockholmresilience.org/"],["Project Drawdown","https://drawdown.org/"]]},
+
+ {art:"birds",cat:"Birds",pill:"Worsening",bad:true,dir:"down",unit:"% of 1970",
+  conn:"Birds are the sky's instrument panel. When they thin out, something upstream has already failed.",
+  series:[[1970,100],[1990,88],[2010,80],[2019,71]],limit:100,
+  limitLabel:"1970 population level",current:{val:"3 billion",unit:"lost"},
+  mlabel:"Breeding birds lost in North America since 1970, with declines continuing across most habitats.",
+  asof:"State of the Birds, 2025",src:"https://www.stateofthebirds.org/",
+  base:"About a third of U.S. bird species are now of high or moderate conservation concern.",
+  orgs:[["Cornell Lab of Ornithology","https://www.birds.cornell.edu/"],["American Bird Conservancy","https://abcbirds.org/"],["Audubon","https://www.audubon.org/"]]},
+
+ {art:"plants",cat:"Plants & forests",pill:"Worsening",bad:true,dir:"up",unit:"Mha/yr",
+  conn:"Forests are the lungs and the memory of the land. Burning them spends carbon the land took centuries to store.",
+  series:[[2002,3.0],[2010,3.8],[2016,5.0],[2020,4.2],[2023,3.7],[2024,6.7]],limit:0,
+  limitLabel:"zero deforestation goal",current:{val:"6.7",unit:"Mha in 2024"},
+  mlabel:"Tropical primary forest lost in 2024, an all-time high, nearly double the year before.",
+  asof:"Global Forest Watch / WRI, 2025",src:"https://research.wri.org/gfr/latest-analysis-deforestation-trends",
+  base:"Fire was the leading driver for the first time, a loop between a warming climate and the forests that cool it.",
+  orgs:[["Rainforest Trust","https://www.rainforesttrust.org/"],["One Tree Planted","https://onetreeplanted.org/"],["Trillion Trees","https://www.trilliontrees.org/"]]},
+
+ {art:"fish",cat:"Fisheries",pill:"Worsening",bad:true,dir:"down",unit:"% sustainable",
+  conn:"The ocean fed us for all of history on the assumption it was endless. It is a shared account, and it is overdrawn.",
+  series:[[1974,90],[1990,80],[2000,72],[2015,66],[2021,62]],limit:100,proj:[2030,58],
+  limitLabel:"all stocks within limits",current:{val:"37.7%",unit:"overfished"},
+  mlabel:"Share of marine fish stocks fished beyond sustainable limits; the sustainable share keeps shrinking.",
+  asof:"FAO, State of World Fisheries 2024",src:"https://openknowledge.fao.org/items/sofia-2024",
+  base:"Aquaculture now supplies more seafood than wild capture for the first time.",
+  orgs:[["Marine Stewardship Council","https://www.msc.org/"],["Oceana","https://oceana.org/"]]},
+
+ {art:"night",cat:"Night sky",pill:"Worsening",bad:true,dir:"down",unit:"stars visible",
+  conn:"For all of human history the Milky Way was overhead. A birthright of scale and place is being switched off.",
+  series:[[2011,250],[2016,160],[2022,100]],limit:250,proj:[2030,60],
+  limitLabel:"a naturally dark sky",current:{val:"+9.6%",unit:"brighter / yr"},
+  mlabel:"Night-sky brightness is rising fast; where 250 stars were visible, a child may grow to see about 100.",
+  asof:"Science (Kyba et al.), 2023",src:"https://www.science.org/doi/10.1126/science.abq7781",
+  base:"Light pollution now hides the Milky Way from about a third of humanity.",
+  orgs:[["DarkSky International","https://darksky.org/"]]},
+
+ {art:"ozone",cat:"The exception",pill:"Recovering",bad:false,dir:"down",unit:"M km²",
+  conn:"Proof the rest can move too: the one boundary we measured, named a cost on, and agreed to stop paying.",
+  series:[[1980,1],[1994,24],[2006,29],[2015,25],[2024,22]],limit:0,proj:[2066,2],
+  limitLabel:"pre-1980 levels",current:{val:"On track",unit:"to heal"},
+  mlabel:"The Antarctic ozone hole is shrinking; the layer is projected to recover around mid-century.",
+  asof:"WMO/UNEP Ozone Assessment, 2023",src:"https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol",
+  base:"After the Montreal Protocol (1987) phased out the chemicals responsible. No one had to make 8 billion people feel connected; they had to stop.",
+  orgs:[["UNEP OzonAction","https://www.unep.org/ozonaction/"],["NASA Ozone Watch","https://ozonewatch.gsfc.nasa.gov/"]]}
+];
+
+/* ---------- chart renderer ---------- */
+function chart(d){
+  if(!d.series) return '';
+  const W=320,H=130,L=8,R=10,T=12,B=22;
+  const proj=d.proj;
+  const allX=d.series.map(p=>p[0]).concat(proj?[proj[0]]:[]);
+  const allY=d.series.map(p=>p[1]).concat([d.limit]).concat(proj?[proj[1]]:[]);
+  const minX=Math.min(...allX),maxX=Math.max(...allX);
+  let minY=Math.min(...allY),maxY=Math.max(...allY);
+  const padY=(maxY-minY)*0.14||1; minY-=padY; maxY+=padY;
+  const sx=x=>L+(x-minX)/(maxX-minX)*(W-L-R);
+  const sy=y=>T+(maxY-y)/(maxY-minY)*(H-T-B);
+  const col=d.bad?'var(--bad)':'var(--good)';
+  const line=d.series.map((p,i)=>(i?'L':'M')+sx(p[0]).toFixed(1)+' '+sy(p[1]).toFixed(1)).join(' ');
+  const last=d.series[d.series.length-1];
+  let parts=[];
+  // danger zone shading
+  const ly=sy(d.limit);
+  if(d.dir==='up') parts.push(`<rect x="${L}" y="${T}" width="${W-L-R}" height="${Math.max(0,ly-T)}" fill="#F3E4DC"/>`);
+  else parts.push(`<rect x="${L}" y="${ly}" width="${W-L-R}" height="${Math.max(0,H-B-ly)}" fill="#F3E4DC"/>`);
+  // limit line
+  parts.push(`<line x1="${L}" y1="${ly}" x2="${W-R}" y2="${ly}" stroke="var(--slate)" stroke-width="1.3" stroke-dasharray="5 4"/>`);
+  // projection
+  if(proj) parts.push(`<path d="M${sx(last[0])} ${sy(last[1])} L${sx(proj[0])} ${sy(proj[1])}" fill="none" stroke="${col}" stroke-width="2" stroke-dasharray="4 4" opacity=".7"/>`);
+  // history line
+  parts.push(`<path d="${line}" fill="none" stroke="${col}" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>`);
+  // dots
+  parts.push(d.series.map(p=>`<circle cx="${sx(p[0]).toFixed(1)}" cy="${sy(p[1]).toFixed(1)}" r="2.4" fill="${col}"/>`).join(''));
+  // current marker
+  parts.push(`<circle cx="${sx(last[0])}" cy="${sy(last[1])}" r="4.6" fill="${col}" stroke="#fff" stroke-width="1.8"/>`);
+  // x labels (first & last)
+  parts.push(`<text x="${L}" y="${H-6}" font-family="Arial" font-size="10" fill="#223851">${d.series[0][0]}</text>`);
+  parts.push(`<text x="${proj?sx(proj[0]):W-R}" y="${H-6}" text-anchor="end" font-family="Arial" font-size="10" fill="#223851">${proj?("~"+proj[0]):last[0]}</text>`);
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${parts.join('')}</svg>`;
+}
+
+/* ---------- render ---------- */
+document.getElementById('grid').innerHTML=DATA.map(d=>`
+  <article class="card">
+    <div class="art">${ART[d.art]||''}${PHOTO[d.art]?`<img class="photo" src="${PX+PHOTO[d.art][0]+PQ}" alt="${d.cat}" loading="lazy" onerror="this.remove()">`:''}<span class="artcat">${d.cat}</span><span class="pill ${d.bad?'bad':'good'}">${d.pill}</span></div>
+    <div class="body">
+      <p class="conn">${d.conn}</p>
+      ${d.series?`<div class="chartwrap">${chart(d)}</div>`:''}
+      <div class="reading">
+        <span class="val">${d.current.val}<span class="unit">${d.current.unit}</span></span>
+        ${d.limitLabel?`<span class="limlab">${d.limitLabel}</span>`:''}
+      </div>
+      <div class="mlabel">${d.mlabel}</div>
+      <div class="meta">As of: <a href="${d.src}" target="_blank" rel="noopener">${d.asof} &#8599;</a><span class="base">${d.base}</span></div>
+      <div class="orgs">
+        <div class="lbl">Support this work</div>
+        <div class="chips">${d.orgs.map(o=>`<a class="chip" href="${o[1]}" target="_blank" rel="noopener">${o[0]}</a>`).join('')}</div>
+      </div>
+    </div>
+  </article>`).join('');
+
+/* ---------- photo credits ---------- */
+(function(){
+  const names=[...new Set(Object.values(PHOTO).map(p=>p[1]))];
+  document.getElementById('credits').innerHTML=
+    'Photographs by '+names.join(', ')+
+    ' on <a href="https://unsplash.com/?utm_source=rediscovering_oneness&utm_medium=referral" target="_blank" rel="noopener">Unsplash</a>. Illustrations shown where a photograph has not loaded.';
+})();
+</script>
+</body>
+</html>
