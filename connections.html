@@ -28,7 +28,7 @@
   .legend{display:flex;flex-wrap:wrap;gap:1.3rem;margin-top:1.4rem;font-family:var(--sans);font-size:.82rem;color:var(--mute)}
   .legend span{display:flex;align-items:center;gap:.45rem}
   .sw{width:26px;height:0;border-top:2px solid var(--ink)}
-  .sw.lim{border-top:2px dashed var(--slate)}
+  .sw.lim{border-top:2px dashed #33475d}
   .sw.proj{border-top:2px dashed var(--bad)}
   .sw.zone{height:12px;width:18px;border:none;background:#F3E4DC;border-radius:2px}
 
@@ -195,13 +195,13 @@ const DATA=[
   base:"Pre-industrial baseline was ~280 ppm.",
   orgs:[["Project Drawdown","https://drawdown.org/"],["Clean Air Task Force","https://www.catf.us/"]]},
 
- {art:"climate",cat:"Climate",pill:"Worsening",bad:true,dir:"up",unit:"°C",
+ {art:"climate",cat:"Climate",pill:"Boundary crossed",bad:true,crossed:true,dir:"up",unit:"°C",
   conn:"Heat added anywhere spreads everywhere. The number is small; the leverage is not.",
   series:[[1900,-0.1],[1960,0.0],[1980,0.3],[2000,0.6],[2016,1.1],[2020,1.2],[2024,1.6]],limit:1.5,proj:[2030,1.7],
   limitLabel:"Paris limit 1.5°C",current:{val:"+1.6",unit:"°C"},
   mlabel:"Global average temperature above pre-industrial; 2024 was the first full year past 1.5°C.",
   asof:"Copernicus / ECMWF, Jan 2025",src:"https://climate.copernicus.eu/copernicus-2024-first-year-exceed-15degc-above-pre-industrial-level",
-  base:"A single year past 1.5°C is not the long-term breach, but the trend is unbroken.",
+  base:"The 1.5°C line is a threshold, not a range. 2024 was the first full calendar year to cross it, and the rise has not reversed since.",
   orgs:[["Project Drawdown","https://drawdown.org/"],["Carbon Brief","https://www.carbonbrief.org/"]]},
 
  {art:"water",cat:"Water",pill:"Boundary crossed",bad:true,crossed:true,dir:"down",unit:"pH",
@@ -340,18 +340,26 @@ function chart(d){
   let parts=[];
   // danger zone shading
   const ly=sy(d.limit);
-  if(d.dir==='up') parts.push(`<rect x="${L}" y="${T}" width="${W-L-R}" height="${Math.max(0,ly-T)}" fill="#F3E4DC"/>`);
-  else parts.push(`<rect x="${L}" y="${ly}" width="${W-L-R}" height="${Math.max(0,H-B-ly)}" fill="#F3E4DC"/>`);
-  // limit line
-  parts.push(`<line x1="${L}" y1="${ly}" x2="${W-R}" y2="${ly}" stroke="var(--slate)" stroke-width="1.3" stroke-dasharray="5 4"/>`);
+  const dz=d.bad?'#F6DAC9':'#E3EFE6';
+  if(d.dir==='up') parts.push(`<rect x="${L}" y="${T}" width="${W-L-R}" height="${Math.max(0,ly-T)}" fill="${dz}"/>`);
+  else parts.push(`<rect x="${L}" y="${ly}" width="${W-L-R}" height="${Math.max(0,H-B-ly)}" fill="${dz}"/>`);
+  // limit line + label, so the threshold the warning refers to is explicit
+  const lc='#33475d';
+  parts.push(`<line x1="${L}" y1="${ly}" x2="${W-R}" y2="${ly}" stroke="${lc}" stroke-width="1.6" stroke-dasharray="6 3"/>`);
+  let lly=d.dir==='up'?ly+11:ly-5;
+  if(lly>H-B-1)lly=ly-5; if(lly<T+9)lly=ly+11;
+  parts.push(`<text x="${W-R}" y="${lly}" text-anchor="end" font-family="Arial" font-size="9" font-weight="700" fill="${lc}" paint-order="stroke" stroke="#fff" stroke-width="2.8" stroke-linejoin="round">${d.limitLabel||'limit'}</text>`);
   // projection
   if(proj) parts.push(`<path d="M${sx(last[0])} ${sy(last[1])} L${sx(proj[0])} ${sy(proj[1])}" fill="none" stroke="${col}" stroke-width="2" stroke-dasharray="4 4" opacity=".7"/>`);
   // history line
   parts.push(`<path d="${line}" fill="none" stroke="${col}" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>`);
   // dots
   parts.push(d.series.map(p=>`<circle cx="${sx(p[0]).toFixed(1)}" cy="${sy(p[1]).toFixed(1)}" r="2.4" fill="${col}"/>`).join(''));
-  // current marker
+  // current marker + "now" tag
   parts.push(`<circle cx="${sx(last[0])}" cy="${sy(last[1])}" r="4.6" fill="${col}" stroke="#fff" stroke-width="1.8"/>`);
+  let ny=d.dir==='up'?sy(last[1])-9:sy(last[1])+15;
+  if(ny<T+9)ny=sy(last[1])+15; if(ny>H-B)ny=sy(last[1])-9;
+  parts.push(`<text x="${sx(last[0])}" y="${ny}" text-anchor="middle" font-family="Arial" font-size="8.6" font-weight="700" fill="${col}" paint-order="stroke" stroke="#fff" stroke-width="2.8" stroke-linejoin="round">now</text>`);
   // x labels (first & last)
   parts.push(`<text x="${L}" y="${H-6}" font-family="Arial" font-size="10" fill="#223851">${d.series[0][0]}</text>`);
   parts.push(`<text x="${proj?sx(proj[0]):W-R}" y="${H-6}" text-anchor="end" font-family="Arial" font-size="10" fill="#223851">${proj?("~"+proj[0]):last[0]}</text>`);
