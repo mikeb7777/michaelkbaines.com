@@ -8,7 +8,7 @@
   :root{
     --cream:#FBFAF6; --paper:#FFFFFF; --ink:#13233A; --navy:#152B49;
     --gold:#A9761F; --gold2:#B0812F; --slate:#5E7489; --line:#E7DFD1;
-    --bad:#A4471F; --good:#3E6B4F; --dark:#10202F;
+    --bad:#A4471F; --good:#3E6B4F; --dark:#10202F; --mute:#223851;
     --serif:Georgia,'Times New Roman',serif; --sans:'Helvetica Neue',Arial,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -25,7 +25,7 @@
   .intro{max-width:1180px;margin:0 auto;padding:2.6rem 1.5rem 1rem}
   .intro p{font-size:1.12rem;max-width:70ch;margin-bottom:1.1rem;color:#26384f}
   .intro .lead{font-size:1.22rem}
-  .legend{display:flex;flex-wrap:wrap;gap:1.3rem;margin-top:1.4rem;font-family:var(--sans);font-size:.82rem;color:var(--slate)}
+  .legend{display:flex;flex-wrap:wrap;gap:1.3rem;margin-top:1.4rem;font-family:var(--sans);font-size:.82rem;color:var(--mute)}
   .legend span{display:flex;align-items:center;gap:.45rem}
   .sw{width:26px;height:0;border-top:2px solid var(--ink)}
   .sw.lim{border-top:2px dashed var(--slate)}
@@ -48,23 +48,23 @@
   .chartwrap svg{width:100%;height:auto;display:block}
   .reading{display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;border-top:1px solid var(--line);padding-top:.7rem;margin-top:.4rem}
   .val{font-family:var(--sans);font-weight:700;color:var(--ink);font-size:1.7rem;line-height:1;display:flex;align-items:baseline;gap:.3rem}
-  .val .unit{font-size:.82rem;font-weight:600;color:var(--slate)}
-  .limlab{font-family:var(--sans);font-size:.72rem;color:var(--slate);text-align:right;max-width:46%}
+  .val .unit{font-size:.82rem;font-weight:600;color:var(--mute)}
+  .limlab{font-family:var(--sans);font-size:.72rem;color:var(--mute);text-align:right;max-width:46%}
   .mlabel{font-size:.98rem;color:#2b3e55;margin-top:.6rem}
-  .meta{font-family:var(--sans);font-size:.75rem;color:var(--slate);margin-top:.5rem}
+  .meta{font-family:var(--sans);font-size:.75rem;color:var(--mute);margin-top:.5rem}
   .meta .base{display:block;margin-top:.15rem}
   .orgs{margin-top:1rem}
-  .orgs .lbl{font-family:var(--sans);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-bottom:.5rem}
+  .orgs .lbl{font-family:var(--sans);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:.5rem}
   .orgs .chips{display:flex;flex-wrap:wrap;gap:.45rem}
   .chip{font-family:var(--sans);font-size:.8rem;padding:.3rem .62rem;border:1px solid var(--line);border-radius:6px;color:var(--navy);background:#FCFBF8}
   .chip:hover{border-color:var(--gold);color:var(--gold);text-decoration:none}
 
   .note{max-width:1180px;margin:1.5rem auto 0;padding:1.8rem 1.5rem 4rem}
   .note .box{background:#F3EEE4;border-left:3px solid var(--gold);border-radius:4px;padding:1.3rem 1.5rem}
-  .note p{font-size:.98rem;color:#3a4a60;max-width:74ch;margin-bottom:.7rem}
+  .note p{font-size:.98rem;color:#223851;max-width:74ch;margin-bottom:.7rem}
   .note p:last-child{margin-bottom:0}
   .note .thesis{font-family:var(--serif);font-style:italic;color:var(--navy);font-size:1.08rem}
-  .note .credits{font-family:var(--sans);font-size:.76rem;color:var(--slate);margin-top:.9rem;line-height:1.5}
+  .note .credits{font-family:var(--sans);font-size:.76rem;color:var(--mute);margin-top:.9rem;line-height:1.5}
   .topbar{background:#081828;border-bottom:1px solid rgba(201,184,142,.25)}
   .topbar .in{max-width:1180px;margin:0 auto;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
   .topbar a{color:#EFE7D4;font-family:var(--sans);font-size:.9rem;display:flex;align-items:center;gap:.6rem}
@@ -343,8 +343,8 @@ function chart(d){
   // current marker
   parts.push(`<circle cx="${sx(last[0])}" cy="${sy(last[1])}" r="4.6" fill="${col}" stroke="#fff" stroke-width="1.8"/>`);
   // x labels (first & last)
-  parts.push(`<text x="${L}" y="${H-6}" font-family="Arial" font-size="10" fill="var(--slate)">${d.series[0][0]}</text>`);
-  parts.push(`<text x="${proj?sx(proj[0]):W-R}" y="${H-6}" text-anchor="end" font-family="Arial" font-size="10" fill="var(--slate)">${proj?("~"+proj[0]):last[0]}</text>`);
+  parts.push(`<text x="${L}" y="${H-6}" font-family="Arial" font-size="10" fill="#223851">${d.series[0][0]}</text>`);
+  parts.push(`<text x="${proj?sx(proj[0]):W-R}" y="${H-6}" text-anchor="end" font-family="Arial" font-size="10" fill="#223851">${proj?("~"+proj[0]):last[0]}</text>`);
   return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${parts.join('')}</svg>`;
 }
 
