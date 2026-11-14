@@ -18,6 +18,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:ital,wght@0,400;0,600;1,400&family=Lora:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="oneness.css?v=20261028f">
+<style>
+.stats{align-items:start}
+.stat{position:relative}
+.stat .ask{margin-top:12px;display:inline-flex;align-items:center;gap:7px;font:600 11px/1 'Sarabun',system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--lemon);background:none;border:0;padding:0;cursor:pointer;opacity:.82;transition:opacity .2s}
+.stat .ask:hover{opacity:1}
+.stat .ask .ico{width:16px;height:16px;border:1.5px solid currentColor;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font:italic 700 10px/1 Georgia,serif}
+.stat .ask .lbl::after{content:'Why this is true'}
+.stat.open .ask .lbl::after{content:'Hide'}
+.stat .why{display:none;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.16);font-size:13.5px;line-height:1.55;color:#DAD4C6}
+.stat .why .src{display:block;margin-top:8px;font-size:11.5px;line-height:1.45;color:#AEB7C2}
+.stat .why .src a{color:var(--lemon)}
+.stat.open .why{display:block}
+@media(hover:hover) and (pointer:fine){.stat:hover .why{display:block}}
+</style>
 </head>
 <body>
 <header class="bar"><div class="wrap">
@@ -44,10 +58,22 @@
 <section class="band"><div class="wrap">
 <blockquote class="pull"><p>&ldquo;A softer and vaguer version of this claim is being sold in many places: that it would be nice if we all felt more connected. That is a wish. The claim here is that we are connected in a load-bearing, chemical, unavoidable sense, and that this is the case before anyone has a feeling about it.&rdquo;</p><cite>From Chapter 2, &ldquo;The Condition&rdquo;</cite></blockquote>
 <div class="stats">
-<div class="stat"><b>1 atom</b><span>Your next breath very probably holds at least one atom that a Sumerian priestess breathed more than 4,000 years ago.</span></div>
-<div class="stat"><b>Apple skin</b><span>Drawn to scale, the air that every breathing thing depends on is about as thick as the skin of an apple.</span></div>
-<div class="stat"><b>280 &rarr; 420</b><span>Parts per million of carbon dioxide: steady for thousands of years, then past 420 in a few generations. The air keeps no record of borders.</span></div>
-<div class="stat"><b>0</b><span>Second atmospheres. No premium tier, no alternate supply, no way to opt out.</span></div>
+<div class="stat"><b>1 atom</b><span>Your next breath very probably holds at least one atom that a Sumerian priestess breathed more than 4,000 years ago.</span>
+<button class="ask" type="button" aria-expanded="false" aria-controls="why1"><span class="ico" aria-hidden="true">i</span><span class="lbl"></span></button>
+<div class="why" id="why1">It rests on two very large numbers: a single breath holds roughly 10<sup>22</sup> molecules of air, while the whole atmosphere holds about 10<sup>44</sup>. Given four thousand years for exhaled air to mix worldwide, the chance that any one molecule you draw in came from her is tiny, yet a breath holds so many molecules that the expected number still comes out near one, often more. It is an order-of-magnitude estimate, not a tally, and it assumes the air is well mixed and that those molecules are still free in the atmosphere, not locked in oceans, rock, or living things.
+<span class="src">The classic &ldquo;Caesar&rsquo;s last breath&rdquo; calculation; see Sam Kean, <em>Caesar&rsquo;s Last Breath</em> (2017). Enheduanna is commonly cited as the earliest author known by name.</span></div></div>
+<div class="stat"><b>Apple skin</b><span>Drawn to scale, the air that every breathing thing depends on is about as thick as the skin of an apple.</span>
+<button class="ask" type="button" aria-expanded="false" aria-controls="why2"><span class="ico" aria-hidden="true">i</span><span class="lbl"></span></button>
+<div class="why" id="why2">Earth&rsquo;s radius is about 6,370 km, but almost all of the air sits in the first 15 to 30 km, and the troposphere alone holds roughly three quarters of the atmosphere&rsquo;s mass. That breathable shell is well under half a percent of the planet&rsquo;s radius, close to the ratio of an apple&rsquo;s skin to the apple.
+<span class="src">Atmospheric mass and layers: <a href="https://scied.ucar.edu/learning-zone/atmosphere/layers-earth-atmosphere" target="_blank" rel="noopener">UCAR Center for Science Education</a>.</span></div></div>
+<div class="stat"><b>280 &rarr; 420</b><span>Parts per million of carbon dioxide: steady for thousands of years, then past 420 in a few generations. The air keeps no record of borders.</span>
+<button class="ask" type="button" aria-expanded="false" aria-controls="why3"><span class="ico" aria-hidden="true">i</span><span class="lbl"></span></button>
+<div class="why" id="why3">Air trapped in Antarctic ice cores shows carbon dioxide between about 180 and 300 parts per million across the past 800,000 years, near 280 before industrialization. Direct measurement at Mauna Loa, continuous since 1958, passed 420 ppm in the 2020s and is still rising. Because the air mixes globally within a year or two, this is one shared figure, not a local one.
+<span class="src">Mauna Loa record: <a href="https://gml.noaa.gov/ccgg/trends/" target="_blank" rel="noopener">NOAA Global Monitoring Laboratory</a>. Ice-core record: L&uuml;thi et al., <em>Nature</em> (2008), EPICA Dome C.</span></div></div>
+<div class="stat"><b>0</b><span>Second atmospheres. No premium tier, no alternate supply, no way to opt out.</span>
+<button class="ask" type="button" aria-expanded="false" aria-controls="why4"><span class="ico" aria-hidden="true">i</span><span class="lbl"></span></button>
+<div class="why" id="why4">Earth&rsquo;s air is a closed, shared system. It circulates between the hemispheres over roughly a year, so there is no separate supply to draw on and no way to wall off your own. Whatever is added to it is added to everyone&rsquo;s, which is the plain sense in which this book says we are connected.
+<span class="src">Interhemispheric mixing of about a year is measured with atmospheric tracers such as SF<sub>6</sub>: <a href="https://gml.noaa.gov/" target="_blank" rel="noopener">NOAA Global Monitoring Laboratory</a>.</span></div></div>
 </div>
 </div></section>
 
@@ -197,5 +223,14 @@
 </footer>
 <script src="https://payhip.com/payhip.js" type="text/javascript"></script>
 <script src="signup.js"></script>
+<script>
+/* Stat boxes: tap/click to pin the explanation open (desktop also reveals on hover via CSS). */
+document.querySelectorAll('.stat .ask').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var stat=btn.closest('.stat'), open=stat.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+});
+</script>
 </body>
 </html>
