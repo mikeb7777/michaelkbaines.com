@@ -298,7 +298,7 @@ body.home { background: var(--cream); }
 .bookhero .book.bookcover{filter:drop-shadow(18px 26px 26px rgba(0,0,0,.42))}
 
 /* Story/About band: teal (Lemon-page color) with white text */
-#story { background: #2A3843; color:#fff; }
+#story { background: #0E5E6F; color:#fff; }
 #story h1, #story h2, #story h3, #story h4 { color:#fff; }
 #story p, #story li { color: rgba(255,255,255,.9); }
 #story a, #story b, #story strong { color: var(--lemon); }
