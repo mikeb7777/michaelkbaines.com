@@ -76,7 +76,7 @@ section.alt { background: var(--sheet); }
 .typecover .a { font-size: 6cqi; letter-spacing: .08em; opacity: .85; }
 
 /* newsletter */
-.signup { background: var(--navy); color: #fff; }
+.signup { background: #2A3843; color: #fff; }
 .signup .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 44px; align-items: center; }
 .signup h2 { color: #fff; }
 .signup .eyebrow { color: var(--lemon); }
@@ -298,7 +298,7 @@ body.home { background: var(--cream); }
 .bookhero .book.bookcover{filter:drop-shadow(18px 26px 26px rgba(0,0,0,.42))}
 
 /* Story/About band: teal (Lemon-page color) with white text */
-#story { background: var(--teal); color:#fff; }
+#story { background: #2A3843; color:#fff; }
 #story h1, #story h2, #story h3, #story h4 { color:#fff; }
 #story p, #story li { color: rgba(255,255,255,.9); }
 #story a, #story b, #story strong { color: var(--lemon); }
